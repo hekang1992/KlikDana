@@ -10,15 +10,40 @@
 		733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE32F09F0A200793D28 /* Assets.xcassets */; };
 		733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */; };
 		733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C8FE22F09F0A200793D28 /* AppDelegate.swift */; };
+		733D79142F09F311008DBA60 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79132F09F311008DBA60 /* BaseViewController.swift */; };
+		733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79152F09F31B008DBA60 /* LaunchViewController.swift */; };
+		733D79182F09F33B008DBA60 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79172F09F33B008DBA60 /* BaseTabBarController.swift */; };
+		733D791C2F09F5BA008DBA60 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 733D791A2F09F5BA008DBA60 /* Localizable.strings */; };
+		733D791F2F09FA05008DBA60 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */; };
+		733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79202F0A05B9008DBA60 /* LoginViewController.swift */; };
+		733D79232F0A05C4008DBA60 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79222F0A05C4008DBA60 /* LoginView.swift */; };
+		733D79252F0A05DB008DBA60 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79242F0A05DB008DBA60 /* BaseNavigationController.swift */; };
+		733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79262F0A0691008DBA60 /* SaveLoginInfo.swift */; };
+		733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79282F0A0895008DBA60 /* AppLanguage.swift */; };
+		E2C4A2CDAFDFAAA6728B4B20 /* Pods_KlikDana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		095DDC55AF02F971F6638898 /* Pods-KlikDana.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlikDana.debug.xcconfig"; path = "Target Support Files/Pods-KlikDana/Pods-KlikDana.debug.xcconfig"; sourceTree = "<group>"; };
 		733C8FCA2F09F09B00793D28 /* KlikDana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlikDana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733C8FE22F09F0A200793D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733C8FE32F09F0A200793D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		733C8FE42F09F0A200793D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		733C8FE52F09F0A200793D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		733C8FF32F09F0D500793D28 /* KlikDana.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KlikDana.entitlements; sourceTree = "<group>"; };
+		733D79132F09F311008DBA60 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		733D79152F09F31B008DBA60 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		733D79172F09F33B008DBA60 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		733D791B2F09F5BA008DBA60 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		733D791D2F09F5C5008DBA60 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		733D79202F0A05B9008DBA60 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		733D79222F0A05C4008DBA60 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		733D79242F0A05DB008DBA60 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		733D79262F0A0691008DBA60 /* SaveLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoginInfo.swift; sourceTree = "<group>"; };
+		733D79282F0A0895008DBA60 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlikDana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2CCEF3A9E8BAB2728576AC8 /* Pods-KlikDana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlikDana.release.xcconfig"; path = "Target Support Files/Pods-KlikDana/Pods-KlikDana.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C4A2CDAFDFAAA6728B4B20 /* Pods_KlikDana.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EDA85FF1665B6EA3BC19ECC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51F556FB5B2EBB0E3A2CE146 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				095DDC55AF02F971F6638898 /* Pods-KlikDana.debug.xcconfig */,
+				E2CCEF3A9E8BAB2728576AC8 /* Pods-KlikDana.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		733C8FC12F09F09B00793D28 = {
 			isa = PBXGroup;
 			children = (
 				733C8FEB2F09F0A200793D28 /* KlikDana */,
 				733C8FCB2F09F09B00793D28 /* Products */,
+				51F556FB5B2EBB0E3A2CE146 /* Pods */,
+				4EDA85FF1665B6EA3BC19ECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +99,7 @@
 				733C8FE42F09F0A200793D28 /* Info.plist */,
 				733C8FE32F09F0A200793D28 /* Assets.xcassets */,
 				733C8FF32F09F0D500793D28 /* KlikDana.entitlements */,
+				733D791A2F09F5BA008DBA60 /* Localizable.strings */,
 				733C8FE22F09F0A200793D28 /* AppDelegate.swift */,
 				733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */,
 				733C90002F09F0F700793D28 /* Other */,
@@ -72,6 +118,11 @@
 		733C8FF42F09F0EB00793D28 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				733D79282F0A0895008DBA60 /* AppLanguage.swift */,
+				733D79132F09F311008DBA60 /* BaseViewController.swift */,
+				733D79152F09F31B008DBA60 /* LaunchViewController.swift */,
+				733D79172F09F33B008DBA60 /* BaseTabBarController.swift */,
+				733D79242F0A05DB008DBA60 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -86,6 +137,9 @@
 		733C8FFA2F09F0F300793D28 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				733D79222F0A05C4008DBA60 /* LoginView.swift */,
+				733D79202F0A05B9008DBA60 /* LoginViewController.swift */,
+				733D79262F0A0691008DBA60 /* SaveLoginInfo.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -121,6 +175,7 @@
 		733C8FFF2F09F0F600793D28 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -139,17 +194,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 733C8FDD2F09F09C00793D28 /* Build configuration list for PBXNativeTarget "KlikDana" */;
 			buildPhases = (
+				A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */,
 				733C8FC62F09F09B00793D28 /* Sources */,
 				733C8FC72F09F09B00793D28 /* Frameworks */,
 				733C8FC82F09F09B00793D28 /* Resources */,
+				42AAC97AA1764FC0815C7A50 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = KlikDana;
-			packageProductDependencies = (
-			);
 			productName = KlikDana;
 			productReference = 733C8FCA2F09F09B00793D28 /* KlikDana.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +230,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 733C8FC12F09F09B00793D28;
 			minimizedProjectReferenceProxies = 1;
@@ -194,18 +250,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */,
+				733D791C2F09F5BA008DBA60 /* Localizable.strings in Resources */,
 				733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42AAC97AA1764FC0815C7A50 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KlikDana/Pods-KlikDana-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KlikDana/Pods-KlikDana-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlikDana/Pods-KlikDana-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KlikDana-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		733C8FC62F09F09B00793D28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733D79252F0A05DB008DBA60 /* BaseNavigationController.swift in Sources */,
+				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
+				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
+				733D79232F0A05C4008DBA60 /* LoginView.swift in Sources */,
+				733D79182F09F33B008DBA60 /* BaseTabBarController.swift in Sources */,
+				733D791F2F09FA05008DBA60 /* UIColor+Extension.swift in Sources */,
 				733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */,
+				733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */,
+				733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */,
+				733D79142F09F311008DBA60 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,11 +332,21 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		733D791A2F09F5BA008DBA60 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				733D791B2F09F5BA008DBA60 /* en */,
+				733D791D2F09F5C5008DBA60 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		733C8FDE2F09F09C00793D28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 095DDC55AF02F971F6638898 /* Pods-KlikDana.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -232,6 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57MBH2272N;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KlikDana/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Klik Dana";
@@ -263,6 +386,7 @@
 		};
 		733C8FDF2F09F09C00793D28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2CCEF3A9E8BAB2728576AC8 /* Pods-KlikDana.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -270,6 +394,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 57MBH2272N;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KlikDana/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Klik Dana";
@@ -304,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -367,6 +493,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
