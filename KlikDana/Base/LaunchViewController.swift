@@ -20,7 +20,7 @@ class LaunchViewController: BaseViewController {
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+        LanguageManager.setLanguage(code: 70622)
         self.notiRootVc()
     }
     

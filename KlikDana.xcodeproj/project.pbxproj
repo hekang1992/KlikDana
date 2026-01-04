@@ -20,6 +20,12 @@
 		733D79252F0A05DB008DBA60 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79242F0A05DB008DBA60 /* BaseNavigationController.swift */; };
 		733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79262F0A0691008DBA60 /* SaveLoginInfo.swift */; };
 		733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79282F0A0895008DBA60 /* AppLanguage.swift */; };
+		733D792B2F0A16BC008DBA60 /* IDFVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D792A2F0A16BC008DBA60 /* IDFVManager.swift */; };
+		733D792D2F0A16E9008DBA60 /* RequestParamBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D792C2F0A16E9008DBA60 /* RequestParamBuilder.swift */; };
+		733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */; };
+		733D79312F0A1955008DBA60 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79302F0A1955008DBA60 /* BaseModel.swift */; };
+		733D79332F0A19B7008DBA60 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79322F0A19B7008DBA60 /* NetworkManager.swift */; };
+		733D79352F0A1B1C008DBA60 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79342F0A1B1C008DBA60 /* NetworkStatus.swift */; };
 		E2C4A2CDAFDFAAA6728B4B20 /* Pods_KlikDana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +48,12 @@
 		733D79242F0A05DB008DBA60 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		733D79262F0A0691008DBA60 /* SaveLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoginInfo.swift; sourceTree = "<group>"; };
 		733D79282F0A0895008DBA60 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		733D792A2F0A16BC008DBA60 /* IDFVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFVManager.swift; sourceTree = "<group>"; };
+		733D792C2F0A16E9008DBA60 /* RequestParamBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestParamBuilder.swift; sourceTree = "<group>"; };
+		733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestBuilder.swift; sourceTree = "<group>"; };
+		733D79302F0A1955008DBA60 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		733D79322F0A19B7008DBA60 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		733D79342F0A1B1C008DBA60 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlikDana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CCEF3A9E8BAB2728576AC8 /* Pods-KlikDana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlikDana.release.xcconfig"; path = "Target Support Files/Pods-KlikDana/Pods-KlikDana.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +142,9 @@
 		733C8FF52F09F0ED00793D28 /* Http */ = {
 			isa = PBXGroup;
 			children = (
+				733D79342F0A1B1C008DBA60 /* NetworkStatus.swift */,
+				733D79302F0A1955008DBA60 /* BaseModel.swift */,
+				733D79322F0A19B7008DBA60 /* NetworkManager.swift */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -175,6 +190,9 @@
 		733C8FFF2F09F0F600793D28 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */,
+				733D792C2F0A16E9008DBA60 /* RequestParamBuilder.swift */,
+				733D792A2F0A16BC008DBA60 /* IDFVManager.swift */,
 				733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
@@ -309,13 +327,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				733D79252F0A05DB008DBA60 /* BaseNavigationController.swift in Sources */,
+				733D792D2F0A16E9008DBA60 /* RequestParamBuilder.swift in Sources */,
+				733D79312F0A1955008DBA60 /* BaseModel.swift in Sources */,
+				733D792B2F0A16BC008DBA60 /* IDFVManager.swift in Sources */,
 				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
+				733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */,
 				733D79232F0A05C4008DBA60 /* LoginView.swift in Sources */,
 				733D79182F09F33B008DBA60 /* BaseTabBarController.swift in Sources */,
 				733D791F2F09FA05008DBA60 /* UIColor+Extension.swift in Sources */,
 				733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */,
 				733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */,
+				733D79352F0A1B1C008DBA60 /* NetworkStatus.swift in Sources */,
+				733D79332F0A19B7008DBA60 /* NetworkManager.swift in Sources */,
 				733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */,
 				733D79142F09F311008DBA60 /* BaseViewController.swift in Sources */,
 			);
