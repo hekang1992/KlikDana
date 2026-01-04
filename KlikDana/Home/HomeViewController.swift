@@ -1,5 +1,5 @@
 //
-//  BaseTabBarController.swift
+//  HomeViewController.swift
 //  KlikDana
 //
 //  Created by hekang on 2026/1/4.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseTabBarController: UITabBarController {
+class HomeViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

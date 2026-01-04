@@ -18,21 +18,21 @@ enum AppLanguage: String {
         }
     }
     
-    var code: Int {
+    var code: String {
         switch self {
-        case .en: return 70622
-        case .id: return 70611
+        case .en: return "70622"
+        case .id: return "70611"
         }
     }
     
-    init?(code: Int) {
+    init?(code: String) {
         switch code {
-        case 70622:
+        case "70622":
             self = .en
-        case 70611:
+        case "70611":
             self = .id
         default:
-            self = .en
+            return nil
         }
     }
 }
@@ -58,7 +58,7 @@ class LanguageManager {
         UserDefaults.standard.set(language.rawValue, forKey: userDefaultsKey)
     }
     
-    func setLanguage(code: Int) {
+    func setLanguage(code: String) {
         guard let language = AppLanguage(code: code) else {
             print("Warning: Invalid language code: \(code), defaulting to English")
             setLanguage(.en)
@@ -89,12 +89,11 @@ class LanguageManager {
         return language
     }
     
-    // 保持原有静态接口的兼容性
     static var bundle: Bundle {
         return shared.currentBundle
     }
     
-    static func setLanguage(code: Int) {
+    static func setLanguage(code: String) {
         shared.setLanguage(code: code)
     }
     

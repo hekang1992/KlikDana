@@ -27,11 +27,11 @@ extension UIColor {
         )
     }
     
-    convenience init(hex: Int, alpha: CGFloat = 1.0) {
+    convenience init(hexString: Int, alpha: CGFloat = 1.0) {
         self.init(
-            red: CGFloat((hex >> 16) & 0xFF) / 255.0,
-            green: CGFloat((hex >> 8) & 0xFF) / 255.0,
-            blue: CGFloat(hex & 0xFF) / 255.0,
+            red: CGFloat((hexString >> 16) & 0xFF) / 255.0,
+            green: CGFloat((hexString >> 8) & 0xFF) / 255.0,
+            blue: CGFloat(hexString & 0xFF) / 255.0,
             alpha: alpha
         )
     }

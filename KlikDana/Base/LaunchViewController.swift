@@ -9,10 +9,12 @@ import UIKit
 import SnapKit
 
 class LaunchViewController: BaseViewController {
-
+    
+    private let viewModel = LaunchViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "launch_app_image")
         bgImageView.contentMode = .scaleAspectFill
@@ -20,19 +22,36 @@ class LaunchViewController: BaseViewController {
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        LanguageManager.setLanguage(code: 70622)
-        self.notiRootVc()
+        
+        NetworkMonitor.shared.startListening { [weak self] status in
+            if status == .reachableViaCellular || status == .reachableViaWiFi {
+                guard let self = self else { return }
+                NetworkMonitor.shared.stopListening()
+                Task {
+                    await self.initInfo()
+                }
+            }
+        }
+        
+        
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension LaunchViewController {
+    
+    private func initInfo() async {
+        do {
+            let parameters = LaunchUtils.allInfo()
+            let model = try await viewModel.launchInfo(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                let controlety = model.anyably?.controlety ?? ""
+                LanguageManager.setLanguage(code: controlety)
+                self.notiRootVc()
+            }
+        } catch {
+            
+        }
     }
-    */
-
 }

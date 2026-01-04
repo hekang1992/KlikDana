@@ -10,6 +10,14 @@ import SnapKit
 
 class LoginView: UIView {
     
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = .clear
+        return scrollView
+    }()
+    
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
@@ -71,6 +79,7 @@ class LoginView: UIView {
         let nationImageView = UIImageView()
         let code = LanguageManager.currentLanguage
         nationImageView.image = code == .id ? UIImage(named: "id_nation_image") : UIImage(named: "en_nation_image")
+        nationImageView.contentMode = .scaleAspectFit
         return nationImageView
     }()
     
@@ -149,23 +158,33 @@ class LoginView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(nameLabel)
-        addSubview(descLabel)
-        addSubview(bgImageView)
-        addSubview(oneLabel)
-        addSubview(oneView)
+        addSubview(scrollView)
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(descLabel)
+        scrollView.addSubview(bgImageView)
+        scrollView.addSubview(oneLabel)
+        scrollView.addSubview(oneView)
         oneView.addSubview(phoneTx)
         oneView.addSubview(nationImageView)
-        addSubview(twoLabel)
-        addSubview(twoView)
+        scrollView.addSubview(twoLabel)
+        scrollView.addSubview(twoView)
         twoView.addSubview(codeTx)
         twoView.addSubview(codeBtn)
-        addSubview(loginBtn)
-        addSubview(agreementBtn)
-        addSubview(agreementLabel)
+        scrollView.addSubview(loginBtn)
+        scrollView.addSubview(agreementBtn)
+        scrollView.addSubview(agreementLabel)
+        
+        let languageCode = LanguageManager.currentLanguage
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+            make.left.right.equalToSuperview()
+        }
+        
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(54)
+            make.top.equalToSuperview().offset(54)
             make.height.equalTo(28)
         }
         descLabel.snp.makeConstraints { make in
@@ -191,7 +210,7 @@ class LoginView: UIView {
         }
         phoneTx.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-90)
+            make.right.equalToSuperview().offset(-100)
         }
         nationImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -211,7 +230,7 @@ class LoginView: UIView {
         }
         codeTx.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-90)
+            make.right.equalToSuperview().offset(-100)
         }
         codeBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -225,13 +244,22 @@ class LoginView: UIView {
         }
         agreementBtn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 14, height: 14))
-            make.left.equalToSuperview().offset(45)
+            if languageCode == .id {
+                make.left.equalToSuperview().offset(60)
+            }else {
+                make.left.equalToSuperview().offset(35)
+            }
             make.top.equalTo(loginBtn.snp.bottom).offset(50)
         }
         agreementLabel.snp.makeConstraints { make in
             make.top.equalTo(agreementBtn)
             make.left.equalTo(agreementBtn.snp.right).offset(5)
-            make.right.equalToSuperview().offset(-20)
+            if languageCode == .id {
+                make.width.equalTo(UIScreen.main.bounds.size.width - 90)
+            }else {
+                make.width.equalTo(UIScreen.main.bounds.size.width - 70)
+            }
+            make.bottom.equalToSuperview().offset(-50)
         }
     }
     
