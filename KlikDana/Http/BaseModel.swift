@@ -30,4 +30,11 @@ class anyablyModel: Codable {
     var controlety: String?
     var radiwise: String?
     var pacho: String?
+    var pharmacivity: [pharmacivityModel]?
+}
+
+class pharmacivityModel: Codable {
+    var canfy: String?
+    var val: String?
+    var discuss: String?
 }

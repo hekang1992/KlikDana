@@ -33,6 +33,9 @@
 		733D79432F0A37D5008DBA60 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79422F0A37D5008DBA60 /* HomeViewController.swift */; };
 		733D79452F0A37E0008DBA60 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79442F0A37E0008DBA60 /* OrderViewController.swift */; };
 		733D79472F0A37E8008DBA60 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79462F0A37E8008DBA60 /* MineViewController.swift */; };
+		733D79492F0A4AA8008DBA60 /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79482F0A4AA5008DBA60 /* MineView.swift */; };
+		733D794B2F0A4C14008DBA60 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D794A2F0A4C11008DBA60 /* MineViewModel.swift */; };
+		733D794D2F0A4E0B008DBA60 /* MineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */; };
 		E2C4A2CDAFDFAAA6728B4B20 /* Pods_KlikDana.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		733D79422F0A37D5008DBA60 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		733D79442F0A37E0008DBA60 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		733D79462F0A37E8008DBA60 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		733D79482F0A4AA5008DBA60 /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
+		733D794A2F0A4C11008DBA60 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
+		733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewCell.swift; sourceTree = "<group>"; };
 		8AEA56B5EF487133BF91AB2C /* Pods_KlikDana.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlikDana.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CCEF3A9E8BAB2728576AC8 /* Pods-KlikDana.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlikDana.release.xcconfig"; path = "Target Support Files/Pods-KlikDana/Pods-KlikDana.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,7 +200,10 @@
 		733C8FFD2F09F0F500793D28 /* Center */ = {
 			isa = PBXGroup;
 			children = (
+				733D794A2F0A4C11008DBA60 /* MineViewModel.swift */,
+				733D79482F0A4AA5008DBA60 /* MineView.swift */,
 				733D79462F0A37E8008DBA60 /* MineViewController.swift */,
+				733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -372,11 +381,14 @@
 				733D79452F0A37E0008DBA60 /* OrderViewController.swift in Sources */,
 				733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */,
 				733D79392F0A1E45008DBA60 /* LaunchViewModel.swift in Sources */,
+				733D794D2F0A4E0B008DBA60 /* MineTableViewCell.swift in Sources */,
 				733D79472F0A37E8008DBA60 /* MineViewController.swift in Sources */,
+				733D79492F0A4AA8008DBA60 /* MineView.swift in Sources */,
 				733D79232F0A05C4008DBA60 /* LoginView.swift in Sources */,
 				733D79182F09F33B008DBA60 /* CustomTabBarController.swift in Sources */,
 				733D79412F0A328B008DBA60 /* LaunchUtils.swift in Sources */,
 				733D791F2F09FA05008DBA60 /* UIColor+Extension.swift in Sources */,
+				733D794B2F0A4C14008DBA60 /* MineViewModel.swift in Sources */,
 				733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */,
 				733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */,
 				733D79352F0A1B1C008DBA60 /* NetworkStatus.swift in Sources */,
