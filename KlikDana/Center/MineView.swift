@@ -10,6 +10,8 @@ import SnapKit
 
 class MineView: UIView {
     
+    var cellBlock: ((String) -> Void)?
+    
     var listArray: [pharmacivityModel] = []
     
     lazy var bgImageView: UIImageView = {
@@ -117,6 +119,12 @@ extension MineView: UITableViewDelegate, UITableViewDataSource {
         let model = listArray[indexPath.row]
         cell.model = model
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = listArray[indexPath.row]
+        let pageUrl = model.discuss ?? ""
+        self.cellBlock?(pageUrl)
     }
     
 }

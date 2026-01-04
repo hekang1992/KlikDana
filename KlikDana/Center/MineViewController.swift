@@ -26,6 +26,15 @@ class MineViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+        mineView.cellBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if pageUrl.hasPrefix("http") {
+                let webVc = H5WebViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }
+        }
+        
         self.mineView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
             Task {

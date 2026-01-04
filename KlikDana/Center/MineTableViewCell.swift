@@ -32,7 +32,6 @@ class MineTableViewCell: UITableViewCell {
         let logoImageView = UIImageView()
         logoImageView.layer.cornerRadius = 5
         logoImageView.layer.masksToBounds = true
-        logoImageView.backgroundColor = .gray
         return logoImageView
     }()
     
@@ -40,7 +39,7 @@ class MineTableViewCell: UITableViewCell {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.textColor = UIColor.init(hexString: "#000000")
-        nameLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        nameLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         return nameLabel
     }()
     
