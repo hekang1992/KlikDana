@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  DanaPundi
+
+  Created by hekang on 2026/1/4.
+  
+*/
+
+"Secure Login" = "Masuk ke akun Anda";
+"Manage your loans, repayments and limits in one place" = "Kelola pinjaman, pembayaran, dan batasan Anda di satu tempat";
+"Phone Number" = "Nomor telepon";
+"Enter your number" = "Masukkan nomor Anda";
+"91" = "62";
+"Verification Code" = "Nomor telepon";
+"Please enter" = "Masukkan kode konfirmasi";
+"Send Code" = "Kirim Kode";
+"Log in" = "Masuk";
+"Confirm and agree to the <Privacy Agreement>" = "Anda setuju dengan <Kebijakan Privasi>";
+
+"Home" = "Rumah";
+"Order" = "Memesan";
+"Mine" = "Pribadi";
+
+"Good Morning ☀️" = "Selamat Pagi ☀️";
+"Good Afternoon 🌤️" = "Selamat Siang 🌤️";
+"Good Evening 🌙" = "Selamat Malam 🌙";
+"Hello 👋" = "Halo 👋";
+"Set up" = "Pusat Pengaturan";
+"Versions" = "Versi";
+"Go out" = "Keluar";
+
