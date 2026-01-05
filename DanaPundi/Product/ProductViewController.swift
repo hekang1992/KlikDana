@@ -214,6 +214,7 @@ extension ProductViewController {
         )
         
         descLabel.text = model.anyably?.recentable?.allelist ?? ""
+        
         moneyLabel.text = model.anyably?.recentable?.vadant ?? ""
         
         let listArray = model.anyably?.amor ?? []
@@ -240,7 +241,7 @@ extension ProductViewController {
             
             listView.snp.makeConstraints { make in
                 if index == 0 {
-                    make.top.equalTo(aImageView.snp.bottom).offset(40.pix())
+                    make.top.equalTo(aImageView.snp.bottom).offset(30.pix())
                 } else {
                     make.top.equalTo(lastView.snp.bottom).offset(15.pix())
                 }
