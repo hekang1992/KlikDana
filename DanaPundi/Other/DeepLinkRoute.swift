@@ -50,7 +50,6 @@ class URLSchemeRouter: NSObject {
         case "bagably":
             let settingVc = SettingViewController()
             vc.navigationController?.pushViewController(settingVc, animated: true)
-            break
             
         case "aphive":
             break
@@ -59,7 +58,10 @@ class URLSchemeRouter: NSObject {
             break
             
         case "tripsible":
-            break
+            let productVc = ProductViewController()
+            let queryParams = route.queryParams
+            productVc.productID = queryParams["seget"] ?? ""
+            vc.navigationController?.pushViewController(productVc, animated: true)
             
         default:
             break

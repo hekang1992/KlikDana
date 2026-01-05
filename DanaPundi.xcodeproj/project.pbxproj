@@ -46,6 +46,8 @@
 		73BDFE7C2F0BEAA900DCE5C5 /* AirBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */; };
 		73BDFE7E2F0BEAB900DCE5C5 /* MaxBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */; };
 		73BDFE802F0BEEB000DCE5C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */; };
+		73BDFE862F0C03E100DCE5C5 /* ProductFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE852F0C03E100DCE5C5 /* ProductFootView.swift */; };
+		73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE872F0C084C00DCE5C5 /* ProductListView.swift */; };
 		E2C4A2CDAFDFAAA6728B4B20 /* Pods_DanaPundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA56B5EF487133BF91AB2C /* Pods_DanaPundi.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +96,8 @@
 		73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBookView.swift; sourceTree = "<group>"; };
 		73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBookView.swift; sourceTree = "<group>"; };
 		73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		73BDFE852F0C03E100DCE5C5 /* ProductFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFootView.swift; sourceTree = "<group>"; };
+		73BDFE872F0C084C00DCE5C5 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		8AEA56B5EF487133BF91AB2C /* Pods_DanaPundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaPundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CCEF3A9E8BAB2728576AC8 /* Pods-DanaPundi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaPundi.release.xcconfig"; path = "Target Support Files/Pods-DanaPundi/Pods-DanaPundi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +243,8 @@
 		733C8FFE2F09F0F600793D28 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				73BDFE872F0C084C00DCE5C5 /* ProductListView.swift */,
+				73BDFE852F0C03E100DCE5C5 /* ProductFootView.swift */,
 				735467C72F0ACDB500DF7EB9 /* ProductViewController.swift */,
 			);
 			path = Product;
@@ -406,12 +412,14 @@
 				735467CE2F0B555700DF7EB9 /* AppLogoutView.swift in Sources */,
 				735467C62F0ACD9C00DF7EB9 /* DeepLinkRoute.swift in Sources */,
 				73BDFE7C2F0BEAA900DCE5C5 /* AirBookView.swift in Sources */,
+				73BDFE862F0C03E100DCE5C5 /* ProductFootView.swift in Sources */,
 				733D792B2F0A16BC008DBA60 /* IDFVManager.swift in Sources */,
 				733D79432F0A37D5008DBA60 /* HomeViewController.swift in Sources */,
 				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
 				733D793D2F0A30F3008DBA60 /* LoginViewModel.swift in Sources */,
 				735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */,
+				73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */,
 				733D79452F0A37E0008DBA60 /* OrderViewController.swift in Sources */,
 				735467C42F0AC4FF00DF7EB9 /* CustomHeadView.swift in Sources */,
 				733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */,

@@ -10,17 +10,15 @@ import SnapKit
 
 class CustomHeadView: UIView {
     
-    // MARK: - Callback
     var backBlock: (() -> Void)?
     
-    // MARK: - Views
-    private lazy var statusBarView: UIView = {
+    lazy var statusBarView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
-    private lazy var contentView: UIView = {
+    lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
@@ -29,7 +27,7 @@ class CustomHeadView: UIView {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(hexString: "#000000")
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight(500))
         label.textAlignment = .center
         return label
     }()

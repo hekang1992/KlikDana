@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController {
         airView.applyBlock = { [weak self] model in
             guard let self = self else { return }
             Task {
-                await self.applyProductInfo(with: model)
+                await self.cilckProductInfo(with: model)
             }
         }
         
@@ -73,8 +73,36 @@ extension HomeViewController {
         }
     }
     
-    private func applyProductInfo(with model: appearModel) async {
-        
+    private func cilckProductInfo(with model: appearModel) async {
+        do {
+            let productID = String(model.tinacithroughling ?? 0)
+            let parameters = ["film": String(Int(1000 + 1)),
+                              "trial": String(Int(200 + 800)),
+                              "idacy": String(Int(300 + 700)),
+                              "seget": productID]
+            let model = try await viewModel.clickProductApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                let pageUrl = model.anyably?.semaair ?? ""
+                if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+                    URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+                }else if pageUrl.hasPrefix("http") {
+                    
+                }else {
+                    self.goProductVc(with: productID)
+                }
+            }else {
+                ToastManager.showMessage(model.cubage ?? "")
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func goProductVc(with productID: String) {
+        let productVc = ProductViewController()
+        productVc.productID = productID
+        self.navigationController?.pushViewController(productVc, animated: true)
     }
     
 }

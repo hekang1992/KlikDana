@@ -14,7 +14,7 @@ class AirBookView: UIView {
     
     // MARK: - Constants
     private enum Constants {
-        static let buttonHeight: CGFloat = 68
+        static let buttonHeight: CGFloat = 58
         static let buttonWidth: CGFloat = 277
         static let verticalSpacing: CGFloat = 15
         static let bottomPadding: CGFloat = 20
@@ -246,7 +246,7 @@ class AirBookView: UIView {
         // Apply Button
         applyButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(valueLabel.snp.bottom).offset(12.pix())
+            make.top.equalTo(valueLabel.snp.bottom).offset(13.pix())
             make.size.equalTo(CGSize(
                 width: Constants.buttonWidth.pix(),
                 height: Constants.buttonHeight.pix()

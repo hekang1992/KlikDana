@@ -32,6 +32,10 @@ class anyablyModel: Codable {
     var pacho: String?
     var pharmacivity: [pharmacivityModel]?
     var ruspay: [ruspayModel]?
+    var semaair: String?
+    var recentable: recentableModel?
+    var amor: [amorModel]?
+    var cortwhiteible: cortwhiteibleModel?
 }
 
 class pharmacivityModel: Codable {
@@ -57,3 +61,65 @@ class appearModel: Codable {
     var overitor: String?
     var base: String?
 }
+
+class amorModel: Codable {
+    var canfy: String?
+    var actship: String?
+    var byly: Int?
+    var mostess: String?
+    var greg: String?
+}
+
+class cortwhiteibleModel: Codable {
+    var mostess: String?
+    var canfy: String?
+}
+
+class recentableModel: Codable {
+    var vadant: String?
+    var jugespecially: String?
+    var fraterbedform: String?
+    var allelist: String?
+    var tinacithroughling: String?
+    var potamosion: String?
+    var designetic: String?
+    var tergward: Int?
+    var gestspecial: Int?
+    var plas: String?
+
+    enum CodingKeys: String, CodingKey {
+        case vadant
+        case jugespecially
+        case allelist
+        case tinacithroughling
+        case potamosion
+        case designetic
+        case tergward
+        case gestspecial
+        case plas
+        case fraterbedform
+    }
+
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        if let stringValue = try? container.decode(String.self, forKey: .vadant) {
+            vadant = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .vadant) {
+            vadant = String(intValue)
+        } else {
+            vadant = nil
+        }
+
+        jugespecially = try? container.decode(String.self, forKey: .jugespecially)
+        allelist = try? container.decode(String.self, forKey: .allelist)
+        tinacithroughling = try? container.decode(String.self, forKey: .tinacithroughling)
+        potamosion = try? container.decode(String.self, forKey: .potamosion)
+        designetic = try? container.decode(String.self, forKey: .designetic)
+        tergward = try? container.decode(Int.self, forKey: .tergward)
+        gestspecial = try? container.decode(Int.self, forKey: .gestspecial)
+        plas = try? container.decode(String.self, forKey: .plas)
+        fraterbedform = try? container.decode(String.self, forKey: .fraterbedform)
+    }
+}
+
