@@ -8,8 +8,14 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 class ProductListView: UIView {
+    
+    var cellBlock: ((amorModel) -> Void)?
+    
+    private let disposeBag = DisposeBag()
     
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -58,6 +64,11 @@ class ProductListView: UIView {
         typeLabel.textColor = UIColor.init(hexString: "#999999")
         typeLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(400))
         return typeLabel
+    }()
+    
+    lazy var clickBtn: UIButton = {
+        let clickBtn = UIButton(type: .custom)
+        return clickBtn
     }()
     
     override init(frame: CGRect) {
@@ -110,6 +121,12 @@ class ProductListView: UIView {
             make.bottom.equalToSuperview().offset(-20.pix())
         }
         
+        addSubview(clickBtn)
+        clickBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        
     }
     
     func config(with model: amorModel) {
@@ -127,5 +144,10 @@ class ProductListView: UIView {
             typeLabel.text = LanguageManager.localizedString(for: "GO")
             typeLabel.textColor = UIColor.init(hexString: "#FFFFFF")
         }
+        
+        clickBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.cellBlock?(model)
+        }).disposed(by: disposeBag)
     }
 }

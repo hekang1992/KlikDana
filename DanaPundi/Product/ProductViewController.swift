@@ -13,6 +13,8 @@ class ProductViewController: BaseViewController {
     
     var productID = ""
     
+    var baseModel: BaseModel?
+    
     private let viewMdoel = HomeViewModel()
     
     // MARK: - Views
@@ -182,6 +184,12 @@ extension ProductViewController {
         headView.backBlock = { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
+        
+        footerView.nextBlock = { [weak self] in
+            guard let self = self, let baseModel = baseModel else { return }
+            let nextModel = baseModel.anyably?.cortwhiteible
+            ToastManager.showMessage(nextModel?.canfy ?? "")
+        }
     }
 }
 
@@ -195,6 +203,7 @@ extension ProductViewController {
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
                 setupUI(with: model)
+                self.baseModel = model
             }
             await self.scrollView.mj_header?.endRefreshing()
         } catch {
@@ -238,6 +247,11 @@ extension ProductViewController {
             let listView = ProductListView()
             listView.config(with: model)
             scrollView.addSubview(listView)
+            
+            listView.cellBlock = { [weak self] model in
+                guard let self = self else { return }
+                ToastManager.showMessage(model.canfy ?? "")
+            }
             
             listView.snp.makeConstraints { make in
                 if index == 0 {

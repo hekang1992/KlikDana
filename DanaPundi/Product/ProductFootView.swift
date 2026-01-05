@@ -7,9 +7,15 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class ProductFootView: UIView {
-
+    
+    var nextBlock: (() -> Void)?
+    
+    private let disposeBag = DisposeBag()
+    
     lazy var whiteView: UIView = {
         let whiteView = UIView()
         whiteView.backgroundColor = .white
@@ -41,6 +47,16 @@ class ProductFootView: UIView {
             make.size.equalTo(CGSize(width: 357.pix(), height: 56.pix()))
             make.centerX.equalToSuperview()
         }
+        
+        nextBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.nextBlock?()
+            })
+            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
