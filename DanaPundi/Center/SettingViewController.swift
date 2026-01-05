@@ -200,6 +200,10 @@ extension SettingViewController {
         
         popView.leaveBlock = { [weak self] in
             guard let self = self else { return }
+            if popView.grand == false {
+                ToastManager.showMessage(LanguageManager.localizedString(for: "Please confirm the account closure agreement first."))
+                return
+            }
             Task {
                 await self.deleteInfo()
             }

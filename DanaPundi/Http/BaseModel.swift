@@ -31,10 +31,29 @@ class anyablyModel: Codable {
     var radiwise: String?
     var pacho: String?
     var pharmacivity: [pharmacivityModel]?
+    var ruspay: [ruspayModel]?
 }
 
 class pharmacivityModel: Codable {
     var canfy: String?
     var val: String?
     var discuss: String?
+}
+
+class ruspayModel: Codable {
+    var stenics: String?
+    var appear: [appearModel]?
+}
+
+class appearModel: Codable {
+    var tinacithroughling: Int?
+    var jugespecially: String?
+    var potamosion: String?
+    var fraterbedform: String?
+    var urous: String?
+    var tornation: String?
+    var federalesque: String?
+    var parthenose: String?
+    var overitor: String?
+    var base: String?
 }

@@ -18,10 +18,12 @@ class AppDeleteView: UIView {
     
     var leaveBlock: (() -> Void)?
     
+    var grand: Bool = false
+    
     private enum Constants {
         static let bgImageSize = CGSize(width: 295, height: 440)
         static let cancelButtonSize: CGFloat = 30
-        static let stayButtonSize = CGSize(width: 267, height: 56)
+        static let stayButtonSize = CGSize(width: 267, height: 44)
         static let leaveButtonSize = CGSize(width: 200, height: 12)
         static let leaveButtonBottomOffset: CGFloat = -40
         static let stayButtonBottomOffset: CGFloat = -10
@@ -106,8 +108,8 @@ class AppDeleteView: UIView {
         
         agreeButton.snp.makeConstraints { make in
             make.width.height.equalTo(15)
-            make.left.equalToSuperview().offset(42)
-            make.bottom.equalTo(stayButton.snp.top).offset(-35)
+            make.left.equalToSuperview().offset(40)
+            make.bottom.equalTo(stayButton.snp.top).offset(-34)
         }
     }
     
@@ -145,6 +147,7 @@ class AppDeleteView: UIView {
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
                 agreeButton.isSelected.toggle()
+                grand = agreeButton.isSelected
             })
             .disposed(by: disposeBag)
     }
