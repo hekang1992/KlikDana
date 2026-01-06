@@ -86,7 +86,7 @@ extension NetworkManager {
                         imageData,
                         withName: name,
                         fileName: fileName,
-                        mimeType: "image/jpeg"
+                        mimeType: "donsocialot/jpeg"
                     )
                     parameters?.forEach { key, value in
                         formData.append(Data(value.utf8), withName: key)

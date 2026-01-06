@@ -7,12 +7,21 @@
 
 import UIKit
 import SnapKit
+import RxCocoa
+import RxSwift
+import TYAlertController
 
 class PhotoViewController: BaseViewController {
     
     var productID: String = ""
     
     var appTitle: String = ""
+    
+    var orderID: String = ""
+    
+    private let viewMdoel = HomeViewModel()
+    
+    private let disposeBag = DisposeBag()
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
@@ -55,7 +64,7 @@ class PhotoViewController: BaseViewController {
     lazy var completeImageView: UIImageView = {
         let completeImageView = UIImageView()
         completeImageView.image = UIImage(named: "suc_pla_bg_image")
-        completeImageView.isHidden = false
+        completeImageView.isHidden = true
         return completeImageView
     }()
     
@@ -67,10 +76,15 @@ class PhotoViewController: BaseViewController {
         descLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return descLabel
     }()
-
+    
+    lazy var clickBtn: UIButton = {
+        let clickBtn = UIButton(type: .custom)
+        return clickBtn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.addSubview(headView)
         headView.configTitle(with: appTitle)
         headView.snp.makeConstraints { make in
@@ -79,7 +93,7 @@ class PhotoViewController: BaseViewController {
         
         headView.backBlock = { [weak self] in
             guard let self = self else { return }
-            self.navigationController?.popViewController(animated: true)
+            self.backDetailPageVc()
         }
         
         view.addSubview(footerView)
@@ -122,6 +136,7 @@ class PhotoViewController: BaseViewController {
         whiteView.addSubview(logoImageView)
         logoImageView.addSubview(completeImageView)
         whiteView.addSubview(descLabel)
+        whiteView.addSubview(clickBtn)
         
         logoImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(25.pix())
@@ -137,6 +152,120 @@ class PhotoViewController: BaseViewController {
             make.height.equalTo(15)
             make.centerX.equalToSuperview()
         }
+        clickBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        clickBtn
+            .rx
+            .tap
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.cameraInfo()
+            })
+            .disposed(by: disposeBag)
+        
+        footerView.nextBlock = { [weak self] in
+            guard let self = self else { return }
+            self.cameraInfo()
+        }
+        
     }
+    
+}
 
+extension PhotoViewController {
+    
+    private func cameraInfo() {
+        let config = CameraConfig(cameraDevice: .rear)
+        CameraManager.shared.takePhoto(from: self, config: config) { [weak self] image in
+            guard let self = self, let image = image else { return }
+            Task {
+                if let data = image.jpegData(compressionQuality: 0.3) {
+                    await self.uploadImage(with: data)
+                }
+            }
+        }
+    }
+    
+    private func uploadImage(with imageData: Data) async {
+        do {
+            let parameters = ["stenics": "11",
+                              "roadaster": "2",
+                              "activityier": "2",
+                              "pulmonate": "1",
+                              "hypoprotectary": "1"]
+            let model = try await viewMdoel.uploadImageApi(parameters: parameters, imageData: imageData)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                if let anyablyModel = model.anyably {
+                    self.popPhotoView(with: anyablyModel)
+                }
+            }else {
+                ToastManager.showMessage(model.cubage ?? "")
+            }
+        } catch {
+            
+        }
+    }
+    
+    
+    private func detailInfo(with productID: String) async {
+        do {
+            let parameters = ["seget": productID, "idea": "1"]
+            let model = try await viewMdoel.detailApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func popPhotoView(with model: anyablyModel) {
+        let popView = SheetPhotoView(frame: self.view.bounds)
+        popView.model = model
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .actionSheet)
+        self.present(alertVc!, animated: true)
+        
+        popView.sureBlock = { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.saveUserInfo(with: popView)
+            }
+        }
+    }
+    
+    private func saveUserInfo(with listView: SheetPhotoView) async {
+        let brithday = listView.birthdayTextField.text ?? ""
+        let number = listView.numberTextField.text ?? ""
+        let name = listView.nameTextField.text ?? ""
+        do {
+            let parameters = ["hemeror": brithday,
+                              "bank": number,
+                              "catchtic": name,
+                              "thankia": orderID,
+                              "seget": productID,
+                              "ogy": SaveLoginInfo.getPhone() ?? ""]
+            let model = try await viewMdoel.saveImageApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                self.dismiss(animated: true) {}
+                self.completeImageView.isHidden = false
+                self.footerView.nextBtn.isEnabled = false
+                try? await Task.sleep(nanoseconds: 200_000_000)
+                let faceVc = FaceViewController()
+                faceVc.productID = self.productID
+                faceVc.orderID = self.orderID
+                faceVc.appTitle = self.appTitle
+                self.navigationController?.pushViewController(faceVc, animated: true)
+            }else {
+                ToastManager.showMessage(model.cubage ?? "")
+            }
+        } catch {
+            
+        }
+    }
 }

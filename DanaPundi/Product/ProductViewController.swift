@@ -250,8 +250,8 @@ extension ProductViewController {
             
             listView.cellBlock = { [weak self] model in
                 guard let self = self else { return }
-                let stenics = model.stenics ?? 0
-                if stenics == 1 {
+                let byly = model.byly ?? 0
+                if byly == 1 {
                     self.clickInfo(with: model)
                 }else {
                     let nextModel = self.baseModel?.anyably?.cortwhiteible ?? amorModel()
@@ -293,11 +293,26 @@ extension ProductViewController {
             }
             
         case "accept":
-            break
+            let workVc = WorkViewController()
+            workVc.productID = productID
+            workVc.appTitle = model.canfy ?? ""
+            workVc.orderID = self.baseModel?.anyably?.recentable?.designetic ?? ""
+            self.navigationController?.pushViewController(workVc, animated: true)
+            
         case "thermtrade":
-            break
+            let contactVc = ContactViewController()
+            contactVc.productID = productID
+            contactVc.appTitle = model.canfy ?? ""
+            contactVc.orderID = self.baseModel?.anyably?.recentable?.designetic ?? ""
+            self.navigationController?.pushViewController(contactVc, animated: true)
+            
         case "thalass":
-            break
+            let walletVc = WalletViewController()
+            walletVc.productID = productID
+            walletVc.appTitle = model.canfy ?? ""
+            walletVc.orderID = self.baseModel?.anyably?.recentable?.designetic ?? ""
+            self.navigationController?.pushViewController(walletVc, animated: true)
+            
         default:
             break
         }
@@ -309,26 +324,52 @@ extension ProductViewController {
     
     private func getUesrInfo(with productID: String, listModel: amorModel) async {
         do {
-            let parameters = ["seget": productID, "idea": "1"]
-            let model = try await viewMdoel.userDetailApi(parameters: parameters)
-            let peaceent = model.peaceent ?? ""
-            if peaceent == "0" || peaceent == "00" {
-                let pbyly = model.anyably?.abilityfaction?.byly ?? 0
-                let fbyly = model.anyably?.cardiitude?.byly ?? 0
-                if pbyly == 0 {
-                    let photoVc = PhotoViewController()
-                    photoVc.productID = productID
-                    photoVc.appTitle = listModel.canfy ?? ""
-                    self.navigationController?.pushViewController(photoVc, animated: true)
-                    return
-                }
-                if fbyly == 0 {
-                    return
-                }
-            }
-        } catch {
+            let parameters = [
+                "seget": productID,
+                "idea": "1"
+            ]
             
+            let model = try await viewMdoel.userDetailApi(parameters: parameters)
+            
+            guard let peaceent = model.peaceent,
+                  peaceent == "0" || peaceent == "00" else {
+                return
+            }
+            
+            let pbyly = model.anyably?.abilityfaction?.byly ?? 0
+            let fbyly = model.anyably?.cardiitude?.byly ?? 0
+            
+            let appTitle = listModel.canfy ?? ""
+            let orderID = baseModel?.anyably?.recentable?.designetic ?? ""
+            
+            if pbyly == 0 {
+                let vc = PhotoViewController()
+                vc.productID = productID
+                vc.appTitle = appTitle
+                vc.orderID = orderID
+                navigationController?.pushViewController(vc, animated: true)
+                return
+            }
+            
+            if fbyly == 0 {
+                let vc = FaceViewController()
+                vc.productID = productID
+                vc.appTitle = appTitle
+                vc.orderID = orderID
+                navigationController?.pushViewController(vc, animated: true)
+                return
+            }
+            
+            let vc = CompleteViewController()
+            vc.productID = productID
+            vc.appTitle = appTitle
+            vc.orderID = orderID
+            navigationController?.pushViewController(vc, animated: true)
+            
+        } catch {
+            print("getUesrInfo error:", error)
         }
     }
+    
     
 }

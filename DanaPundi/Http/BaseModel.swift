@@ -38,6 +38,12 @@ class anyablyModel: Codable {
     var cortwhiteible: amorModel?
     var abilityfaction: cardiitudeModel?
     var cardiitude: cardiitudeModel?
+    var bank: String?
+    var catchtic: String?
+    var hemeror: String?
+    var cochlia: String?
+    var simplyule: String?
+    var protostrongty: String?
 }
 
 class cardiitudeModel: Codable {

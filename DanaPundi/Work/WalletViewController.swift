@@ -1,5 +1,5 @@
 //
-//  CompleteViewController.swift
+//  WalletViewController.swift
 //  DanaPundi
 //
 //  Created by hekang on 2026/1/6.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import TYAlertController
 
-class CompleteViewController: BaseViewController {
+class WalletViewController: BaseViewController {
     
     var productID: String = ""
     
@@ -22,10 +22,10 @@ class CompleteViewController: BaseViewController {
     private let viewMdoel = HomeViewModel()
     
     private let disposeBag = DisposeBag()
-    
+        
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
-        headImageView.image = languageCode == .id ? UIImage(named: "suc_com_d_image") : UIImage(named: "suc_com_e_image")
+        headImageView.image = languageCode == .id ? UIImage(named: "fa_d_c_bg_image") : UIImage(named: "fa_f_c_bg_image")
         return headImageView
     }()
     
@@ -34,19 +34,19 @@ class CompleteViewController: BaseViewController {
         return footerView
     }()
     
-    lazy var whiteView: UIView = {
-        let whiteView = UIView()
-        whiteView.backgroundColor = .white
-        whiteView.layer.cornerRadius = 20.pix()
-        whiteView.layer.masksToBounds = true
-        return whiteView
+    lazy var stepView: ProductHeadView = {
+        let stepView = ProductHeadView()
+        return stepView
     }()
     
-    lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
+    lazy var whiteView: UIView = {
+        let whiteView = UIView()
+        whiteView.layer.cornerRadius = 16.pix()
+        whiteView.layer.masksToBounds = true
+        whiteView.backgroundColor = .white
+        whiteView.layer.borderWidth = 1.pix()
+        whiteView.layer.borderColor = UIColor.init(hexString: "#B7CFE9").cgColor
+        return whiteView
     }()
     
     override func viewDidLoad() {
@@ -69,36 +69,30 @@ class CompleteViewController: BaseViewController {
             make.height.equalTo(80.pix())
         }
         
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
+        view.addSubview(stepView)
+        stepView.nameLabel.text = appTitle
+        stepView.snp.makeConstraints { make in
             make.top.equalTo(headView.snp.bottom)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(footerView.snp.top)
+            make.height.equalTo(108.pix())
         }
         
-        scrollView.addSubview(headImageView)
-        headImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(30.pix())
-            make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 318.pix(), height: 378.pix()))
-        }
-        
-        scrollView.addSubview(whiteView)
-        
+        view.addSubview(whiteView)
         whiteView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(headImageView.snp.bottom).offset(15.pix())
-            make.size.equalTo(CGSize(width: 335.pix(), height: 168.pix()))
-            make.bottom.equalToSuperview().offset(-40.pix())
+            make.top.equalTo(stepView.snp.bottom)
+            make.left.right.equalToSuperview().inset(20.pix())
+            make.bottom.equalTo(footerView.snp.top).offset(-10.pix())
         }
         
         footerView.nextBlock = { [weak self] in
             guard let self = self else { return }
-            Task {
-                await self.detailPageInfo(with: self.productID, orderID: self.orderID, viewMdoel: self.viewMdoel)
-            }
+            
         }
         
     }
+    
+}
+
+extension WalletViewController {
     
 }
