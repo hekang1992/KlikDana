@@ -58,4 +58,21 @@ class HomeViewModel {
         }
     }
     
+    /// user_detail_info
+    func userDetailApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.get("/sistatory/half", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

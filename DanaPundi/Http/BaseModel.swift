@@ -35,7 +35,21 @@ class anyablyModel: Codable {
     var semaair: String?
     var recentable: recentableModel?
     var amor: [amorModel]?
-    var cortwhiteible: cortwhiteibleModel?
+    var cortwhiteible: amorModel?
+    var abilityfaction: cardiitudeModel?
+    var cardiitude: cardiitudeModel?
+}
+
+class cardiitudeModel: Codable {
+    var pleasphone: pleasphoneModel?
+    var byly: Int?
+    var semaair: String?
+}
+
+class pleasphoneModel: Codable {
+    var catchtic: String?
+    var bank: String?
+    var hemeror: String?
 }
 
 class pharmacivityModel: Codable {
@@ -68,11 +82,7 @@ class amorModel: Codable {
     var byly: Int?
     var mostess: String?
     var greg: String?
-}
-
-class cortwhiteibleModel: Codable {
-    var mostess: String?
-    var canfy: String?
+    var stenics: Int?
 }
 
 class recentableModel: Codable {

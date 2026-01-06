@@ -29,6 +29,7 @@ class ProductFootView: UIView {
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
+        nextBtn.setTitle(LanguageManager.localizedString(for: "Next step"), for: .normal)
         nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight(900))
         nextBtn.setBackgroundImage(UIImage(named: "fot_btn_click_image"), for: .normal)
         nextBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 12.pix(), right: 0)

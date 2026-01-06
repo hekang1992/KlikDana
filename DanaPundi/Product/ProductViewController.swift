@@ -187,8 +187,8 @@ extension ProductViewController {
         
         footerView.nextBlock = { [weak self] in
             guard let self = self, let baseModel = baseModel else { return }
-            let nextModel = baseModel.anyably?.cortwhiteible
-            ToastManager.showMessage(nextModel?.canfy ?? "")
+            let nextModel = baseModel.anyably?.cortwhiteible ?? amorModel()
+            self.clickInfo(with: nextModel)
         }
     }
 }
@@ -250,7 +250,13 @@ extension ProductViewController {
             
             listView.cellBlock = { [weak self] model in
                 guard let self = self else { return }
-                ToastManager.showMessage(model.canfy ?? "")
+                let stenics = model.stenics ?? 0
+                if stenics == 1 {
+                    self.clickInfo(with: model)
+                }else {
+                    let nextModel = self.baseModel?.anyably?.cortwhiteible ?? amorModel()
+                    self.clickInfo(with: nextModel)
+                }
             }
             
             listView.snp.makeConstraints { make in
@@ -273,4 +279,56 @@ extension ProductViewController {
             }
         }
     }
+    
+}
+
+extension ProductViewController {
+    
+    private func clickInfo(with model: amorModel) {
+        let mostess = model.mostess ?? ""
+        switch mostess {
+        case "pathtic":
+            Task {
+                await self.getUesrInfo(with: productID, listModel: model)
+            }
+            
+        case "accept":
+            break
+        case "thermtrade":
+            break
+        case "thalass":
+            break
+        default:
+            break
+        }
+    }
+    
+}
+
+extension ProductViewController {
+    
+    private func getUesrInfo(with productID: String, listModel: amorModel) async {
+        do {
+            let parameters = ["seget": productID, "idea": "1"]
+            let model = try await viewMdoel.userDetailApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                let pbyly = model.anyably?.abilityfaction?.byly ?? 0
+                let fbyly = model.anyably?.cardiitude?.byly ?? 0
+                if pbyly == 0 {
+                    let photoVc = PhotoViewController()
+                    photoVc.productID = productID
+                    photoVc.appTitle = listModel.canfy ?? ""
+                    self.navigationController?.pushViewController(photoVc, animated: true)
+                    return
+                }
+                if fbyly == 0 {
+                    return
+                }
+            }
+        } catch {
+            
+        }
+    }
+    
 }

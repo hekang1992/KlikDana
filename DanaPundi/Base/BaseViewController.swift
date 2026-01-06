@@ -13,6 +13,8 @@ class BaseViewController: UIViewController {
         let headView = CustomHeadView(frame: .zero)
         return headView
     }()
+    
+    let languageCode = LanguageManager.currentLanguage
 
     override func viewDidLoad() {
         super.viewDidLoad()
