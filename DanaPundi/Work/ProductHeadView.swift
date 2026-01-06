@@ -47,18 +47,6 @@ class ProductHeadView: UIView {
         let stepLabel = UILabel()
         stepLabel.textAlignment = .right
         stepLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        let attributedString = NSMutableAttributedString()
-        
-        let numberAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(hexString: "#3800FF")
-        ]
-        attributedString.append(NSAttributedString(string: "2", attributes: numberAttributes))
-        let slashAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(hexString: "#000000")
-        ]
-        attributedString.append(NSAttributedString(string: "/", attributes: slashAttributes))
-        attributedString.append(NSAttributedString(string: "4", attributes: slashAttributes))
-        stepLabel.attributedText = attributedString
         return stepLabel
     }()
 

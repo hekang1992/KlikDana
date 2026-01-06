@@ -36,6 +36,18 @@ class WorkViewController: BaseViewController {
     
     lazy var stepView: ProductHeadView = {
         let stepView = ProductHeadView()
+        let attributedString = NSMutableAttributedString()
+        
+        let numberAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(hexString: "#3800FF")
+        ]
+        attributedString.append(NSAttributedString(string: "2", attributes: numberAttributes))
+        let slashAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor(hexString: "#000000")
+        ]
+        attributedString.append(NSAttributedString(string: "/", attributes: slashAttributes))
+        attributedString.append(NSAttributedString(string: "4", attributes: slashAttributes))
+        stepView.stepLabel.attributedText = attributedString
         return stepView
     }()
     
