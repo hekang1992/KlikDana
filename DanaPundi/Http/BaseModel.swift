@@ -44,6 +44,7 @@ class anyablyModel: Codable {
     var cochlia: String?
     var simplyule: String?
     var protostrongty: String?
+    var ol: [olModel]?
 }
 
 class cardiitudeModel: Codable {
@@ -67,6 +68,15 @@ class pharmacivityModel: Codable {
 class ruspayModel: Codable {
     var stenics: String?
     var appear: [appearModel]?
+    var catchtic: String?
+    var plicier: [plicierModel]?
+    var peaceent: String?
+}
+
+class plicierModel: Codable {
+    var catchtic: String?
+    var peaceent: String?
+    var plicier: [plicierModel]?
 }
 
 class appearModel: Codable {
@@ -91,6 +101,45 @@ class amorModel: Codable {
     var stenics: Int?
 }
 
+class olModel: Codable {
+    var canfy: String?
+    var actship: String?
+    /// key
+    var peaceent: String?
+    /// type
+    var eitherency: String?
+    /// value_enter
+    var hiblaughdom: String?
+    /// para_value
+    var stenics: String?
+    /// board_type 0_default 1_num
+    var aristition: String?
+    /// emun_value
+    var discussen: [discussenModel]?
+}
+
+class discussenModel: Codable {
+    var catchtic: String?
+    var stenics: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case catchtic, stenics
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let stringValue = try? container.decode(String.self, forKey: .stenics) {
+            stenics = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .stenics) {
+            stenics = String(intValue)
+        } else {
+            stenics = nil
+        }
+        
+        catchtic = try? container.decode(String.self, forKey: .catchtic)
+    }
+}
+
 class recentableModel: Codable {
     var vadant: String?
     var jugespecially: String?
@@ -102,7 +151,7 @@ class recentableModel: Codable {
     var tergward: Int?
     var gestspecial: Int?
     var plas: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case vadant
         case jugespecially
@@ -115,10 +164,10 @@ class recentableModel: Codable {
         case plas
         case fraterbedform
     }
-
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
+        
         if let stringValue = try? container.decode(String.self, forKey: .vadant) {
             vadant = stringValue
         } else if let intValue = try? container.decode(Int.self, forKey: .vadant) {
@@ -126,7 +175,7 @@ class recentableModel: Codable {
         } else {
             vadant = nil
         }
-
+        
         jugespecially = try? container.decode(String.self, forKey: .jugespecially)
         allelist = try? container.decode(String.self, forKey: .allelist)
         tinacithroughling = try? container.decode(String.self, forKey: .tinacithroughling)

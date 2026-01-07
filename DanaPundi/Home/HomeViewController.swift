@@ -39,6 +39,10 @@ class HomeViewController: BaseViewController {
                 await self.homeInfo()
             }
         })
+        
+        Task {
+            await self.getCityListInfo()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +107,22 @@ extension HomeViewController {
         let productVc = ProductViewController()
         productVc.productID = productID
         self.navigationController?.pushViewController(productVc, animated: true)
+    }
+    
+}
+
+extension HomeViewController {
+    
+    private func getCityListInfo() async {
+        do {
+            let model = try await viewModel.cityListApi()
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                CitysArrayModel.shared.modelArray = model.anyably?.ruspay ?? []
+            }
+        } catch {
+            
+        }
     }
     
 }

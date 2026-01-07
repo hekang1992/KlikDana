@@ -26,6 +26,23 @@ class HomeViewModel {
         }
     }
     
+    /// city_list_info
+    func cityListApi() async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.get("/sistatory/strigos")
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
     /// click_product_api
     func clickProductApi(parameters: [String: String]) async throws -> BaseModel {
         
@@ -111,4 +128,20 @@ class HomeViewModel {
         }
     }
     
+    /// get_work_info
+    func workApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/mustship", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
 }

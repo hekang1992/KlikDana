@@ -42,3 +42,8 @@
 "Aadhaar number" = "NOMOR ID";
 "Birthday" = "Tanggal lahir";
 "Information Security" = "Keamanan Informasi";
+"Certification Information" = "Informasi Sertifikasi";
+"Full Name:" = "Nama sesuai KTP:";
+"ID NO.:" = "Nomor KTP:";
+"Date of Birth:" = "Ulang tahun:";
+"Please select your authentication method first." = "Silakan pilih metode autentikasi Anda terlebih dahulu.";
