@@ -98,35 +98,6 @@ class amorModel: Codable {
     var stenics: Int?
 }
 
-class olModel: Codable {
-    var canfy: String?
-    var actship: String?
-    /// key
-    var peaceent: String?
-    /// type
-    var eitherency: String?
-    /// value_enter
-    var hiblaughdom: String?
-    /// para_value
-    var stenics: String?
-    /// board_type 0_default 1_num
-    var aristition: String?
-    /// emun_value
-    var discussen: [discussenModel]?
-    var appear: [appearModel]?
-    var catchtic: String?
-    var plicier: [plicierModel]?
-    var itinerling: [discussenModel]?
-    var tendade: String?
-    var an: String?
-    var problemel: String?
-    var defenseule: String?
-    var pageorium: String?
-    var thoughance: String?
-    var tactad: String?
-    var thankia: String?
-}
-
 class discussenModel: Codable {
     var catchtic: String?
     var stenics: String?
@@ -197,3 +168,81 @@ class recentableModel: Codable {
     }
 }
 
+class olModel: Codable {
+    var canfy: String?
+    var actship: String?
+    var peaceent: String?
+    var eitherency: String?
+    var hiblaughdom: String?
+    var stenics: String?
+    var aristition: String?
+    var discussen: [discussenModel]?
+    var appear: [appearModel]?
+    var catchtic: String?
+    var plicier: [plicierModel]?
+    var itinerling: [discussenModel]?
+    var tendade: String?
+    var an: String?
+    var problemel: String?
+    var defenseule: String?
+    var pageorium: String?
+    var thoughance: String?
+    var tactad: String?
+    var thankia: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case canfy
+        case actship
+        case peaceent
+        case eitherency
+        case hiblaughdom
+        case stenics
+        case aristition
+        case discussen
+        case appear
+        case catchtic
+        case plicier
+        case itinerling
+        case tendade
+        case an
+        case problemel
+        case defenseule
+        case pageorium
+        case thoughance
+        case tactad
+        case thankia
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        if let stringValue = try? container.decode(String.self, forKey: .aristition) {
+            aristition = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .aristition) {
+            aristition = String(intValue)
+        } else {
+            aristition = nil
+        }
+        
+        canfy = try? container.decode(String.self, forKey: .canfy)
+        actship = try? container.decode(String.self, forKey: .actship)
+        peaceent = try? container.decode(String.self, forKey: .peaceent)
+        eitherency = try? container.decode(String.self, forKey: .eitherency)
+        hiblaughdom = try? container.decode(String.self, forKey: .hiblaughdom)
+        stenics = try? container.decode(String.self, forKey: .stenics)
+        discussen = try? container.decode([discussenModel].self, forKey: .discussen)
+        appear = try? container.decode([appearModel].self, forKey: .appear)
+        catchtic = try? container.decode(String.self, forKey: .catchtic)
+        plicier = try? container.decode([plicierModel].self, forKey: .plicier)
+        itinerling = try? container.decode([discussenModel].self, forKey: .itinerling)
+        tendade = try? container.decode(String.self, forKey: .tendade)
+        an = try? container.decode(String.self, forKey: .an)
+        problemel = try? container.decode(String.self, forKey: .problemel)
+        defenseule = try? container.decode(String.self, forKey: .defenseule)
+        pageorium = try? container.decode(String.self, forKey: .pageorium)
+        thoughance = try? container.decode(String.self, forKey: .thoughance)
+        tactad = try? container.decode(String.self, forKey: .tactad)
+        thankia = try? container.decode(String.self, forKey: .thankia)
+    }
+    
+}

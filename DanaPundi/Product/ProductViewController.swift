@@ -313,6 +313,10 @@ extension ProductViewController {
             walletVc.orderID = self.baseModel?.anyably?.recentable?.designetic ?? ""
             self.navigationController?.pushViewController(walletVc, animated: true)
             
+        case "":
+            ToastManager.showMessage("431413")
+            break
+            
         default:
             break
         }

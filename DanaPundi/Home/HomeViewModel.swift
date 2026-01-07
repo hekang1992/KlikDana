@@ -196,4 +196,49 @@ class HomeViewModel {
         }
     }
     
+    /// upload_all_contact_info
+    func uploadAllContactApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/tornation", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// get_wallet_info
+    func walletApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/ruspay", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// save_wallet_info
+    func saveWalletApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/stenics", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

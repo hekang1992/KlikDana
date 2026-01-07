@@ -47,3 +47,4 @@
 "ID NO.:" = "ID NO.:";
 "Date of Birth:" = "Date of Birth:";
 "Please select your authentication method first." = "Please select your authentication method first.";
+"Name or phone number cannot be empty." = "Name or phone number cannot be empty.";

@@ -91,4 +91,8 @@ extension BaseViewController {
         }
     }
     
+    func orderApply(with model: BaseModel) async {
+        
+    }
+    
 }
