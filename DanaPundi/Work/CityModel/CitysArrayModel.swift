@@ -10,11 +10,11 @@ import BRPickerView
 class CitysArrayModel {
     static let shared = CitysArrayModel()
     private init() {}
-    var modelArray: [ruspayModel]?
+    var modelArray: [olModel]?
 }
 
 extension CitysArrayModel {
-    static func getAddressModelArray(dataSourceArr: [ruspayModel]) -> [BRTextModel] {
+    static func getAddressModelArray(dataSourceArr: [olModel]) -> [BRTextModel] {
         return dataSourceArr.enumerated().map { provinceIndex, provinceDic in
             let provinceModel = BRTextModel()
             provinceModel.code = provinceDic.peaceent ?? ""

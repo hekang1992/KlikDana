@@ -144,4 +144,56 @@ class HomeViewModel {
             throw error
         }
     }
+    
+    /// save_work_info
+    func saveWorkApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/difficultaire", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// get_contact_info
+    func contactApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/val", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// save_contact_info
+    func saveContactApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/discuss", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

@@ -124,7 +124,19 @@ class WorkViewController: BaseViewController {
         
         footerView.nextBlock = { [weak self] in
             guard let self = self else { return }
-            
+            let parameters = self.listModelArray
+                .compactMap { model -> (String, String)? in
+                    guard let key = model.peaceent, let value = model.stenics else {
+                        return nil
+                    }
+                    return (key, value)
+                }
+                .reduce(into: ["seget": self.productID]) { dict, tuple in
+                    dict[tuple.0] = tuple.1
+                }
+            Task {
+                await self.saveWorkInfo(with: parameters)
+            }
         }
         
     }
@@ -160,6 +172,7 @@ extension WorkViewController: UITableViewDelegate, UITableViewDataSource {
             cell.model = listModel
             cell.enterTextChanged = { text in
                 listModel.hiblaughdom = text
+                listModel.stenics = text
             }
             return cell
         }else {
@@ -223,6 +236,7 @@ extension WorkViewController {
     }
     
 }
+
 extension WorkViewController {
     
     private func presentSprayAlert(for model: olModel, from cell: SprayTableViewCell) {
@@ -294,6 +308,20 @@ extension WorkViewController {
             if peaceent == "0" || peaceent == "00" {
                 self.listModelArray = model.anyably?.ol ?? []
                 self.tableView.reloadData()
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func saveWorkInfo(with parameters: [String: String]) async {
+        do {
+            let model = try await viewMdoel.saveWorkApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                await self.detailPageInfo(with: productID, orderID: orderID, viewMdoel: viewMdoel)
+            }else {
+                ToastManager.showMessage(model.cubage ?? "")
             }
         } catch {
             

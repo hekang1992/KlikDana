@@ -31,7 +31,7 @@ class anyablyModel: Codable {
     var radiwise: String?
     var pacho: String?
     var pharmacivity: [pharmacivityModel]?
-    var ruspay: [ruspayModel]?
+    var ruspay: [olModel]?
     var semaair: String?
     var recentable: recentableModel?
     var amor: [amorModel]?
@@ -45,6 +45,11 @@ class anyablyModel: Codable {
     var simplyule: String?
     var protostrongty: String?
     var ol: [olModel]?
+    var octon: octonModel?
+}
+
+class octonModel: Codable {
+    var ruspay: [olModel]?
 }
 
 class cardiitudeModel: Codable {
@@ -63,14 +68,6 @@ class pharmacivityModel: Codable {
     var canfy: String?
     var val: String?
     var discuss: String?
-}
-
-class ruspayModel: Codable {
-    var stenics: String?
-    var appear: [appearModel]?
-    var catchtic: String?
-    var plicier: [plicierModel]?
-    var peaceent: String?
 }
 
 class plicierModel: Codable {
@@ -116,6 +113,18 @@ class olModel: Codable {
     var aristition: String?
     /// emun_value
     var discussen: [discussenModel]?
+    var appear: [appearModel]?
+    var catchtic: String?
+    var plicier: [plicierModel]?
+    var itinerling: [discussenModel]?
+    var tendade: String?
+    var an: String?
+    var problemel: String?
+    var defenseule: String?
+    var pageorium: String?
+    var thoughance: String?
+    var tactad: String?
+    var thankia: String?
 }
 
 class discussenModel: Codable {

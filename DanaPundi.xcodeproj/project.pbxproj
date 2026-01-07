@@ -48,6 +48,8 @@
 		7358B2222F0DF9AF00CBF99F /* SprayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */; };
 		7358B2262F0E240A00CBF99F /* SprayAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7358B2252F0E240A00CBF99F /* SprayAlertView.swift */; };
 		736F1CF92F0E9668006FD44F /* CitysArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */; };
+		736F1CFB2F0E9E88006FD44F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CFA2F0E9E88006FD44F /* ContactTableViewCell.swift */; };
+		736F1CFD2F0EAB71006FD44F /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CFC2F0EAB71006FD44F /* ContactManager.swift */; };
 		73BDFE7C2F0BEAA900DCE5C5 /* AirBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */; };
 		73BDFE7E2F0BEAB900DCE5C5 /* MaxBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */; };
 		73BDFE802F0BEEB000DCE5C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */; };
@@ -112,6 +114,8 @@
 		7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayTableViewCell.swift; sourceTree = "<group>"; };
 		7358B2252F0E240A00CBF99F /* SprayAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayAlertView.swift; sourceTree = "<group>"; };
 		736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysArrayModel.swift; sourceTree = "<group>"; };
+		736F1CFA2F0E9E88006FD44F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		736F1CFC2F0EAB71006FD44F /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
 		73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBookView.swift; sourceTree = "<group>"; };
 		73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBookView.swift; sourceTree = "<group>"; };
 		73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				7358B21F2F0DF99800CBF99F /* CleanTableViewCell.swift */,
 				7358B2212F0DF9AF00CBF99F /* SprayTableViewCell.swift */,
 				7358B2252F0E240A00CBF99F /* SprayAlertView.swift */,
+				736F1CFA2F0E9E88006FD44F /* ContactTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 		736F1CF72F0E964F006FD44F /* CityModel */ = {
 			isa = PBXGroup;
 			children = (
+				736F1CFC2F0EAB71006FD44F /* ContactManager.swift */,
 				736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */,
 			);
 			path = CityModel;
@@ -490,6 +496,7 @@
 				733D793B2F0A2C35008DBA60 /* LoadingIndicator.swift in Sources */,
 				733D79252F0A05DB008DBA60 /* BaseNavigationController.swift in Sources */,
 				733D792D2F0A16E9008DBA60 /* RequestParamBuilder.swift in Sources */,
+				736F1CFB2F0E9E88006FD44F /* ContactTableViewCell.swift in Sources */,
 				733D79312F0A1955008DBA60 /* BaseModel.swift in Sources */,
 				735467CE2F0B555700DF7EB9 /* AppLogoutView.swift in Sources */,
 				73DE97E12F0D483000EC7451 /* WorkViewController.swift in Sources */,
@@ -502,6 +509,7 @@
 				733D79432F0A37D5008DBA60 /* HomeViewController.swift in Sources */,
 				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
+				736F1CFD2F0EAB71006FD44F /* ContactManager.swift in Sources */,
 				733D793D2F0A30F3008DBA60 /* LoginViewModel.swift in Sources */,
 				7358B2262F0E240A00CBF99F /* SprayAlertView.swift in Sources */,
 				735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */,
