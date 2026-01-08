@@ -10,6 +10,10 @@ import SnapKit
 
 class OrderView: UIView {
     
+    var modelArray: [olModel] = []
+    
+    var typeBlock: ((String) -> Void)?
+    
     private var selectedButton: UIButton?
     
     private lazy var lineView: UIView = {
@@ -79,7 +83,7 @@ class OrderView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.separatorStyle = .none
         tableView.backgroundColor = .white
         tableView.estimatedRowHeight = 80
@@ -88,7 +92,7 @@ class OrderView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        tableView.register(OrderViewCell.self, forCellReuseIdentifier: "OrderViewCell")
         tableView.layer.cornerRadius = 20.pix()
         tableView.layer.masksToBounds = true
         tableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -140,7 +144,7 @@ class OrderView: UIView {
             make.width.equalTo(91.pix())
         }
         threeBtn.snp.makeConstraints { make in
-            make.left.equalTo(twoBtn.snp.right).offset(-2.pix())
+            make.left.equalTo(twoBtn.snp.right).offset(-5.pix())
             make.top.bottom.equalToSuperview()
             make.width.equalTo(109.pix())
         }
@@ -157,6 +161,22 @@ class OrderView: UIView {
     
     @objc private func buttonTapped(_ sender: UIButton) {
         selectButton(sender, animated: true)
+        
+        let typeValue: String
+        switch sender.tag {
+        case 0:
+            typeValue = "4"
+        case 1:
+            typeValue = "7"
+        case 2:
+            typeValue = "6"
+        case 3:
+            typeValue = "5"
+        default:
+            typeValue = "4"
+        }
+        
+        typeBlock?(typeValue)
     }
     
     private func selectButton(_ button: UIButton, animated: Bool) {
@@ -309,12 +329,13 @@ class OrderView: UIView {
 extension OrderView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return modelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row)===="
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderViewCell", for: indexPath) as! OrderViewCell
+        let model = modelArray[indexPath.row]
+        cell.model = model
         return cell
     }
     

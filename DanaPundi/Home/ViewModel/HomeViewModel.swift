@@ -266,4 +266,21 @@ class HomeViewModel {
         }
     }
     
+    /// to_order_list_info
+    func orderListApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/semaair", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

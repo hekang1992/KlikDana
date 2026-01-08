@@ -197,6 +197,12 @@ class olModel: Codable {
     var thoughance: String?
     var tactad: String?
     var thankia: String?
+    var potamosion: String?
+    var jugespecially: String?
+    var areaaster: String?
+    var cordise: String?
+    var corollel: String?
+    var programlike: programlikeModel?
     
     enum CodingKeys: String, CodingKey {
         case canfy
@@ -219,6 +225,12 @@ class olModel: Codable {
         case thoughance
         case tactad
         case thankia
+        case potamosion
+        case jugespecially
+        case programlike
+        case areaaster
+        case cordise
+        case corollel
     }
     
     required init(from decoder: Decoder) throws {
@@ -232,6 +244,11 @@ class olModel: Codable {
             aristition = nil
         }
         
+        areaaster = try? container.decode(String.self, forKey: .areaaster)
+        cordise = try? container.decode(String.self, forKey: .cordise)
+        corollel = try? container.decode(String.self, forKey: .corollel)
+        jugespecially = try? container.decode(String.self, forKey: .jugespecially)
+        potamosion = try? container.decode(String.self, forKey: .potamosion)
         canfy = try? container.decode(String.self, forKey: .canfy)
         actship = try? container.decode(String.self, forKey: .actship)
         peaceent = try? container.decode(String.self, forKey: .peaceent)
@@ -251,6 +268,19 @@ class olModel: Codable {
         thoughance = try? container.decode(String.self, forKey: .thoughance)
         tactad = try? container.decode(String.self, forKey: .tactad)
         thankia = try? container.decode(String.self, forKey: .thankia)
+        programlike = try? container.decode(programlikeModel.self, forKey: .programlike)
     }
     
+}
+
+class programlikeModel: Codable {
+    var deaditive: String?
+    var aloneible: String?
+    var problemitor: String?
+    var gemproof: String?
+    var rathertion: String?
+    var federalesque: String?
+    var parthenose: String?
+    var overitor: String?
+    var base: String?
 }

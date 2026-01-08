@@ -12,6 +12,8 @@
 		7332D8492F0F5940005793E1 /* MaxBnnViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8482F0F5940005793E1 /* MaxBnnViewCell.swift */; };
 		7332D84B2F0F594B005793E1 /* MaxProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D84A2F0F594B005793E1 /* MaxProductViewCell.swift */; };
 		7332D84F2F0F80A5005793E1 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D84E2F0F80A5005793E1 /* OrderView.swift */; };
+		7332D8512F0F89A3005793E1 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8502F0F89A3005793E1 /* OrderViewCell.swift */; };
+		7332D8532F0F9130005793E1 /* OrderEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8522F0F9130005793E1 /* OrderEmptyView.swift */; };
 		733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE32F09F0A200793D28 /* Assets.xcassets */; };
 		733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */; };
 		733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C8FE22F09F0A200793D28 /* AppDelegate.swift */; };
@@ -78,6 +80,8 @@
 		7332D8482F0F5940005793E1 /* MaxBnnViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBnnViewCell.swift; sourceTree = "<group>"; };
 		7332D84A2F0F594B005793E1 /* MaxProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxProductViewCell.swift; sourceTree = "<group>"; };
 		7332D84E2F0F80A5005793E1 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		7332D8502F0F89A3005793E1 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
+		7332D8522F0F9130005793E1 /* OrderEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyView.swift; sourceTree = "<group>"; };
 		733C8FCA2F09F09B00793D28 /* DanaPundi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaPundi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733C8FE22F09F0A200793D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733C8FE32F09F0A200793D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 			children = (
 				7332D84E2F0F80A5005793E1 /* OrderView.swift */,
 				733D79442F0A37E0008DBA60 /* OrderViewController.swift */,
+				7332D8502F0F89A3005793E1 /* OrderViewCell.swift */,
+				7332D8522F0F9130005793E1 /* OrderEmptyView.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -380,8 +386,8 @@
 		73DE97DF2F0D481C00EC7451 /* Work */ = {
 			isa = PBXGroup;
 			children = (
-				736F1CF72F0E964F006FD44F /* CityModel */,
 				7358B2242F0DF9C300CBF99F /* View */,
+				736F1CF72F0E964F006FD44F /* CityModel */,
 				7358B2232F0DF9B900CBF99F /* Controller */,
 			);
 			path = Work;
@@ -546,6 +552,7 @@
 				733D79432F0A37D5008DBA60 /* HomeViewController.swift in Sources */,
 				7332D8492F0F5940005793E1 /* MaxBnnViewCell.swift in Sources */,
 				733D79212F0A05B9008DBA60 /* LoginViewController.swift in Sources */,
+				7332D8532F0F9130005793E1 /* OrderEmptyView.swift in Sources */,
 				733D79272F0A0691008DBA60 /* SaveLoginInfo.swift in Sources */,
 				736F1CFD2F0EAB71006FD44F /* ContactManager.swift in Sources */,
 				7332D8472F0F5931005793E1 /* MaxHeadViewCell.swift in Sources */,
@@ -578,6 +585,7 @@
 				73DE97E52F0D530800EC7451 /* ContactViewController.swift in Sources */,
 				733D79292F0A0895008DBA60 /* AppLanguage.swift in Sources */,
 				735467CA2F0ACDDC00DF7EB9 /* SettingViewController.swift in Sources */,
+				7332D8512F0F89A3005793E1 /* OrderViewCell.swift in Sources */,
 				733D79352F0A1B1C008DBA60 /* NetworkStatus.swift in Sources */,
 				733D79332F0A19B7008DBA60 /* NetworkManager.swift in Sources */,
 				733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */,
