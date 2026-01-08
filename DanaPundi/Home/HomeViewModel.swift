@@ -241,4 +241,21 @@ class HomeViewModel {
         }
     }
     
+    /// to_apply_order_info
+    func toOrderApplyApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        LoadingIndicator.shared.show()
+        
+        defer {
+            LoadingIndicator.shared.hide()
+        }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/appear", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

@@ -314,8 +314,12 @@ extension ProductViewController {
             self.navigationController?.pushViewController(walletVc, animated: true)
             
         case "":
-            ToastManager.showMessage("431413")
-            break
+            Task {
+                if let baseModel = baseModel {
+                    await self.orderApply(with: baseModel, viewModel: viewMdoel)
+                }
+            }
+            
             
         default:
             break

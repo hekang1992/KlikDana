@@ -129,7 +129,7 @@ class recentableModel: Codable {
     var potamosion: String?
     var designetic: String?
     var tergward: Int?
-    var gestspecial: Int?
+    var gestspecial: String?
     var plas: String?
     
     enum CodingKeys: String, CodingKey {
@@ -156,13 +156,20 @@ class recentableModel: Codable {
             vadant = nil
         }
         
+        if let stringValue = try? container.decode(String.self, forKey: .gestspecial) {
+            gestspecial = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .gestspecial) {
+            gestspecial = String(intValue)
+        } else {
+            gestspecial = nil
+        }
+        
         jugespecially = try? container.decode(String.self, forKey: .jugespecially)
         allelist = try? container.decode(String.self, forKey: .allelist)
         tinacithroughling = try? container.decode(String.self, forKey: .tinacithroughling)
         potamosion = try? container.decode(String.self, forKey: .potamosion)
         designetic = try? container.decode(String.self, forKey: .designetic)
         tergward = try? container.decode(Int.self, forKey: .tergward)
-        gestspecial = try? container.decode(Int.self, forKey: .gestspecial)
         plas = try? container.decode(String.self, forKey: .plas)
         fraterbedform = try? container.decode(String.self, forKey: .fraterbedform)
     }

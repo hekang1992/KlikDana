@@ -91,7 +91,7 @@ extension HomeViewController {
                 if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
                     URLSchemeRouter.handle(pageURL: pageUrl, from: self)
                 }else if pageUrl.hasPrefix("http") {
-                    
+                    self.goRelletWebVc(with: pageUrl)
                 }else {
                     self.goProductVc(with: productID)
                 }

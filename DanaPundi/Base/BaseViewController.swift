@@ -26,6 +26,16 @@ class BaseViewController: UIViewController {
 
 extension BaseViewController {
     
+    func goRelletWebVc(with pageUrl: String) {
+        let webVc = RelletWebViewController()
+        webVc.pageUrl = pageUrl
+        self.navigationController?.pushViewController(webVc, animated: true)
+    }
+    
+}
+
+extension BaseViewController {
+    
     /// noti_root_vc
     func notiRootVc() {
         DispatchQueue.main.async {
@@ -81,6 +91,11 @@ extension BaseViewController {
                     walletVc.orderID = orderID
                     self.navigationController?.pushViewController(walletVc, animated: true)
                     
+                case "":
+                    Task {
+                        await self.orderApply(with: model, viewModel: viewMdoel)
+                    }
+                    
                 default:
                     break
                 }
@@ -91,8 +106,33 @@ extension BaseViewController {
         }
     }
     
-    func orderApply(with model: BaseModel) async {
-        
+    func orderApply(with model: BaseModel, viewModel: HomeViewModel) async {
+        let ogy = model.anyably?.recentable?.designetic ?? ""
+        let vadant = model.anyably?.recentable?.vadant ?? ""
+        let plas = model.anyably?.recentable?.plas ?? ""
+        let gestspecial = model.anyably?.recentable?.gestspecial ?? ""
+        let ramer = SaveLoginInfo.getPhone() ?? ""
+        let rockive = "1"
+        do {
+            let parameters = ["ogy": ogy,
+                              "vadant": vadant,
+                              "plas": plas,
+                              "gestspecial": gestspecial,
+                              "ramer": ramer,
+                              "rockive": rockive]
+            let model = try await viewModel.toOrderApplyApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                let semaair = model.anyably?.semaair ?? ""
+                if semaair.hasPrefix(DeepLinkRoute.scheme_url) {
+                    URLSchemeRouter.handle(pageURL: semaair, from: self)
+                }else if semaair.hasPrefix("http") {
+                    
+                }
+            }
+        } catch  {
+            
+        }
     }
     
 }
