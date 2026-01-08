@@ -24,6 +24,10 @@ class OrderViewCell: UITableViewCell {
             twoLeftLabel.text = "\(model.programlike?.aloneible ?? ""):"
             threeLeftLabel.text = "\(model.programlike?.parthenose ?? ""):"
             
+            oneRightLabel.text = "\(model.cordise ?? "")"
+            twoRightLabel.text = "\(model.programlike?.rathertion ?? "")"
+            threeRightLabel.text = "\(model.programlike?.federalesque ?? "")"
+            
             let applyStr = model.programlike?.gemproof ?? ""
             applyLabel.text = applyStr
             if applyStr.isEmpty {
@@ -132,9 +136,35 @@ class OrderViewCell: UITableViewCell {
         applyLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         return applyLabel
     }()
+    
+    lazy var oneRightLabel: UILabel = {
+        let oneRightLabel = UILabel()
+        oneRightLabel.textAlignment = .right
+        oneRightLabel.textColor = UIColor.init(hexString: "#333333")
+        oneRightLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(700))
+        return oneRightLabel
+    }()
+    
+    lazy var twoRightLabel: UILabel = {
+        let twoRightLabel = UILabel()
+        twoRightLabel.textAlignment = .right
+        twoRightLabel.textColor = UIColor.init(hexString: "#333333")
+        twoRightLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(700))
+        return twoRightLabel
+    }()
+    
+    lazy var threeRightLabel: UILabel = {
+        let threeRightLabel = UILabel()
+        threeRightLabel.textAlignment = .right
+        threeRightLabel.textColor = UIColor.init(hexString: "#333333")
+        threeRightLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(700))
+        return threeRightLabel
+    }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
+        selectionStyle = .none
         contentView.addSubview(bgView)
         bgView.addSubview(logoImageView)
         bgView.addSubview(nameLabel)
@@ -142,6 +172,9 @@ class OrderViewCell: UITableViewCell {
         bgView.addSubview(oneLeftLabel)
         bgView.addSubview(twoLeftLabel)
         bgView.addSubview(threeLeftLabel)
+        bgView.addSubview(oneRightLabel)
+        bgView.addSubview(twoRightLabel)
+        bgView.addSubview(threeRightLabel)
         bgView.addSubview(applyImageView)
         applyImageView.addSubview(applyLabel)
         bgView.snp.makeConstraints { make in
@@ -189,6 +222,21 @@ class OrderViewCell: UITableViewCell {
             make.top.equalToSuperview().offset(14.pix())
             make.centerX.equalToSuperview()
             make.height.equalTo(14.pix())
+        }
+        oneRightLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-15.pix())
+            make.top.equalTo(logoImageView.snp.bottom).offset(12.pix())
+            make.height.equalTo(12.pix())
+        }
+        twoRightLabel.snp.makeConstraints { make in
+            make.right.equalTo(oneRightLabel)
+            make.top.equalTo(oneLeftLabel.snp.bottom).offset(11.pix())
+            make.height.equalTo(12.pix())
+        }
+        threeRightLabel.snp.makeConstraints { make in
+            make.right.equalTo(oneRightLabel)
+            make.top.equalTo(twoLeftLabel.snp.bottom).offset(11.pix())
+            make.height.equalTo(12.pix())
         }
     }
     

@@ -52,6 +52,18 @@ class OrderViewController: BaseViewController {
             }
         }
         
+        orderView.cellBlock = { [weak self] model in
+            guard let self = self else { return }
+            let pageUrl = model.corollel ?? ""
+            if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+                URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+            }else if pageUrl.hasPrefix("http") || pageUrl.hasPrefix("https") {
+                self.goRelletWebVc(with: pageUrl)
+            }else {
+                
+            }
+        }
+        
         orderView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
             Task {

@@ -14,6 +14,8 @@ class OrderView: UIView {
     
     var typeBlock: ((String) -> Void)?
     
+    var cellBlock: ((olModel) -> Void)?
+    
     private var selectedButton: UIButton?
     
     private lazy var lineView: UIView = {
@@ -339,4 +341,8 @@ extension OrderView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = modelArray[indexPath.row]
+        self.cellBlock?(model)
+    }
 }
