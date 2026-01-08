@@ -120,8 +120,16 @@ class HomeViewModel {
             LoadingIndicator.shared.hide()
         }
         
+        var apiUrl = "cornature"
+        
+        if LanguageManager.currentLanguage == .id {
+            apiUrl = "/sistatory/claimacity"
+        }else {
+            apiUrl = "/sistatory/cornature"
+        }
+        
         do {
-            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/claimacity", parameters: parameters)
+            let model: BaseModel = try await NetworkManager.shared.postMultipart(apiUrl, parameters: parameters)
             return model
         } catch {
             throw error
