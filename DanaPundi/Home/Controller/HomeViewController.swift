@@ -9,10 +9,13 @@ import UIKit
 import SnapKit
 import MJRefresh
 import CoreLocation
+import FBSDKCoreKit
 
 class HomeViewController: BaseViewController {
     
     private let viewModel = HomeViewModel()
+    
+    private let locationManager = OneTimeLocationManager()
     
     lazy var airView: AirBookView = {
         let airView = AirBookView(frame: .zero)
@@ -70,14 +73,16 @@ class HomeViewController: BaseViewController {
         
         Task {
             await self.getCityListInfo()
+            await self.toIDFAInfo()
         }
         
-        OneTimeLocationManager.shared.locateOnce { [weak self] result in
+        locationManager.locateOnce { [weak self] result in
             guard let self = self else { return }
             if result.isEmpty {
                 self.showLocationDeniedAlert()
             }
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,11 +138,27 @@ extension HomeViewController {
             }
         }
         
-        OneTimeLocationManager.shared.locateOnce { [weak self] result in
+        locationManager.locateOnce { [weak self] result in
             guard let self = self else { return }
             Task {
                 await self.uploadLocationInfo(with: result)
             }
+        }
+        
+        DeviceInfoManager.shared.getAllDeviceInfo { [weak self] deviceInfo in
+            DispatchQueue.main.async {
+                if let info = deviceInfo {
+                    Task {
+                        await self?.processAndDisplayDeviceInfo(info)
+                    }
+                } else {
+                    
+                }
+            }
+        }
+        
+        Task {
+            await self.upKeyer()
         }
         
         do {
@@ -193,6 +214,79 @@ extension HomeViewController {
         } catch {
             
         }
+    }
+    
+    private func processAndDisplayDeviceInfo(_ info: DeviceInfo) async {
+        do {
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+            let jsonData = try encoder.encode(info)
+            guard String(data: jsonData, encoding: .utf8) != nil else {
+                return
+            }
+            let base64String = jsonData.base64EncodedString()
+            Task {
+                let parameters = ["anyably": base64String]
+                let _ =  try await viewModel.uploadDeviceApi(parameters: parameters)
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func upKeyer() async {
+        do {
+            let lon = LocationStorage.getLon() ?? ""
+            let lat = LocationStorage.getLat() ?? ""
+            let startTime = TimeManager.getStartTime() ?? ""
+            let endTime = TimeManager.getEndTime() ?? ""
+            if startTime.isEmpty || endTime.isEmpty {
+                return
+            }
+            let parameters = ["sideile": String(Int(1)),
+                              "stichette": "",
+                              "designetic": "",
+                              "violenceitude": lon,
+                              "stultiia": lat,
+                              "cupety": startTime,
+                              "put": endTime]
+            let model = try await viewModel.uploadKeyerApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                TimeManager.clearAllTimes()
+            }
+        } catch {
+            
+        }
+    }
+    
+    private func toIDFAInfo() async {
+        do {
+            let parameters = ["tragial": IDFVManager.getIDFV(),
+                              "ecoesque": IDFAManager.shared.getCurrentIDFA()]
+            
+            let model = try await viewModel.uploadIdfaApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                if let fbModel = model.anyably?.playeer {
+                    uploadFInfo(with: fbModel)
+                }
+            }
+        } catch {
+            print("uploadIDFAInfo error: \(error)")
+        }
+    }
+    
+    private func uploadFInfo(with model: playeerModel) {
+        Settings.shared.displayName = model.you ?? ""
+        Settings.shared.appURLSchemeSuffix = model.serveitor ?? ""
+        Settings.shared.appID = model.author ?? ""
+        Settings.shared.clientToken = model.muchtion ?? ""
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
     }
     
 }

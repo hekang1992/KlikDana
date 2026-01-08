@@ -18,7 +18,11 @@ class RelletWebViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let viewModel = HomeViewModel()
+    
     private let progressView = UIProgressView(progressViewStyle: .bar)
+    
+    private let locationManager = OneTimeLocationManager()
     
     lazy var wkWebView: WKWebView = {
         let config = WKWebViewConfiguration()
@@ -148,7 +152,7 @@ extension RelletWebViewController: WKScriptMessageHandler {
         switch message.name {
             
         case "sollise":
-            handleSollise(message.body)
+            handleSollise(message.body as? [String] ?? [])
             
         case "archacreateice":
             handleArchacreateice(message.body)
@@ -173,8 +177,15 @@ extension RelletWebViewController: WKScriptMessageHandler {
 
 extension RelletWebViewController {
     
-    private func handleSollise(_ body: Any) {
-        print("处理 sollise")
+    private func handleSollise(_ body: [String]) {
+        
+        locationManager.locateOnce { result in }
+        
+        let productID = body.first ?? ""
+        let orderID = body.last ?? ""
+        Task {
+            await self.twoLocino(productID: productID, orderID: orderID)
+        }
     }
     
     private func handleArchacreateice(_ body: Any) {
@@ -233,5 +244,20 @@ extension RelletWebViewController {
             self.pageUrl = pageUrl
             loadPage()
         }
+    }
+    
+    private func twoLocino(productID: String,
+                           orderID: String) async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+        let lon = LocationStorage.getLon() ?? ""
+        let lat = LocationStorage.getLat() ?? ""
+        let parameters = ["stichette": productID,
+                          "designetic": orderID,
+                          "sideile": String(Int(9)),
+                          "violenceitude": lon,
+                          "stultiia": lat,
+                          "cupety": String(Int(Date().timeIntervalSince1970)),
+                          "put": String(Int(Date().timeIntervalSince1970))]
+        await self.upKeyerConfig(with: viewModel, parameters: parameters)
     }
 }

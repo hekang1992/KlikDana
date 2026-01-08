@@ -46,6 +46,14 @@ class anyablyModel: Codable {
     var protostrongty: String?
     var ol: [olModel]?
     var octon: octonModel?
+    var playeer: playeerModel?
+}
+
+class playeerModel: Codable {
+    var serveitor: String?
+    var author: String?
+    var you: String?
+    var muchtion: String?
 }
 
 class octonModel: Codable {

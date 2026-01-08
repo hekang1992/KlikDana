@@ -15,6 +15,7 @@
 		7332D8512F0F89A3005793E1 /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8502F0F89A3005793E1 /* OrderViewCell.swift */; };
 		7332D8532F0F9130005793E1 /* OrderEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8522F0F9130005793E1 /* OrderEmptyView.swift */; };
 		7332D8552F0FB10E005793E1 /* OneTimeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8542F0FB10E005793E1 /* OneTimeLocationManager.swift */; };
+		7332D8572F0FB8AD005793E1 /* DeviceCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7332D8562F0FB8AD005793E1 /* DeviceCollector.swift */; };
 		733C8FEC2F09F0A200793D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE32F09F0A200793D28 /* Assets.xcassets */; };
 		733C8FEE2F09F0A200793D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733C8FE62F09F0A200793D28 /* LaunchScreen.storyboard */; };
 		733C8FF02F09F0A200793D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733C8FE22F09F0A200793D28 /* AppDelegate.swift */; };
@@ -57,6 +58,8 @@
 		736F1CF92F0E9668006FD44F /* CitysArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */; };
 		736F1CFB2F0E9E88006FD44F /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CFA2F0E9E88006FD44F /* ContactTableViewCell.swift */; };
 		736F1CFD2F0EAB71006FD44F /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F1CFC2F0EAB71006FD44F /* ContactManager.swift */; };
+		737B90302F0FDE440009AA80 /* IDFAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B902F2F0FDE440009AA80 /* IDFAManager.swift */; };
+		737B90322F0FE14C0009AA80 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737B90312F0FE14C0009AA80 /* TimeManager.swift */; };
 		73BDFE7C2F0BEAA900DCE5C5 /* AirBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */; };
 		73BDFE7E2F0BEAB900DCE5C5 /* MaxBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */; };
 		73BDFE802F0BEEB000DCE5C5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */; };
@@ -84,6 +87,7 @@
 		7332D8502F0F89A3005793E1 /* OrderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = "<group>"; };
 		7332D8522F0F9130005793E1 /* OrderEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyView.swift; sourceTree = "<group>"; };
 		7332D8542F0FB10E005793E1 /* OneTimeLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeLocationManager.swift; sourceTree = "<group>"; };
+		7332D8562F0FB8AD005793E1 /* DeviceCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollector.swift; sourceTree = "<group>"; };
 		733C8FCA2F09F09B00793D28 /* DanaPundi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DanaPundi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		733C8FE22F09F0A200793D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		733C8FE32F09F0A200793D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		736F1CF82F0E9668006FD44F /* CitysArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitysArrayModel.swift; sourceTree = "<group>"; };
 		736F1CFA2F0E9E88006FD44F /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		736F1CFC2F0EAB71006FD44F /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		737B902F2F0FDE440009AA80 /* IDFAManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAManager.swift; sourceTree = "<group>"; };
+		737B90312F0FE14C0009AA80 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		73BDFE7B2F0BEAA900DCE5C5 /* AirBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBookView.swift; sourceTree = "<group>"; };
 		73BDFE7D2F0BEAB900DCE5C5 /* MaxBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBookView.swift; sourceTree = "<group>"; };
 		73BDFE7F2F0BEEAC00DCE5C5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -273,6 +279,7 @@
 		733C8FFA2F09F0F300793D28 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				737B90312F0FE14C0009AA80 /* TimeManager.swift */,
 				733D793C2F0A30F1008DBA60 /* LoginViewModel.swift */,
 				733D79222F0A05C4008DBA60 /* LoginView.swift */,
 				733D79202F0A05B9008DBA60 /* LoginViewController.swift */,
@@ -330,6 +337,8 @@
 		733C90002F09F0F700793D28 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				737B902F2F0FDE440009AA80 /* IDFAManager.swift */,
+				7332D8562F0FB8AD005793E1 /* DeviceCollector.swift */,
 				735467C52F0ACD9C00DF7EB9 /* DeepLinkRoute.swift */,
 				733D79402F0A328B008DBA60 /* LaunchUtils.swift */,
 				733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */,
@@ -592,7 +601,10 @@
 				7332D8512F0F89A3005793E1 /* OrderViewCell.swift in Sources */,
 				733D79352F0A1B1C008DBA60 /* NetworkStatus.swift in Sources */,
 				733D79332F0A19B7008DBA60 /* NetworkManager.swift in Sources */,
+				737B90322F0FE14C0009AA80 /* TimeManager.swift in Sources */,
 				733D79162F09F31B008DBA60 /* LaunchViewController.swift in Sources */,
+				7332D8572F0FB8AD005793E1 /* DeviceCollector.swift in Sources */,
+				737B90302F0FDE440009AA80 /* IDFAManager.swift in Sources */,
 				7332D8422F0F3EC7005793E1 /* RelletWebViewController.swift in Sources */,
 				733D79142F09F311008DBA60 /* BaseViewController.swift in Sources */,
 				7332D84B2F0F594B005793E1 /* MaxProductViewCell.swift in Sources */,

@@ -5,19 +5,16 @@
 //  Created by hekang on 2026/1/8.
 //
 
-
 import UIKit
 import CoreLocation
 
-final class OneTimeLocationManager: NSObject {
-    
-    static let shared = OneTimeLocationManager()
+class OneTimeLocationManager: NSObject {
     
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
     private var completion: (([String: String]) -> Void)?
     
-    private override init() {
+    override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -35,13 +32,11 @@ final class OneTimeLocationManager: NSObject {
             locationManager.requestLocation()
             
         case .denied, .restricted:
-            //            showLocationDeniedAlert()
             completion([:])
-            self.completion = nil
+            
             
         @unknown default:
             completion([:])
-            self.completion = nil
         }
     }
 }
@@ -53,15 +48,12 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             manager.requestLocation()
         } else if status == .denied || status == .restricted {
-            //            showLocationDeniedAlert()
             completion?([:])
-            completion = nil
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         completion?([:])
-        completion = nil
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -75,7 +67,6 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
             guard let self = self,
                   let placemark = placemarks?.first else {
                 self?.completion?([:])
-                self?.completion = nil
                 return
             }
             
@@ -92,7 +83,6 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
             ]
             
             self.completion?(result)
-            self.completion = nil
         }
     }
 }

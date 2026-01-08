@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import FBSDKCoreKit
+import AppTrackingTransparency
 
 class LoginViewController: BaseViewController {
     
@@ -14,6 +16,7 @@ class LoginViewController: BaseViewController {
     private var countdownSeconds = 60
     private let totalCountdownSeconds = 60
     private let viewModel = LoginViewModel()
+    private let homeViewModel = HomeViewModel()
     
     lazy var loginView: LoginView = {
         let loginView = LoginView(frame: .zero)
@@ -25,6 +28,13 @@ class LoginViewController: BaseViewController {
         
         setupUI()
         setupActions()
+        
+        TimeManager.saveStartTime(String(Int(Date().timeIntervalSince1970)))
+        
+        Task {
+            await self.getLoginIDFA()
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +96,50 @@ class LoginViewController: BaseViewController {
         loginView.codeBtn.setTitle(LanguageManager.localizedString(for: "Send Code"), for: .normal)
     }
     
+    private func getLoginIDFA() async {
+        guard #available(iOS 14, *) else { return }
+        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        
+        switch status {
+        case .authorized, .denied, .notDetermined:
+            await toIDFAInfo()
+        case .restricted:
+            break
+        @unknown default:
+            break
+        }
+    }
+    
+    private func toIDFAInfo() async {
+        do {
+            let parameters = ["tragial": IDFVManager.getIDFV(),
+                              "ecoesque": IDFAManager.shared.getCurrentIDFA()]
+            
+            let model = try await homeViewModel.uploadIdfaApi(parameters: parameters)
+            let peaceent = model.peaceent ?? ""
+            if peaceent == "0" || peaceent == "00" {
+                if let fbModel = model.anyably?.playeer {
+                    uploadFInfo(with: fbModel)
+                }
+            }
+        } catch {
+            print("uploadIDFAInfo error: \(error)")
+        }
+    }
+    
+    private func uploadFInfo(with model: playeerModel) {
+        Settings.shared.displayName = model.you ?? ""
+        Settings.shared.appURLSchemeSuffix = model.serveitor ?? ""
+        Settings.shared.appID = model.author ?? ""
+        Settings.shared.clientToken = model.muchtion ?? ""
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            didFinishLaunchingWithOptions: nil
+        )
+    }
+    
 }
 
 extension LoginViewController {
@@ -136,7 +190,7 @@ extension LoginViewController {
     }
     
     private func loginInfo(to phone: String, code: String) {
-        
+        TimeManager.saveEndTime(String(Int(Date().timeIntervalSince1970)))
         Task {
             do {
                 let parameters = ["radiwise": phone,

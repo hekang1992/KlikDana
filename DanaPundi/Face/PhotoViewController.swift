@@ -23,6 +23,12 @@ class PhotoViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     
+    var startTime: String = ""
+    
+    var endTime: String = ""
+    
+    private let locationManager = OneTimeLocationManager()
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = languageCode == .id ? UIImage(named: "d_p_bg_image") : UIImage(named: "e_p_bg_image")
@@ -171,6 +177,11 @@ class PhotoViewController: BaseViewController {
             self.cameraInfo()
         }
         
+        startTime = String(Int(Date().timeIntervalSince1970))
+        
+        locationManager.locateOnce { result in
+            
+        }
     }
     
 }
@@ -232,6 +243,7 @@ extension PhotoViewController {
         
         popView.sureBlock = { [weak self] in
             guard let self = self else { return }
+            endTime = String(Int(Date().timeIntervalSince1970))
             Task {
                 await self.saveUserInfo(with: popView)
             }
@@ -252,15 +264,17 @@ extension PhotoViewController {
             let model = try await viewMdoel.saveImageApi(parameters: parameters)
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
-                self.dismiss(animated: true) {}
-                self.completeImageView.isHidden = false
-                self.footerView.nextBtn.isEnabled = false
-                try? await Task.sleep(nanoseconds: 200_000_000)
-                let faceVc = FaceViewController()
-                faceVc.productID = self.productID
-                faceVc.orderID = self.orderID
-                faceVc.appTitle = self.appTitle
-                self.navigationController?.pushViewController(faceVc, animated: true)
+                self.dismiss(animated: true) {
+                    self.completeImageView.isHidden = false
+                    let faceVc = FaceViewController()
+                    faceVc.productID = self.productID
+                    faceVc.orderID = self.orderID
+                    faceVc.appTitle = self.appTitle
+                    self.navigationController?.pushViewController(faceVc, animated: true)
+                }
+                Task {
+                    await self.twoLocino()
+                }
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
             }
@@ -268,4 +282,19 @@ extension PhotoViewController {
             
         }
     }
+    
+    private func twoLocino() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+        let lon = LocationStorage.getLon() ?? ""
+        let lat = LocationStorage.getLat() ?? ""
+        let parameters = ["stichette": productID,
+                          "designetic": orderID,
+                          "sideile": String(Int(2)),
+                          "violenceitude": lon,
+                          "stultiia": lat,
+                          "cupety": startTime,
+                          "put": endTime]
+        await self.upKeyerConfig(with: viewMdoel, parameters: parameters)
+    }
+    
 }

@@ -26,6 +26,12 @@ class WalletViewController: BaseViewController {
     
     var listModelArray: [olModel] = []
     
+    var startTime: String = ""
+    
+    var endTime: String = ""
+    
+    private let locationManager = OneTimeLocationManager()
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = languageCode == .id ? UIImage(named: "fa_d_c_bg_image") : UIImage(named: "fa_f_c_bg_image")
@@ -124,6 +130,7 @@ class WalletViewController: BaseViewController {
         
         footerView.nextBlock = { [weak self] in
             guard let self = self else { return }
+            endTime = String(Int(Date().timeIntervalSince1970))
             let parameters = self.listModelArray
                 .compactMap { model -> (String, String)? in
                     guard let key = model.peaceent, let value = model.stenics else {
@@ -137,6 +144,12 @@ class WalletViewController: BaseViewController {
             Task {
                 await self.saveWalletInfo(with: parameters)
             }
+        }
+        
+        startTime = String(Int(Date().timeIntervalSince1970))
+        
+        locationManager.locateOnce { result in
+            
         }
         
     }
@@ -320,12 +333,28 @@ extension WalletViewController {
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
                 await self.detailPageInfo(with: productID, orderID: orderID, viewMdoel: viewMdoel)
+                await self.twoLocino()
+                locationManager.locateOnce { result in }
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
             }
         } catch {
             
         }
+    }
+    
+    private func twoLocino() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+        let lon = LocationStorage.getLon() ?? ""
+        let lat = LocationStorage.getLat() ?? ""
+        let parameters = ["stichette": productID,
+                          "designetic": orderID,
+                          "sideile": String(Int(7)),
+                          "violenceitude": lon,
+                          "stultiia": lat,
+                          "cupety": startTime,
+                          "put": endTime]
+        await self.upKeyerConfig(with: viewMdoel, parameters: parameters)
     }
     
 }

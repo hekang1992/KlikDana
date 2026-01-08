@@ -30,6 +30,12 @@ class ContactViewController: BaseViewController {
     
     var dictArray: [[String: String]] = []
     
+    var startTime: String = ""
+    
+    var endTime: String = ""
+    
+    private let locationManager = OneTimeLocationManager()
+    
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()
         headImageView.image = languageCode == .id ? UIImage(named: "fa_d_c_bg_image") : UIImage(named: "fa_f_c_bg_image")
@@ -109,7 +115,7 @@ class ContactViewController: BaseViewController {
         
         footerView.nextBlock = { [weak self] in
             guard let self = self else { return }
-            
+            endTime = String(Int(Date().timeIntervalSince1970))
             dictArray = self.listModelArray.map { model in
                 [
                     "thankia": model.thankia ?? "",
@@ -122,6 +128,12 @@ class ContactViewController: BaseViewController {
             Task {
                 await self.saveContactInfo(with: self.dictArray)
             }
+        }
+        
+        startTime = String(Int(Date().timeIntervalSince1970))
+        
+        locationManager.locateOnce { result in
+            
         }
         
     }
@@ -290,6 +302,7 @@ extension ContactViewController {
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
                 await self.detailPageInfo(with: productID, orderID: orderID, viewMdoel: viewMdoel)
+                await self.twoLocino()
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
             }
@@ -327,6 +340,20 @@ extension ContactViewController {
             return ""
         }
         return jsonString
+    }
+    
+    private func twoLocino() async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+        let lon = LocationStorage.getLon() ?? ""
+        let lat = LocationStorage.getLat() ?? ""
+        let parameters = ["stichette": productID,
+                          "designetic": orderID,
+                          "sideile": String(Int(6)),
+                          "violenceitude": lon,
+                          "stultiia": lat,
+                          "cupety": startTime,
+                          "put": endTime]
+        await self.upKeyerConfig(with: viewMdoel, parameters: parameters)
     }
     
 }

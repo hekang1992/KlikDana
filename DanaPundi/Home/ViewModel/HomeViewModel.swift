@@ -293,4 +293,42 @@ class HomeViewModel {
             throw error
         }
     }
+    
+    /// upload_location_info
+    func uploadDeviceApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/fraterbedform", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// upload_keyer_info
+    func uploadKeyerApi(parameters: [String: String]) async throws -> BaseModel {
+        let json = ["suremost": IDFVManager.getIDFV(),
+                    "bioast": IDFAManager.shared.getCurrentIDFA()]
+        
+        let combinedParameters = json.merging(parameters) { (_, new) in new }
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/keyer", parameters: combinedParameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
+    /// upload_idfa_info
+    func uploadIdfaApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/urous", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
+    
 }

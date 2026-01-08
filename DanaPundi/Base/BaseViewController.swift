@@ -116,7 +116,9 @@ extension BaseViewController {
                     
                 case "":
                     Task {
-                        await self.orderApply(with: model, viewModel: viewMdoel)
+                        await self.orderApply(with: model,
+                                              viewModel: viewMdoel,
+                                              productID: productID)
                     }
                     
                 default:
@@ -129,7 +131,9 @@ extension BaseViewController {
         }
     }
     
-    func orderApply(with model: BaseModel, viewModel: HomeViewModel) async {
+    func orderApply(with model: BaseModel,
+                    viewModel: HomeViewModel,
+                    productID: String) async {
         let ogy = model.anyably?.recentable?.designetic ?? ""
         let vadant = model.anyably?.recentable?.vadant ?? ""
         let plas = model.anyably?.recentable?.plas ?? ""
@@ -153,9 +157,40 @@ extension BaseViewController {
                     self.goRelletWebVc(with: semaair)
                 }
             }
+            await self.twoLocino(viewModel: viewModel,
+                                 productID: productID,
+                                 orderID: ogy)
         } catch  {
             
         }
+    }
+    
+}
+
+extension BaseViewController {
+    
+    func upKeyerConfig(with viewModel: HomeViewModel, parameters: [String: String]) async {
+        do {
+            let _ = try await viewModel.uploadKeyerApi(parameters: parameters)
+        } catch {
+            
+        }
+    }
+    
+    private func twoLocino(viewModel: HomeViewModel,
+                           productID: String,
+                           orderID: String) async {
+        try? await Task.sleep(nanoseconds: 3_000_000_000)
+        let lon = LocationStorage.getLon() ?? ""
+        let lat = LocationStorage.getLat() ?? ""
+        let parameters = ["stichette": productID,
+                          "designetic": orderID,
+                          "sideile": String(Int(8)),
+                          "violenceitude": lon,
+                          "stultiia": lat,
+                          "cupety": String(Int(Date().timeIntervalSince1970)),
+                          "put": String(Int(Date().timeIntervalSince1970))]
+        await self.upKeyerConfig(with: viewModel, parameters: parameters)
     }
     
 }
