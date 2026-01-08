@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TYAlertController
 
 class BaseViewController: UIViewController {
     
@@ -20,6 +21,28 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.init(hexString: "#DAEBFF")
+    }
+    
+}
+
+extension BaseViewController {
+    
+    func keepLeaveView() {
+        let popView = AppLogoutView(frame: self.view.bounds)
+        popView.backgroundImageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "kep_id_l_image") : UIImage(named: "kep_en_l_image@")
+        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+        self.present(alertVc!, animated: true)
+        
+        popView.cancelBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
+        popView.leaveBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true) {}
+            self.backDetailPageVc()
+        }
     }
     
 }

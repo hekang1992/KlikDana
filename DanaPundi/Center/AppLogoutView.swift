@@ -27,9 +27,9 @@ class AppLogoutView: UIView {
         static let stayButtonBottomOffset: CGFloat = -10
     }
     
-    private(set) lazy var backgroundImageView: UIImageView = {
+    lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = getBackgroundImage()
+        imageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "id_out_bg_image") : UIImage(named: "en_out_bg_image")
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
@@ -125,18 +125,4 @@ class AppLogoutView: UIView {
             .disposed(by: disposeBag)
     }
     
-    private func getBackgroundImage() -> UIImage? {
-        let imageName: String
-        switch LanguageManager.currentLanguage {
-        case .id:
-            imageName = "id_out_bg_image"
-        default:
-            imageName = "en_out_bg_image"
-        }
-        return UIImage(named: imageName)
-    }
-    
-    func updateBackgroundForCurrentLanguage() {
-        backgroundImageView.image = getBackgroundImage()
-    }
 }

@@ -136,7 +136,7 @@ class CompleteViewController: BaseViewController {
         
         headView.backBlock = { [weak self] in
             guard let self = self else { return }
-            self.backDetailPageVc()
+            keepLeaveView()
         }
         
         view.addSubview(footerView)
