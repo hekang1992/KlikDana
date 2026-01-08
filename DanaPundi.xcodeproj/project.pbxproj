@@ -38,7 +38,6 @@
 		733D79492F0A4AA8008DBA60 /* MineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D79482F0A4AA5008DBA60 /* MineView.swift */; };
 		733D794B2F0A4C14008DBA60 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D794A2F0A4C11008DBA60 /* MineViewModel.swift */; };
 		733D794D2F0A4E0B008DBA60 /* MineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */; };
-		735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467C12F0AC3F700DF7EB9 /* H5WebViewController.swift */; };
 		735467C42F0AC4FF00DF7EB9 /* CustomHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467C32F0AC4FF00DF7EB9 /* CustomHeadView.swift */; };
 		735467C62F0ACD9C00DF7EB9 /* DeepLinkRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467C52F0ACD9C00DF7EB9 /* DeepLinkRoute.swift */; };
 		735467C82F0ACDB500DF7EB9 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735467C72F0ACDB500DF7EB9 /* ProductViewController.swift */; };
@@ -121,7 +120,6 @@
 		733D79482F0A4AA5008DBA60 /* MineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineView.swift; sourceTree = "<group>"; };
 		733D794A2F0A4C11008DBA60 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
 		733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewCell.swift; sourceTree = "<group>"; };
-		735467C12F0AC3F700DF7EB9 /* H5WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H5WebViewController.swift; sourceTree = "<group>"; };
 		735467C32F0AC4FF00DF7EB9 /* CustomHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeadView.swift; sourceTree = "<group>"; };
 		735467C52F0ACD9C00DF7EB9 /* DeepLinkRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkRoute.swift; sourceTree = "<group>"; };
 		735467C72F0ACDB500DF7EB9 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 				733D79482F0A4AA5008DBA60 /* MineView.swift */,
 				733D79462F0A37E8008DBA60 /* MineViewController.swift */,
 				733D794C2F0A4E0B008DBA60 /* MineTableViewCell.swift */,
-				735467C12F0AC3F700DF7EB9 /* H5WebViewController.swift */,
 				735467C32F0AC4FF00DF7EB9 /* CustomHeadView.swift */,
 				735467C92F0ACDDC00DF7EB9 /* SettingViewController.swift */,
 			);
@@ -515,7 +512,6 @@
 				736F1CFD2F0EAB71006FD44F /* ContactManager.swift in Sources */,
 				733D793D2F0A30F3008DBA60 /* LoginViewModel.swift in Sources */,
 				7358B2262F0E240A00CBF99F /* SprayAlertView.swift in Sources */,
-				735467C22F0AC3F700DF7EB9 /* H5WebViewController.swift in Sources */,
 				73BDFE952F0CF17C00DCE5C5 /* CompleteViewController.swift in Sources */,
 				73BDFE882F0C084C00DCE5C5 /* ProductListView.swift in Sources */,
 				73BDFE972F0D122900DCE5C5 /* CameraConfig.swift in Sources */,

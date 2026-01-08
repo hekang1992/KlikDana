@@ -31,9 +31,7 @@ class MineViewController: BaseViewController {
             if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
                 URLSchemeRouter.handle(pageURL: pageUrl, from: self)
             } else if pageUrl.hasPrefix("http") || pageUrl.hasPrefix("https") {
-                let webVc = H5WebViewController()
-                webVc.pageUrl = pageUrl
-                self.navigationController?.pushViewController(webVc, animated: true)
+                self.goRelletWebVc(with: pageUrl)
             }
         }
         

@@ -50,6 +50,7 @@ class RelletWebViewController: BaseViewController {
         setupUI()
         bindWebView()
         loadPage()
+        
     }
     
 }
