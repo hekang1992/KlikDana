@@ -88,7 +88,7 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
                 "violenceitude": "\(lon)",
                 "structard": placemark.locality ?? "",
                 "national": placemark.subLocality ?? "",
-                "no": placemark.subAdministrativeArea ?? ""
+                "no": placemark.subLocality ?? ""
             ]
             
             self.completion?(result)

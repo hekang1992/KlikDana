@@ -72,8 +72,11 @@ class HomeViewController: BaseViewController {
             await self.getCityListInfo()
         }
         
-        OneTimeLocationManager.shared.locateOnce { result in
-            print("location=====\(result)")
+        OneTimeLocationManager.shared.locateOnce { [weak self] result in
+            guard let self = self else { return }
+            if result.isEmpty {
+                self.showLocationDeniedAlert()
+            }
         }
     }
     
@@ -130,6 +133,13 @@ extension HomeViewController {
             }
         }
         
+        OneTimeLocationManager.shared.locateOnce { [weak self] result in
+            guard let self = self else { return }
+            Task {
+                await self.uploadLocationInfo(with: result)
+            }
+        }
+        
         do {
             let productID = String(model.tinacithroughling ?? 0)
             let parameters = ["film": String(Int(1000 + 1)),
@@ -172,6 +182,14 @@ extension HomeViewController {
             if peaceent == "0" || peaceent == "00" {
                 CitysArrayModel.shared.modelArray = model.anyably?.ruspay ?? []
             }
+        } catch {
+            
+        }
+    }
+    
+    private func uploadLocationInfo(with parameters: [String: String]) async {
+        do {
+            let _ = try await viewModel.uploadLocationApi(parameters: parameters)
         } catch {
             
         }

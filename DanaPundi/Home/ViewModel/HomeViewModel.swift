@@ -283,4 +283,14 @@ class HomeViewModel {
         }
     }
     
+    /// upload_location_info
+    func uploadLocationApi(parameters: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/potamosion", parameters: parameters)
+            return model
+        } catch {
+            throw error
+        }
+    }
 }
