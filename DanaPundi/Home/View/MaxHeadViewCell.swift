@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class MaxHeadViewCell: UITableViewCell {
     
@@ -21,6 +23,10 @@ class MaxHeadViewCell: UITableViewCell {
         static let lineViewBottomOffset: CGFloat = 13
         static let sideButtonOffset: CGFloat = 40
     }
+    
+    private let disposeBag = DisposeBag()
+    
+    var cellClickBlock: (() -> Void)?
     
     var model: appearModel? {
         didSet {
@@ -80,6 +86,11 @@ class MaxHeadViewCell: UITableViewCell {
         return view
     }()
     
+    lazy var cellClickBtn: UIButton = {
+        let cellClickBtn = UIButton(type: .custom)
+        return cellClickBtn
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -92,6 +103,7 @@ class MaxHeadViewCell: UITableViewCell {
         bgImageView.addSubview(leftButton)
         bgImageView.addSubview(rightButton)
         bgImageView.addSubview(lineView)
+        bgImageView.addSubview(cellClickBtn)
         bgImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
@@ -148,6 +160,19 @@ class MaxHeadViewCell: UITableViewCell {
             make.centerY.equalTo(lineView)
             make.height.equalTo(16)
         }
+        
+        cellClickBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        cellClickBtn
+            .rx
+            .tap
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.cellClickBlock?()
+            })
+            .disposed(by: disposeBag)
         
     }
     

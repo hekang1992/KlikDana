@@ -35,7 +35,8 @@ class HomeViewController: BaseViewController {
         
         view.addSubview(maxView)
         maxView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalTo(self.view.safeAreaLayoutGuide).inset(5.pix())
+            make.left.right.equalToSuperview()
         }
         
         airView.applyBlock = { [weak self] model in
@@ -58,6 +59,13 @@ class HomeViewController: BaseViewController {
                 await self.homeInfo()
             }
         })
+        
+        maxView.cellClickBlock = { [weak self] model in
+            guard let self = self else { return }
+            Task {
+                await self.cilckProductInfo(with: model)
+            }
+        }
         
         Task {
             await self.getCityListInfo()

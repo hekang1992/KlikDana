@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class MaxBnnViewCell: UITableViewCell {
     
@@ -15,6 +17,10 @@ class MaxBnnViewCell: UITableViewCell {
             guard let model = model else { return }
         }
     }
+    
+    private let disposeBag = DisposeBag()
+    
+    var cellClickBlock: (() -> Void)?
     
     lazy var bgView: UIView = {
         let bgView = UIView()
@@ -32,7 +38,12 @@ class MaxBnnViewCell: UITableViewCell {
         laImageView.image = UIImage(named: "ma_la_bg_image")
         return laImageView
     }()
-
+    
+    lazy var cellClickBtn: UIButton = {
+        let cellClickBtn = UIButton(type: .custom)
+        return cellClickBtn
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -40,6 +51,7 @@ class MaxBnnViewCell: UITableViewCell {
         contentView.addSubview(bgView)
         bgView.addSubview(bgImageView)
         bgImageView.addSubview(laImageView)
+        bgView.addSubview(cellClickBtn)
         bgView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(44.pix())
@@ -54,6 +66,18 @@ class MaxBnnViewCell: UITableViewCell {
             make.left.equalToSuperview().offset(10.pix())
             make.size.equalTo(CGSize(width: 25.pix(), height: 28.pix()))
         }
+        cellClickBtn.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        cellClickBtn
+            .rx
+            .tap
+            .bind(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.cellClickBlock?()
+            })
+            .disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

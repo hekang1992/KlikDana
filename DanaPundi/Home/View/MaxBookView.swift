@@ -20,6 +20,8 @@ class MaxBookView: UIView {
         static let productType = "trainingent"
     }
     
+    var cellClickBlock: ((appearModel) -> Void)?
+    
     var modelArray: [olModel]? {
         didSet {
             tableView.reloadData()
@@ -34,6 +36,7 @@ class MaxBookView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
         
         tableView.register(MaxHeadViewCell.self, forCellReuseIdentifier: Constants.headCellID)
@@ -58,8 +61,7 @@ class MaxBookView: UIView {
     private func setupUI() {
         addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(5.pix())
-            make.left.right.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     
@@ -92,11 +94,19 @@ extension MaxBookView: UITableViewDelegate, UITableViewDataSource {
         if cellType == Constants.headType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.headCellID, for: indexPath) as! MaxHeadViewCell
             cell.model = model
+            cell.cellClickBlock = { [weak self] in
+                guard let self = self, let model = model else { return }
+                self.cellClickBlock?(model)
+            }
             return cell
             
         } else if cellType == Constants.bannerType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.bannerCellID, for: indexPath) as! MaxBnnViewCell
             cell.model = model
+            cell.cellClickBlock = { [weak self] in
+                guard let self = self, let model = model else { return }
+                self.cellClickBlock?(model)
+            }
             return cell
             
         } else if cellType == Constants.productType {
@@ -109,7 +119,8 @@ extension MaxBookView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = modelArray?[indexPath.section].appear?[indexPath.row]
-        ToastManager.showMessage(String(model?.tinacithroughling ?? 0))
+        if let model = modelArray?[indexPath.section].appear?[indexPath.row] {
+            self.cellClickBlock?(model)
+        }
     }
 }
