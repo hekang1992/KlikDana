@@ -123,4 +123,49 @@ extension MaxBookView: UITableViewDelegate, UITableViewDataSource {
             self.cellClickBlock?(model)
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let count = self.modelArray?.count ?? 0
+        if section == count - 1 {
+            return 30.pix()
+        }else {
+            return 0.01.pix()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let count = self.modelArray?.count ?? 0
+        if section == count - 1 {
+            let headView = UIView()
+            
+            let recommendedLabel = UILabel()
+            recommendedLabel.textAlignment = .left
+            recommendedLabel.text = LanguageManager.localizedString(for: "Recommended")
+            recommendedLabel.textColor = UIColor(hexString: "#0054AC")
+            recommendedLabel.font = UIFont.systemFont(ofSize: 16, weight: .black)
+            
+            let productsLabel = UILabel()
+            productsLabel.textAlignment = .left
+            productsLabel.text = LanguageManager.localizedString(for: "Products")
+            productsLabel.textColor = UIColor(hexString: "#0054AC")
+            productsLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            
+            let stackView = UIStackView(arrangedSubviews: [recommendedLabel, productsLabel])
+            stackView.axis = .horizontal
+            stackView.spacing = 4
+            stackView.alignment = .center
+            
+            headView.addSubview(stackView)
+            stackView.snp.makeConstraints { make in
+                make.left.equalToSuperview().offset(20.pix())
+                make.top.equalToSuperview()
+                make.height.equalTo(16.pix())
+            }
+            
+            return headView
+        } else {
+            return nil
+        }
+    }
+    
 }
