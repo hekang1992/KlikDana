@@ -126,8 +126,8 @@ extension BaseViewController {
                 let semaair = model.anyably?.semaair ?? ""
                 if semaair.hasPrefix(DeepLinkRoute.scheme_url) {
                     URLSchemeRouter.handle(pageURL: semaair, from: self)
-                }else if semaair.hasPrefix("http") {
-                    
+                }else if semaair.hasPrefix("http") || semaair.hasPrefix("https") {
+                    self.goRelletWebVc(with: semaair)
                 }
             }
         } catch  {
