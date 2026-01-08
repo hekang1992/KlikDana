@@ -44,6 +44,11 @@ class OrderViewController: BaseViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-20.pix())
         }
         
+        emptyView.onImageTap = { [weak self] in
+            guard let self = self else { return }
+            self.notiRootVc()
+        }
+        
         orderView.typeBlock = { [weak self] type in
             guard let self = self else { return }
             self.type = type

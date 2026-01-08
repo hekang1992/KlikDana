@@ -8,12 +8,21 @@
 import UIKit
 import SnapKit
 
+import UIKit
+import SnapKit
+
 class OrderEmptyView: UIView {
 
+    var onImageTap: (() -> Void)?
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "o_emd_l_image") : UIImage(named: "o_em_l_image")
         bgImageView.contentMode = .scaleAspectFit
+        bgImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        bgImageView.addGestureRecognizer(tap)
+        
         return bgImageView
     }()
     
@@ -21,6 +30,7 @@ class OrderEmptyView: UIView {
         super.init(frame: frame)
         addSubview(bgImageView)
         backgroundColor = .white
+        
         bgImageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 165.pix(), height: 255.pix()))
@@ -31,4 +41,7 @@ class OrderEmptyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func imageTapped() {
+        onImageTap?()
+    }
 }

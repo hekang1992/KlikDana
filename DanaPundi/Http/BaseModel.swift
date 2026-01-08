@@ -47,6 +47,7 @@ class anyablyModel: Codable {
     var ol: [olModel]?
     var octon: octonModel?
     var playeer: playeerModel?
+    var pendenne: String?
 }
 
 class playeerModel: Codable {
