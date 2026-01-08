@@ -10,6 +10,12 @@ import SnapKit
 
 class MaxBnnViewCell: UITableViewCell {
     
+    var model: appearModel? {
+        didSet {
+            guard let model = model else { return }
+        }
+    }
+    
     lazy var bgView: UIView = {
         let bgView = UIView()
         return bgView

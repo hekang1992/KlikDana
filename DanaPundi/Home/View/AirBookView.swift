@@ -22,7 +22,7 @@ class AirBookView: UIView {
         static let labelSpacing: CGFloat = 70
         static let lineViewHeight: CGFloat = 18
         static let lineViewBottomOffset: CGFloat = 13
-        static let sideButtonOffset: CGFloat = 70
+        static let sideButtonOffset: CGFloat = 40
     }
     
     // MARK: - Callbacks
@@ -89,7 +89,7 @@ class AirBookView: UIView {
     )
     
     private lazy var valueLabel: UILabel = createLabel(
-        font: .systemFont(ofSize: 68, weight: .bold),
+        font: .systemFont(ofSize: 60, weight: .bold),
         color: UIColor(hexString: "#3800FF"),
         alignment: .center
     )

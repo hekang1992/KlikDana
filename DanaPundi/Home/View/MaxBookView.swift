@@ -88,22 +88,28 @@ extension MaxBookView: UITableViewDelegate, UITableViewDataSource {
         guard let cellType = getCellType(for: indexPath.section) else {
             return UITableViewCell()
         }
-        
+        let model = modelArray?[indexPath.section].appear?[indexPath.row]
         if cellType == Constants.headType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.headCellID, for: indexPath) as! MaxHeadViewCell
+            cell.model = model
             return cell
             
         } else if cellType == Constants.bannerType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.bannerCellID, for: indexPath) as! MaxBnnViewCell
-            cell.textLabel?.text = "\(indexPath.section)-\(indexPath.row)"
+            cell.model = model
             return cell
             
         } else if cellType == Constants.productType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.productCellID, for: indexPath) as! MaxProductViewCell
-            cell.textLabel?.text = "\(indexPath.section)-\(indexPath.row)"
+            cell.model = model
             return cell
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = modelArray?[indexPath.section].appear?[indexPath.row]
+        ToastManager.showMessage(String(model?.tinacithroughling ?? 0))
     }
 }

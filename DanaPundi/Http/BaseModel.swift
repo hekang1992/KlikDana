@@ -87,6 +87,7 @@ class appearModel: Codable {
     var parthenose: String?
     var overitor: String?
     var base: String?
+    var auriroomfy: String?
 }
 
 class amorModel: Codable {
