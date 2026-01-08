@@ -10,6 +10,7 @@ import WebKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import StoreKit
 
 class RelletWebViewController: BaseViewController {
     
@@ -176,22 +177,60 @@ extension RelletWebViewController {
     }
     
     private func handleArchacreateice(_ body: Any) {
-        print("处理 archacreateice")
+        guard let pageUrl = body as? String, !pageUrl.isEmpty else { return }
+        self.goPageUrl(with: pageUrl)
     }
     
     private func handleEgriness(_ body: Any) {
-        print("处理 egriness")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     private func handleXyl(_ body: Any) {
-        print("处理 xyl")
+        self.notiRootVc()
     }
     
     private func handlePastdom(_ body: Any) {
-        print("处理 pastdom")
+        guard let email = body as? String, !email.isEmpty else { return }
+        sendEmailInfo(with: email)
     }
     
     private func handleBetweenot(_ body: Any) {
-        print("处理 betweenot")
+        self.toAppStore()
+    }
+}
+
+extension RelletWebViewController {
+    
+    func toAppStore() {
+        guard #available(iOS 14.0, *),
+              let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        SKStoreReviewController.requestReview(in: windowScene)
+    }
+    
+    func sendEmailInfo(with email: String) {
+        let phone = SaveLoginInfo.getPhone() ?? ""
+        let body = "Dana Pundi: \(phone)"
+        
+        guard let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let emailURL = URL(string: "mailto:\(email)?body=\(encodedBody)"),
+              UIApplication.shared.canOpenURL(emailURL) else {
+            return
+        }
+        
+        UIApplication.shared.open(emailURL, options: [:], completionHandler: nil)
+    }
+    
+    func goPageUrl(with pageUrl: String) {
+        if pageUrl.isEmpty {
+            return
+        }
+        if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+            URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+        } else if pageUrl.hasPrefix("http") || pageUrl.hasPrefix("https") {
+            self.pageUrl = pageUrl
+            loadPage()
+        }
     }
 }
