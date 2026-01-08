@@ -2,7 +2,7 @@
 //  CleanTableViewCell.swift
 //  DanaPundi
 //
-//  Created by hekang on 2026/1/7.
+//  Created by Ethan Carter on 2026/1/7.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  DeepLinkRoute.swift
 //  DanaPundi
 //
-//  Created by hekang on 2026/1/5.
+//  Created by Ethan Carter on 2026/1/5.
 //
 
 
@@ -45,14 +45,17 @@ class URLSchemeRouter: NSObject {
         
         switch route.path {
         case "theyfaction":
-            break
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
+            )
             
         case "bagably":
             let settingVc = SettingViewController()
             vc.navigationController?.pushViewController(settingVc, animated: true)
             
         case "aphive":
-            break
+            SaveLoginInfo.deleteLoginInfo()
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
+            )
             
         case "beacity":
             break
