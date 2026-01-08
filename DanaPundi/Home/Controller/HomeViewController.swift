@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import CoreLocation
 
 class HomeViewController: BaseViewController {
     
@@ -70,6 +71,10 @@ class HomeViewController: BaseViewController {
         Task {
             await self.getCityListInfo()
         }
+        
+        OneTimeLocationManager.shared.locateOnce { result in
+            print("location=====\(result)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +121,15 @@ extension HomeViewController {
     }
     
     private func cilckProductInfo(with model: appearModel) async {
+        
+        if LanguageManager.currentLanguage == .id {
+            let status = CLLocationManager().authorizationStatus
+            if status != .authorizedAlways && status != .authorizedWhenInUse  {
+                self.showLocationDeniedAlert()
+                return
+            }
+        }
+        
         do {
             let productID = String(model.tinacithroughling ?? 0)
             let parameters = ["film": String(Int(1000 + 1)),
@@ -160,6 +174,30 @@ extension HomeViewController {
             }
         } catch {
             
+        }
+    }
+    
+}
+
+extension HomeViewController {
+    
+    func showLocationDeniedAlert() {
+        DispatchQueue.main.async {
+            
+            let alert = UIAlertController(
+                title: "定位权限已关闭",
+                message: "请在系统设置中开启定位权限，否则无法获取位置信息。",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+            
+            alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+                guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                UIApplication.shared.open(url)
+            })
+            
+            self.present(alert, animated: true)
         }
     }
     

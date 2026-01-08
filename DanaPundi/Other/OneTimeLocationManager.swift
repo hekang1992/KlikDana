@@ -35,7 +35,7 @@ final class OneTimeLocationManager: NSObject {
             locationManager.requestLocation()
             
         case .denied, .restricted:
-            showLocationDeniedAlert()
+            //            showLocationDeniedAlert()
             completion([:])
             self.completion = nil
             
@@ -53,7 +53,7 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             manager.requestLocation()
         } else if status == .denied || status == .restricted {
-            showLocationDeniedAlert()
+            //            showLocationDeniedAlert()
             completion?([:])
             completion = nil
         }
@@ -94,58 +94,6 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
             self.completion?(result)
             self.completion = nil
         }
-    }
-}
-
-private extension OneTimeLocationManager {
-    
-    func showLocationDeniedAlert() {
-        DispatchQueue.main.async {
-            guard let topVC = UIApplication.shared.topViewController() else { return }
-            
-            let alert = UIAlertController(
-                title: "定位权限已关闭",
-                message: "请在系统设置中开启定位权限，否则无法获取位置信息。",
-                preferredStyle: .alert
-            )
-            
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-            
-            alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
-                guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-                UIApplication.shared.open(url)
-            })
-            
-            topVC.present(alert, animated: true)
-        }
-    }
-}
-
-extension UIApplication {
-    
-    func topViewController(
-        base: UIViewController? = UIApplication.shared
-            .connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .flatMap { $0.windows }
-            .first { $0.isKeyWindow }?
-            .rootViewController
-    ) -> UIViewController? {
-        
-        if let nav = base as? UINavigationController {
-            return topViewController(base: nav.visibleViewController)
-        }
-        
-        if let tab = base as? UITabBarController,
-           let selected = tab.selectedViewController {
-            return topViewController(base: selected)
-        }
-        
-        if let presented = base?.presentedViewController {
-            return topViewController(base: presented)
-        }
-        
-        return base
     }
 }
 

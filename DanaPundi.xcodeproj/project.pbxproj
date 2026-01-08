@@ -330,13 +330,13 @@
 		733C90002F09F0F700793D28 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7332D8542F0FB10E005793E1 /* OneTimeLocationManager.swift */,
 				735467C52F0ACD9C00DF7EB9 /* DeepLinkRoute.swift */,
 				733D79402F0A328B008DBA60 /* LaunchUtils.swift */,
 				733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */,
 				733D792C2F0A16E9008DBA60 /* RequestParamBuilder.swift */,
 				733D792A2F0A16BC008DBA60 /* IDFVManager.swift */,
 				733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */,
+				7332D8542F0FB10E005793E1 /* OneTimeLocationManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
