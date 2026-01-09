@@ -48,6 +48,16 @@ class anyablyModel: Codable {
     var octon: octonModel?
     var playeer: playeerModel?
     var pendenne: String?
+    var treat: treatModel?
+}
+
+class treatModel: Codable {
+    var plasee: [plaseeModel]?
+}
+
+class plaseeModel: Codable {
+    var plinthacy: String?
+    var semaair: String?
 }
 
 class playeerModel: Codable {

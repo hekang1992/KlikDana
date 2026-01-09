@@ -220,6 +220,11 @@ extension SettingViewController {
             self.dismiss(animated: true)
         }
         
+        popView.cBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
         popView.leaveBlock = { [weak self] in
             guard let self = self else { return }
             Task {

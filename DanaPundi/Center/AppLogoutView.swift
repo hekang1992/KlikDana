@@ -18,6 +18,8 @@ class AppLogoutView: UIView {
     
     var leaveBlock: (() -> Void)?
     
+    var cBlock: (() -> Void)?
+    
     private enum Constants {
         static let bgImageSize = CGSize(width: 295, height: 393)
         static let cancelButtonSize: CGFloat = 30
@@ -102,7 +104,7 @@ class AppLogoutView: UIView {
             .tap
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.cancelBlock?()
+                self.cBlock?()
             })
             .disposed(by: disposeBag)
         

@@ -10,6 +10,7 @@ import SnapKit
 import MJRefresh
 import CoreLocation
 import FBSDKCoreKit
+import TYAlertController
 
 class HomeViewController: BaseViewController {
     
@@ -176,7 +177,39 @@ extension HomeViewController {
                 }else if pageUrl.hasPrefix("http") {
                     self.goRelletWebVc(with: pageUrl)
                 }else {
-                    self.goProductVc(with: productID)
+//                    self.goProductVc(with: productID)
+                    let listModel = model.anyably?.treat?.plasee ?? []
+                    
+                    let popView = AppLogoutView(frame: self.view.bounds)
+                    popView.backgroundImageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "f_id_en_image") : UIImage(named: "f_d_en_image")
+                    let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+                    self.present(alertVc!, animated: true)
+                    
+                    /// cancel
+                    popView.cancelBlock = { [weak self] in
+                        guard let self = self else { return }
+                        self.dismiss(animated: true)
+                    }
+                    
+                    /// apply
+                    popView.cBlock = { [weak self] in
+                        guard let self = self else { return }
+                        self.dismiss(animated: true) {
+                            let pageUrl = listModel.first?.semaair ?? ""
+                            self.goRelletWebVc(with: pageUrl)
+                        }
+                    }
+                    
+                    /// detail
+                    popView.leaveBlock = { [weak self] in
+                        guard let self = self else { return }
+                        self.dismiss(animated: true) {
+                            let pageUrl = listModel.last?.semaair ?? ""
+                            if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+                                URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+                            }
+                        }
+                    }
                 }
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
