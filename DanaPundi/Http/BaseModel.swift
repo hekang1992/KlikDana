@@ -107,6 +107,8 @@ class appearModel: Codable {
     var overitor: String?
     var base: String?
     var auriroomfy: String?
+    var cubage: String?
+    var semaair: String?
 }
 
 class amorModel: Codable {

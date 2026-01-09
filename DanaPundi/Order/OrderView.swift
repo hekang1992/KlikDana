@@ -44,7 +44,7 @@ class OrderView: UIView {
         let oneBtn = UIButton(type: .custom)
         oneBtn.setTitle(LanguageManager.localizedString(for: "All"), for: .normal)
         oneBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
-        oneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        oneBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         oneBtn.setBackgroundImage(UIImage(named: "oc_one_imge"), for: .normal)
         oneBtn.tag = 0
         oneBtn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -55,7 +55,7 @@ class OrderView: UIView {
         let twoBtn = UIButton(type: .custom)
         twoBtn.setTitle(LanguageManager.localizedString(for: "Applying"), for: .normal)
         twoBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
-        twoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        twoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         twoBtn.setBackgroundImage(UIImage(named: "oc_two_imge"), for: .normal)
         twoBtn.tag = 1
         twoBtn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -66,7 +66,7 @@ class OrderView: UIView {
         let threeBtn = UIButton(type: .custom)
         threeBtn.setTitle(LanguageManager.localizedString(for: "Repayment"), for: .normal)
         threeBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
-        threeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        threeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         threeBtn.setBackgroundImage(UIImage(named: "oc_three_imge"), for: .normal)
         threeBtn.tag = 2
         threeBtn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
@@ -77,7 +77,7 @@ class OrderView: UIView {
         let fourBtn = UIButton(type: .custom)
         fourBtn.setTitle(LanguageManager.localizedString(for: "Finish"), for: .normal)
         fourBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
-        fourBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        fourBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         fourBtn.setBackgroundImage(UIImage(named: "oc_four_imge"), for: .normal)
         fourBtn.tag = 3
         fourBtn.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)

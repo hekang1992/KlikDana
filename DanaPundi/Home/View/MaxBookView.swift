@@ -22,6 +22,8 @@ class MaxBookView: UIView {
     
     var cellClickBlock: ((appearModel) -> Void)?
     
+    var cellBannerClickBlock: ((appearModel) -> Void)?
+    
     var modelArray: [olModel]? {
         didSet {
             tableView.reloadData()
@@ -102,10 +104,10 @@ extension MaxBookView: UITableViewDelegate, UITableViewDataSource {
             
         } else if cellType == Constants.bannerType {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.bannerCellID, for: indexPath) as! MaxBnnViewCell
-            cell.model = model
-            cell.cellClickBlock = { [weak self] in
-                guard let self = self, let model = model else { return }
-                self.cellClickBlock?(model)
+            cell.modelArray = modelArray?[indexPath.section].appear
+            cell.cellClickBlock = { [weak self] listModel in
+                guard let self = self else { return }
+                self.cellBannerClickBlock?(listModel)
             }
             return cell
             

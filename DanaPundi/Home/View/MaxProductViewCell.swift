@@ -51,7 +51,7 @@ class MaxProductViewCell: UITableViewCell {
         let moneyLabel = UILabel()
         moneyLabel.textAlignment = .left
         moneyLabel.textColor = UIColor.init(hexString: "#3800FF")
-        moneyLabel.font = UIFont.systemFont(ofSize: 32, weight: UIFont.Weight(700))
+        moneyLabel.font = UIFont.systemFont(ofSize: 28, weight: UIFont.Weight(700))
         return moneyLabel
     }()
     
@@ -73,7 +73,7 @@ class MaxProductViewCell: UITableViewCell {
         let applyLabel = UILabel()
         applyLabel.textAlignment = .center
         applyLabel.textColor = UIColor.init(hexString: "#FFFFFF")
-        applyLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(700))
+        applyLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return applyLabel
     }()
 

@@ -72,6 +72,18 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        maxView.cellBannerClickBlock = { [weak self] model in
+            guard let self = self else { return }
+            let pageUrl = model.semaair ?? ""
+            if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+                URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+            }else if pageUrl.hasPrefix("http") || pageUrl.hasPrefix("https") {
+                self.goRelletWebVc(with: pageUrl)
+            }else {
+                
+            }
+        }
+        
         Task {
             await self.getCityListInfo()
             await self.toIDFAInfo()
@@ -116,6 +128,9 @@ extension HomeViewController {
                         self.maxView.modelArray = modelArray
                     }
                 }
+            }else if peaceent == "-2" {
+                SaveLoginInfo.deleteLoginInfo()
+                self.notiRootVc()
             }
             await MainActor.run {
                 self.airView.scrollView.mj_header?.endRefreshing()
@@ -211,6 +226,9 @@ extension HomeViewController {
                         }
                     }
                 }
+            }else if peaceent == "-2" {
+                SaveLoginInfo.deleteLoginInfo()
+                self.notiRootVc()
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
             }

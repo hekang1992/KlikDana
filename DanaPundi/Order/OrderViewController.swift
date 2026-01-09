@@ -101,6 +101,9 @@ extension OrderViewController {
                 }
                 self.orderView.modelArray = modelArray
                 self.orderView.tableView.reloadData()
+            }else if peaceent == "-2" {
+                SaveLoginInfo.deleteLoginInfo()
+                self.notiRootVc()
             }
             await self.orderView.tableView.mj_header?.endRefreshing()
         } catch {

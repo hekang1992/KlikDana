@@ -62,6 +62,9 @@ extension MineViewController {
             if peaceent == "0" || peaceent == "00" {
                 let listArray = model.anyably?.pharmacivity ?? []
                 self.mineView.listArray = listArray
+            }else if peaceent == "-2" {
+                SaveLoginInfo.deleteLoginInfo()
+                self.notiRootVc()
             }
             self.mineView.tableView.reloadData()
             await self.mineView.tableView.mj_header?.endRefreshing()
