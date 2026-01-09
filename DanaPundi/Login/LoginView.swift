@@ -65,10 +65,10 @@ class LoginView: UIView {
         phoneTx.keyboardType = .numberPad
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Enter your number"), attributes: [
             .foregroundColor: UIColor.init(hexString: "#666666") as Any,
-            .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(400))
+            .font: UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         ])
         phoneTx.attributedPlaceholder = attrString
-        phoneTx.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(600))
+        phoneTx.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(600))
         phoneTx.textColor = UIColor.init(hexString: "#000000")
         phoneTx.leftView = UIView(frame: CGRectMake(0, 0, 15, 10))
         phoneTx.leftViewMode = .always
@@ -105,10 +105,10 @@ class LoginView: UIView {
         codeTx.keyboardType = .numberPad
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please enter"), attributes: [
             .foregroundColor: UIColor.init(hexString: "#666666") as Any,
-            .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(400))
+            .font: UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         ])
         codeTx.attributedPlaceholder = attrString
-        codeTx.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(600))
+        codeTx.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(600))
         codeTx.textColor = UIColor.init(hexString: "#000000")
         codeTx.leftView = UIView(frame: CGRectMake(0, 0, 15, 10))
         codeTx.leftViewMode = .always

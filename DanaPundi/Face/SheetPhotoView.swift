@@ -80,6 +80,12 @@ class SheetPhotoView: UIView {
         return button
     }()
     
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setBackgroundImage(UIImage(named: "fork_c_image"), for: .normal)
+        return button
+    }()
+    
     private lazy var titleLabel: UILabel = {
         createLabel(
             text: LanguageManager.localizedString(for: "Identity information"),
@@ -160,6 +166,7 @@ class SheetPhotoView: UIView {
     
     private func setupUI() {
         addSubview(backgroundImageView)
+        addSubview(cancelButton)
         
         backgroundImageView.addSubview(titleLabel)
         backgroundImageView.addSubview(confirmButton)
@@ -251,20 +258,33 @@ class SheetPhotoView: UIView {
         datePickerButton.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        cancelButton.snp.makeConstraints { make in
+            make.top.equalTo(backgroundImageView.snp.bottom).offset(20.pix())
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 34.pix(), height: 34.pix()))
+        }
     }
     
     private func bindActions() {
         // Confirm Button Action
         confirmButton.rx.tap
-            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 self?.sureBlock?()
             })
             .disposed(by: disposeBag)
         
+        cancelButton.rx.tap
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
+            .bind(onNext: { [weak self] in
+                self?.cancelBlock?()
+            })
+            .disposed(by: disposeBag)
+        
         // Date Picker Button Action
         datePickerButton.rx.tap
-            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(300), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 self?.showDatePicker()
             })

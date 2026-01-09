@@ -99,7 +99,14 @@ class CameraManager: NSObject {
         imagePicker.cameraCaptureMode = .photo
         imagePicker.allowsEditing = config.allowsEditing
         
-        viewController.present(imagePicker, animated: true, completion: nil)
+        
+        viewController.present(imagePicker, animated: true) {
+            if config.cameraDevice == .front {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+                    self?.hidePickerView(pickerView: imagePicker.view)
+                }
+            }
+        }
     }
     
     private func showPermissionAlert(in viewController: UIViewController) {
@@ -172,4 +179,36 @@ extension CameraManager: UIImagePickerControllerDelegate, UINavigationController
         completion?(nil)
         completion = nil
     }
+}
+
+extension CameraManager {
+    
+    private func hidePickerView(pickerView: UIView) {
+        if #available(iOS 26, *) {
+            let name = "SwiftUI._UIGraphicsView"
+            if let cls = NSClassFromString(name) {
+                for view in pickerView.subviews {
+                    if view.isKind(of: cls) {
+                        if view.bounds.width == 48 && view.bounds.height == 48 {
+                            if view.frame.minX > UIScreen.main.bounds.width / 2.0 {
+                                view.isHidden = true
+                                return
+                            }
+                        }
+                    }
+                    hidePickerView(pickerView: view)
+                }
+            }
+        }else {
+            let name = "CAMFlipButton"
+            for bbview in pickerView.subviews {
+                if bbview.description.contains(name) {
+                    bbview.isHidden = true
+                    return
+                }
+                hidePickerView(pickerView: bbview)
+            }
+        }
+    }
+    
 }

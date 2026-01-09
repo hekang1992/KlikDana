@@ -15,7 +15,6 @@ final class APIRequestBuilder {
     }
 }
 
-
 extension String {
     
     func appendingCommonParams(_ params: [String: Any]) -> String? {

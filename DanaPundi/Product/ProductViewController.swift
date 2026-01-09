@@ -73,7 +73,7 @@ class ProductViewController: BaseViewController {
         let moneyLabel = UILabel()
         moneyLabel.textAlignment = .left
         moneyLabel.textColor = UIColor.init(hexString: "#FFFFFF")
-        moneyLabel.font = UIFont.systemFont(ofSize: 48, weight: .bold)
+        moneyLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return moneyLabel
     }()
     
@@ -167,7 +167,7 @@ extension ProductViewController {
         aImageView.addSubview(lockLabel)
         descLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(34.pix())
-            make.left.equalToSuperview().offset(25.pix())
+            make.left.equalToSuperview().offset(20.pix())
             make.height.equalTo(16.pix())
         }
         moneyLabel.snp.makeConstraints { make in

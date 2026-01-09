@@ -97,29 +97,27 @@ class DeviceInfoManager {
         }
     }
     
-    private func getMemoryInfo() -> (total: UInt64, free: UInt64) {
-        var totalMemory: UInt64 = 0
-        var freeMemory: UInt64 = 0
+    func getMemoryInfoString() -> (total: String, free: String) {
+        let totalMemory = ProcessInfo.processInfo.physicalMemory
+        var vmStats = vm_statistics64_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout.size(ofValue: vmStats) / MemoryLayout<integer_t>.size)
         
-        var size = MemoryLayout<UInt64>.size
-        sysctlbyname("hw.memsize", &totalMemory, &size, nil, 0)
-        
-        var vmStats = vm_statistics64()
-        var count = mach_msg_type_number_t(MemoryLayout<vm_statistics64>.size) / 4
-        
-        let hostPort = mach_host_self()
-        let status = withUnsafeMutablePointer(to: &vmStats) {
-            $0.withMemoryRebound(to: integer_t.self, capacity: 1) {
-                host_statistics64(hostPort, HOST_VM_INFO64, $0, &count)
+        let result = withUnsafeMutablePointer(to: &vmStats) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+                host_statistics64(mach_host_self(), HOST_VM_INFO64, $0, &count)
             }
         }
         
-        if status == KERN_SUCCESS {
+        var freeMemory: UInt64 = 0
+        if result == KERN_SUCCESS {
             let pageSize = UInt64(vm_kernel_page_size)
-            freeMemory = UInt64(vmStats.free_count) * pageSize
+            freeMemory = UInt64(vmStats.free_count + vmStats.inactive_count) * pageSize
         }
         
-        return (totalMemory, freeMemory)
+        return (
+            total: "\(totalMemory)",
+            free: "\(freeMemory)"
+        )
     }
     
     private func getBatteryInfo() -> (level: Int, isCharging: Int) {
@@ -311,7 +309,7 @@ class DeviceInfoManager {
             
             let storageInfo = self.getStorageInfo()
             
-            let memoryInfo = self.getMemoryInfo()
+            let memoryInfo = self.getMemoryInfoString()
             
             let batteryInfo = self.getBatteryInfo()
             

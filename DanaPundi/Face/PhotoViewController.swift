@@ -248,6 +248,11 @@ extension PhotoViewController {
                 await self.saveUserInfo(with: popView)
             }
         }
+        
+        popView.cancelBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
     }
     
     private func saveUserInfo(with listView: SheetPhotoView) async {
