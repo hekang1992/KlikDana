@@ -57,4 +57,17 @@
 "Confirming" = "Mengonfirmasi";
 "Select Date" = "Pemilihan tanggal";
 "Cancel" = "Batal";
+"Go to settings" = "Pergi ke pengaturan";
 "OK" = "OKE";
+
+"Location Permission" = "Izin Lokasi";
+"Camera Permission" = "Izin Kamera";
+"Contacts Permission" = "Izin Kontak";
+
+"NSLocationWhenInUseUsageDescription" = "Dana Pundi meminta izin lokasi untuk mencapai pencocokan presisi antara layanan dan kebutuhan. Setelah sistem memperoleh informasi lokasi Anda, sistem akan secara cerdas mengirimkan produk pinjaman yang sesuai dan layanan eksklusif yang disesuaikan dengan kondisi aktual Anda, sehingga mencapai keselarasan tinggi antara layanan platform dan kebutuhan pengguna.";
+
+"NSCameraUsageDescription" = "Pada tahap kunci pemrosesan bisnis, Dana Pundi meminta izin kamera untuk menyelesaikan proses verifikasi identitas secara efisien. Metode verifikasi identitas melalui pengambilan foto ini menggantikan cara pengisian data manual tradisional, yang tidak hanya secara signifikan meningkatkan efisiensi keseluruhan pemrosesan bisnis, tetapi juga sangat mempersingkat siklus tinjauan.";
+
+"NSUserTrackingUsageDescription" = "Dana Pundi meminta izin IDFA, dengan tujuan inti untuk mengirimkan layanan eksklusif yang disesuaikan untuk Anda. Dengan dukungan izin ini, platform dapat mencapai pengiriman konten yang presisi. Pada saat yang sama, platform akan menerapkan langkah enkripsi berintensitas tinggi untuk informasi pengguna, demi membangun benteng yang kokoh untuk keamanan privasi Anda di semua aspek.";
+
+"NSContactsUsageDescription" = "Untuk menyelesaikan verifikasi identitas dan mengidentifikasi risiko potensial, Dana Pundi meminta izin akses ke buku kontak. Dengan dukungan izin ini, kemajuan bisnis pinjaman akan didukung oleh landasan yang kokoh. Ini tidak hanya memperkuat kemampuan perlindungan keamanan akun, tetapi juga mencapai tujuan ganda antara kelancaran pengembangan bisnis dan pengendalian keamanan.";

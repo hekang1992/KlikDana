@@ -211,7 +211,7 @@ extension LoginViewController {
                     let pacho = model.anyably?.pacho ?? ""
                     SaveLoginInfo.saveLoginInfo(phone: radiwise, token: pacho)
                     try? await Task.sleep(nanoseconds: 250_000_000)
-                    self.notiRootVc()
+                    self.notiRootVc(with: "0")
                 }
             } catch {
                 

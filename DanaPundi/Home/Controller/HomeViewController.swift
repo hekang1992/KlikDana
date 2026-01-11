@@ -92,7 +92,9 @@ class HomeViewController: BaseViewController {
         locationManager.locateOnce { [weak self] result in
             guard let self = self else { return }
             if result.isEmpty {
-                self.showLocationDeniedAlert()
+                if languageCode == .id {
+                    self.showLocationDeniedAlert()
+                }
             }
         }
         
@@ -130,7 +132,7 @@ extension HomeViewController {
                 }
             }else if peaceent == "-2" {
                 SaveLoginInfo.deleteLoginInfo()
-                self.notiRootVc()
+                self.notiRootVc(with: "0")
             }
             await MainActor.run {
                 self.airView.scrollView.mj_header?.endRefreshing()
@@ -192,43 +194,46 @@ extension HomeViewController {
                 }else if pageUrl.hasPrefix("http") {
                     self.goRelletWebVc(with: pageUrl)
                 }else {
-//                    self.goProductVc(with: productID)
-                    let listModel = model.anyably?.treat?.plasee ?? []
-                    
-                    let popView = AppLogoutView(frame: self.view.bounds)
-                    popView.backgroundImageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "f_id_en_image") : UIImage(named: "f_d_en_image")
-                    let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
-                    self.present(alertVc!, animated: true)
-                    
-                    /// cancel
-                    popView.cancelBlock = { [weak self] in
-                        guard let self = self else { return }
-                        self.dismiss(animated: true)
-                    }
-                    
-                    /// apply
-                    popView.cBlock = { [weak self] in
-                        guard let self = self else { return }
-                        self.dismiss(animated: true) {
-                            let pageUrl = listModel.first?.semaair ?? ""
-                            self.goRelletWebVc(with: pageUrl)
+                    if languageCode == .id {
+                        let listModel = model.anyably?.treat?.plasee ?? []
+                        
+                        let popView = AppLogoutView(frame: self.view.bounds)
+                        popView.backgroundImageView.image = LanguageManager.currentLanguage == .id ? UIImage(named: "f_id_en_image") : UIImage(named: "f_d_en_image")
+                        let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+                        self.present(alertVc!, animated: true)
+                        
+                        /// cancel
+                        popView.cancelBlock = { [weak self] in
+                            guard let self = self else { return }
+                            self.dismiss(animated: true)
                         }
-                    }
-                    
-                    /// detail
-                    popView.leaveBlock = { [weak self] in
-                        guard let self = self else { return }
-                        self.dismiss(animated: true) {
-                            let pageUrl = listModel.last?.semaair ?? ""
-                            if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
-                                URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+                        
+                        /// apply
+                        popView.cBlock = { [weak self] in
+                            guard let self = self else { return }
+                            self.dismiss(animated: true) {
+                                let pageUrl = listModel.first?.semaair ?? ""
+                                self.goRelletWebVc(with: pageUrl)
                             }
                         }
+                        
+                        /// detail
+                        popView.leaveBlock = { [weak self] in
+                            guard let self = self else { return }
+                            self.dismiss(animated: true) {
+                                let pageUrl = listModel.last?.semaair ?? ""
+                                if pageUrl.hasPrefix(DeepLinkRoute.scheme_url) {
+                                    URLSchemeRouter.handle(pageURL: pageUrl, from: self)
+                                }
+                            }
+                        }
+                    }else {
+                        self.goProductVc(with: productID)
                     }
                 }
             }else if peaceent == "-2" {
                 SaveLoginInfo.deleteLoginInfo()
-                self.notiRootVc()
+                self.notiRootVc(with: "0")
             }else {
                 ToastManager.showMessage(model.cubage ?? "")
             }
@@ -348,14 +353,14 @@ extension HomeViewController {
         DispatchQueue.main.async {
             
             let alert = UIAlertController(
-                title: "定位权限已关闭",
-                message: "请在系统设置中开启定位权限，否则无法获取位置信息。",
+                title: LanguageManager.localizedString(for: "Location Permission"),
+                message: LanguageManager.localizedString(for: "NSLocationWhenInUseUsageDescription"),
                 preferredStyle: .alert
             )
             
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
             
-            alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to  settings"), style: .default) { _ in
                 guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(url)
             })

@@ -225,6 +225,8 @@ extension WorkViewController {
         let style = BRPickerStyle()
         style.rowHeight = 44
         style.language = "en"
+        style.doneBtnTitle = LanguageManager.localizedString(for: "OK")
+        style.cancelBtnTitle = LanguageManager.localizedString(for: "Cancel")
         let themeColor = UIColor(hexString: "#3800FF")
         style.doneTextColor = themeColor
         style.selectRowTextColor = themeColor

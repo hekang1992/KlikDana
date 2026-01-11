@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  DanaPundi
+
+  Created by hekang on 2026/1/11.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Dana Pundi meminta izin lokasi untuk mencapai pencocokan presisi antara layanan dan kebutuhan. Setelah sistem memperoleh informasi lokasi Anda, sistem akan secara cerdas mengirimkan produk pinjaman yang sesuai dan layanan eksklusif yang disesuaikan dengan kondisi aktual Anda, sehingga mencapai keselarasan tinggi antara layanan platform dan kebutuhan pengguna.";
+
+"NSCameraUsageDescription" = "Dana Pundi requests IDFA permission, with the core purpose of pushing customized exclusive services for you. With the support of this permission, the platform can achieve precise delivery of content. At the same time, it will adopt high-intensity encryption measures for user information to build a solid barrier for your privacy security in all aspects.";
+
+"NSUserTrackingUsageDescription" = "Dana Pundi meminta izin IDFA, dengan tujuan inti untuk mengirimkan layanan eksklusif yang disesuaikan untuk Anda. Dengan dukungan izin ini, platform dapat mencapai pengiriman konten yang presisi. Pada saat yang sama, platform akan menerapkan langkah enkripsi berintensitas tinggi untuk informasi pengguna, demi membangun benteng yang kokoh untuk keamanan privasi Anda di semua aspek.";
+
+"NSContactsUsageDescription" = "Untuk menyelesaikan verifikasi identitas dan mengidentifikasi risiko potensial, Dana Pundi meminta izin akses ke buku kontak. Dengan dukungan izin ini, kemajuan bisnis pinjaman akan didukung oleh landasan yang kokoh. Ini tidak hanya memperkuat kemampuan perlindungan keamanan akun, tetapi juga mencapai tujuan ganda antara kelancaran pengembangan bisnis dan pengendalian keamanan.";

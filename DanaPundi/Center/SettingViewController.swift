@@ -245,7 +245,7 @@ extension SettingViewController {
             if peaceent == "0" || peaceent == "00" {
                 self.dismiss(animated: true) {
                     SaveLoginInfo.deleteLoginInfo()
-                    self.notiRootVc()
+                    self.notiRootVc(with: "0")
                 }
             }
         } catch {
@@ -261,7 +261,7 @@ extension SettingViewController {
             if peaceent == "0" || peaceent == "00" {
                 self.dismiss(animated: true) {
                     SaveLoginInfo.deleteLoginInfo()
-                    self.notiRootVc()
+                    self.notiRootVc(with: "0")
                 }
             }
         } catch {

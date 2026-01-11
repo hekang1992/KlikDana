@@ -132,13 +132,13 @@ class ContactManager: NSObject {
     
     private func showPermissionDeniedAlert() {
         let alert = UIAlertController(
-            title: "需要通讯录权限",
-            message: "请前往设置允许访问通讯录以选择联系人",
+            title: LanguageManager.localizedString(for: "Contacts Permission"),
+            message: LanguageManager.localizedString(for: "NSContactsUsageDescription"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "前往设置", style: .default) { _ in
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to settings"), style: .default) { _ in
             self.openAppSettings()
         })
         

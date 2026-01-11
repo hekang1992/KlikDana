@@ -22,7 +22,7 @@ class AirBookView: UIView {
         static let labelSpacing: CGFloat = 70
         static let lineViewHeight: CGFloat = 18
         static let lineViewBottomOffset: CGFloat = 13
-        static let sideButtonOffset: CGFloat = 40
+        static let sideButtonOffset: CGFloat = 70
     }
     
     // MARK: - Callbacks
@@ -65,6 +65,11 @@ class AirBookView: UIView {
         "max_home_b_image" : "home_b_head_image"
         imageView.image = UIImage(named: imageName)
         
+        imageView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleImageTap))
+        imageView.addGestureRecognizer(tapGesture)
+        
         return imageView
     }()
     
@@ -105,7 +110,7 @@ class AirBookView: UIView {
     }()
     
     private lazy var leftButton: UIButton = createSideButton(imageName: "le_h_image")
-    private lazy var rightButton: UIButton = createSideButton(imageName: "le_h_image")
+    private lazy var rightButton: UIButton = createSideButton(imageName: "ri_h_image")
     
     // Separator Line
     private lazy var lineView: UIView = {
@@ -172,6 +177,12 @@ class AirBookView: UIView {
                 self.applyBlock?(model)
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func handleImageTap() {
+        if let model = self.model {
+            self.applyBlock?(model)
+        }
     }
     
     // MARK: - Constraint Setup Methods
@@ -261,13 +272,15 @@ class AirBookView: UIView {
         }
         
         leftButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Constants.sideButtonOffset.pix())
+            make.right.equalTo(lineView.snp.left)
+            make.left.equalToSuperview().offset(30.pix())
             make.centerY.equalTo(lineView)
             make.height.equalTo(16)
         }
         
         rightButton.snp.makeConstraints { make in
-            make.left.equalTo(lineView.snp.right).offset(44.pix())
+            make.left.equalTo(lineView.snp.right)
+            make.right.equalToSuperview().offset(-30.pix())
             make.centerY.equalTo(lineView)
             make.height.equalTo(16)
         }

@@ -106,14 +106,14 @@ extension CustomTabBarController: UITabBarControllerDelegate {
         DispatchQueue.main.async {
             
             let alert = UIAlertController(
-                title: "定位权限已关闭",
-                message: "请在系统设置中开启定位权限，否则无法获取位置信息。",
+                title: LanguageManager.localizedString(for: "Location Permission"),
+                message: LanguageManager.localizedString(for: "NSLocationWhenInUseUsageDescription"),
                 preferredStyle: .alert
             )
             
-            alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
             
-            alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to  settings"), style: .default) { _ in
                 guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(url)
             })

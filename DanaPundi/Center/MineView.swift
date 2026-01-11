@@ -68,7 +68,7 @@ class MineView: UIView {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.centerX.equalToSuperview()
-            make.width.equalTo(375)
+            make.width.equalTo(375.pix())
             make.bottom.equalToSuperview()
         }
     }

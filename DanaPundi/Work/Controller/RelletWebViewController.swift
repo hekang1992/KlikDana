@@ -198,7 +198,7 @@ extension RelletWebViewController {
     }
     
     private func handleXyl(_ body: Any) {
-        self.notiRootVc()
+        self.notiRootVc(with: "0")
     }
     
     private func handlePastdom(_ body: Any) {

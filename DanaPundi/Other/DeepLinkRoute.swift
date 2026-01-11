@@ -57,7 +57,7 @@ class URLSchemeRouter: NSObject {
             )
             
         case "beacity":
-            break
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil, userInfo: ["selectIndex": "1"])
             
         case "tripsible":
             let productVc = ProductViewController()

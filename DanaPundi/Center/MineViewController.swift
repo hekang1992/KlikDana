@@ -64,7 +64,7 @@ extension MineViewController {
                 self.mineView.listArray = listArray
             }else if peaceent == "-2" {
                 SaveLoginInfo.deleteLoginInfo()
-                self.notiRootVc()
+                self.notiRootVc(with: "0")
             }
             self.mineView.tableView.reloadData()
             await self.mineView.tableView.mj_header?.endRefreshing()

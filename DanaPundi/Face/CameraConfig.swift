@@ -111,17 +111,17 @@ class CameraManager: NSObject {
     
     private func showPermissionAlert(in viewController: UIViewController) {
         let alert = UIAlertController(
-            title: "需要相机权限",
-            message: "请在设置中开启相机权限以使用拍照功能",
+            title: LanguageManager.localizedString(for: "Camera Permission"),
+            message: LanguageManager.localizedString(for: "NSCameraUsageDescription"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "去设置", style: .default, handler: { _ in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
+        
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to  settings"), style: .default) { _ in
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(url)
+        })
         
         viewController.present(alert, animated: true, completion: nil)
     }

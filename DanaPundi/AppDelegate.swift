@@ -33,9 +33,12 @@ extension AppDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(changeRootVc), name: NSNotification.Name("changeRootVc"), object: nil)
     }
     
-    @objc private func changeRootVc() {
+    @objc private func changeRootVc(noti: Notification) {
+        let json = noti.userInfo
+        let tabBar = CustomTabBarController()
         if SaveLoginInfo.isLoggedIn() {
-            window?.rootViewController = CustomTabBarController()
+            tabBar.selectedIndex = Int(json?["selectIndex"] as? String ?? "0") ?? 0
+            window?.rootViewController = tabBar
         }else {
             window?.rootViewController = BaseNavigationController(rootViewController: LoginViewController())
         }

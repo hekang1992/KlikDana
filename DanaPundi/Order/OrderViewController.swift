@@ -46,7 +46,7 @@ class OrderViewController: BaseViewController {
         
         emptyView.onImageTap = { [weak self] in
             guard let self = self else { return }
-            self.notiRootVc()
+            self.notiRootVc(with: "0")
         }
         
         orderView.typeBlock = { [weak self] type in
@@ -103,7 +103,7 @@ extension OrderViewController {
                 self.orderView.tableView.reloadData()
             }else if peaceent == "-2" {
                 SaveLoginInfo.deleteLoginInfo()
-                self.notiRootVc()
+                self.notiRootVc(with: "0")
             }
             await self.orderView.tableView.mj_header?.endRefreshing()
         } catch {

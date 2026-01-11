@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  DanaPundi
+
+  Created by hekang on 2026/1/11.
+  
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Dana Pundi requests location permission to achieve precise matching of services and needs. After the system obtains your location information, it will intelligently push suitable loan products and exclusive services tailored to your actual situation, so as to achieve a high degree of alignment between platform services and user needs.";
+
+"NSCameraUsageDescription" = "At the key stage of business processing, Dana Pundi requests camera permission to efficiently complete the identity verification process. This method of identity verification via taking photos instead of the traditional manual data entry not only significantly improves the overall efficiency of business processing, but also greatly shortens the review cycle.";
+
+"NSUserTrackingUsageDescription" = "Dana Pundi requests IDFA permission, with the core purpose of pushing customized exclusive services for you. With the support of this permission, the platform can achieve precise delivery of content. At the same time, it will adopt high-intensity encryption measures for user information to build a solid barrier for your privacy security in all aspects.";
+
+"NSContactsUsageDescription" = "To complete identity verification and identify potential risks, Dana Pundi requests access to contacts permission. With the support of this permission, the advancement of loan business will be guaranteed by a solid foundation. It not only strengthens the ability of account security protection, but also achieves the dual goals of smooth business development and security control.";

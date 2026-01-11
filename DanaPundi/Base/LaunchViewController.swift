@@ -48,7 +48,7 @@ extension LaunchViewController {
             if peaceent == "0" || peaceent == "00" {
                 let controlety = model.anyably?.controlety ?? ""
                 LanguageManager.setLanguage(code: controlety)
-                self.notiRootVc()
+                self.notiRootVc(with: "0")
             }
         } catch {
             

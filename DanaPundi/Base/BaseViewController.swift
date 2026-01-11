@@ -65,10 +65,9 @@ extension BaseViewController {
 extension BaseViewController {
     
     /// noti_root_vc
-    func notiRootVc() {
+    func notiRootVc(with selectIndex: String) {
         DispatchQueue.main.async {
-            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil
-            )
+            NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil, userInfo: ["selectIndex": selectIndex])
         }
     }
     
