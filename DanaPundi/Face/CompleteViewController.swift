@@ -106,6 +106,7 @@ class CompleteViewController: BaseViewController {
         oneLabel.textAlignment = .right
         oneLabel.textColor = UIColor.init(hexString: "#000000")
         oneLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
+        oneLabel.numberOfLines = 2
         return oneLabel
     }()
     
@@ -226,7 +227,7 @@ class CompleteViewController: BaseViewController {
         oneLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-15.pix())
             make.centerY.equalTo(aLabel)
-            make.height.equalTo(14)
+            make.left.equalTo(aLabel.snp.right).offset(25.pix())
         }
         
         twoLabel.snp.makeConstraints { make in

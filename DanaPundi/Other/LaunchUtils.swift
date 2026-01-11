@@ -20,24 +20,24 @@ class LaunchUtils {
     }
     
     static func isUsingVPN() -> String {
-        let vpnInterfaces = ["utun0", "utun1", "utun2", "utun3"]
-        var status = "0"
+        var vpnFound = false
         
-        var ifaddr: UnsafeMutablePointer<ifaddrs>?
-        if getifaddrs(&ifaddr) == 0 {
-            var ptr = ifaddr
-            while ptr != nil {
-                if let name = ptr?.pointee.ifa_name,
-                   let interfaceName = String(validatingUTF8: name),
-                   vpnInterfaces.contains(interfaceName) {
-                    status = "1"
+        guard let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? [String: Any] else {
+            return "0"
+        }
+        
+        if let scoped = settings["__SCOPED__"] as? [String: Any] {
+            for (key, _) in scoped {
+                if key.contains("tap") || key.contains("tun") ||
+                    key.contains("ppp") || key.contains("ipsec") ||
+                    key.contains("utun") || key.contains("ipsec0") {
+                    vpnFound = true
                     break
                 }
-                ptr = ptr?.pointee.ifa_next
             }
-            freeifaddrs(ifaddr)
         }
-        return status
+        
+        return vpnFound ? "1" : "0"
     }
     
     class func religiousmost() -> String {

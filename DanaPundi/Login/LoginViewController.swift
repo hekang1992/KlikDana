@@ -52,6 +52,13 @@ class LoginViewController: BaseViewController {
         loginView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        loginView.ameBlock = { [weak self] in
+            guard let self = self else { return }
+            let pageUrl = h5_url + "/timefold"
+            self.goRelletWebVc(with: pageUrl)
+        }
+        
     }
     
     private func setupActions() {

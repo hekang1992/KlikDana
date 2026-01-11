@@ -50,7 +50,7 @@ class FaceViewController: BaseViewController {
     
     lazy var ftImageView: UIImageView = {
         let ftImageView = UIImageView()
-        ftImageView.image = languageCode == .id ? UIImage(named: "fc_id_d_imge") : UIImage(named: "fc_en_d_imge")
+        ftImageView.image = languageCode == .id ? UIImage(named: "d_p_fc_image") : UIImage(named: "fc_en_d_imge")
         return ftImageView
     }()
     
@@ -77,7 +77,7 @@ class FaceViewController: BaseViewController {
     lazy var descLabel: UILabel = {
         let descLabel = UILabel()
         descLabel.textAlignment = .center
-        descLabel.text = LanguageManager.localizedString(for: "Front of ID card")
+        descLabel.text = LanguageManager.localizedString(for: "Facial Recognition")
         descLabel.textColor = UIColor.init(hexString: "#000000")
         descLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return descLabel

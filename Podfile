@@ -17,6 +17,7 @@ target 'DanaPundi' do
   pod 'BRPickerView'
   pod 'FSPagerView'
   pod 'TYAlertController'
+  pod 'DeviceKit'
   pod 'IQKeyboardManagerSwift', '~> 6.5.16'
   
 end

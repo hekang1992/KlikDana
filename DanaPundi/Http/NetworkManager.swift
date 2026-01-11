@@ -8,6 +8,7 @@
 import Alamofire
 import Toast_Swift
 
+let h5_url = "http://149.129.255.14:11003"
 let base_url = "http://149.129.255.14:11003/honorain"
 
 final class NetworkManager {

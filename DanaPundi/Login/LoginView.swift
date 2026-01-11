@@ -10,6 +10,8 @@ import SnapKit
 
 class LoginView: UIView {
     
+    var ameBlock: (() -> Void)?
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -128,7 +130,7 @@ class LoginView: UIView {
     
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
-        loginBtn.setTitle("Log in", for: .normal)
+        loginBtn.setTitle(LanguageManager.localizedString(for: "Log in"), for: .normal)
         loginBtn.setTitleColor(.white, for: .normal)
         loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(900))
         loginBtn.setBackgroundImage(UIImage(named: "login_btn_image"), for: .normal)
@@ -141,6 +143,7 @@ class LoginView: UIView {
         agreementBtn.isSelected = true
         agreementBtn.setImage(UIImage(named: "btn_nor_image"), for: .normal)
         agreementBtn.setImage(UIImage(named: "btn_sel_image"), for: .selected)
+        agreementBtn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         return agreementBtn
     }()
     
@@ -272,7 +275,11 @@ class LoginView: UIView {
 extension LoginView {
     
     @objc func agreeLabelTapped() {
-        
+        self.ameBlock?()
+    }
+    
+    @objc func btnClick() {
+        agreementBtn.isSelected.toggle()
     }
     
 }
