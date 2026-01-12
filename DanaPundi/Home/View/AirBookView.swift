@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class AirBookView: UIView {
     
@@ -18,7 +19,7 @@ class AirBookView: UIView {
         static let buttonWidth: CGFloat = 277
         static let verticalSpacing: CGFloat = 15
         static let bottomPadding: CGFloat = 20
-        static let nameLabelTopOffset: CGFloat = 150
+        static let nameLabelTopOffset: CGFloat = 135
         static let labelSpacing: CGFloat = 70
         static let lineViewHeight: CGFloat = 18
         static let lineViewBottomOffset: CGFloat = 13
@@ -87,6 +88,12 @@ class AirBookView: UIView {
         alignment: .center
     )
     
+    private lazy var descLabel: UILabel = createLabel(
+        font: .systemFont(ofSize: 15, weight: .regular),
+        color: UIColor(hexString: "#BCB2F6"),
+        alignment: .center
+    )
+    
     private lazy var subtitleLabel: UILabel = createLabel(
         font: .systemFont(ofSize: 16, weight: UIFont.Weight(700)),
         color: UIColor(hexString: "#000000"),
@@ -98,6 +105,14 @@ class AirBookView: UIView {
         color: UIColor(hexString: "#3800FF"),
         alignment: .center
     )
+    
+    lazy var logoImageView: UIImageView = {
+        let logoImageView = UIImageView()
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.layer.cornerRadius = 5
+        logoImageView.layer.masksToBounds = true
+        return logoImageView
+    }()
     
     // Buttons
     private lazy var applyButton: UIButton = {
@@ -150,7 +165,7 @@ class AirBookView: UIView {
         }
         
         // Add subviews to header image
-        [nameLabel, subtitleLabel, valueLabel, applyButton,
+        [nameLabel, descLabel, logoImageView, subtitleLabel, valueLabel, applyButton,
          leftButton, rightButton, lineView, actionButton].forEach {
             headerImageView.addSubview($0)
         }
@@ -240,6 +255,18 @@ class AirBookView: UIView {
             make.height.equalTo(20.pix())
         }
         
+        descLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(nameLabel.snp.bottom)
+            make.height.equalTo(20.pix())
+        }
+        
+        logoImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(36.pix())
+            make.top.equalToSuperview().offset(162.pix())
+            make.right.equalToSuperview().offset(-55.pix())
+        }
+        
         // Subtitle Label
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(Constants.labelSpacing.pix())
@@ -302,6 +329,8 @@ class AirBookView: UIView {
         applyButton.setTitle(model.fraterbedform, for: .normal)
         leftButton.setTitle(model.overitor, for: .normal)
         rightButton.setTitle(model.federalesque, for: .normal)
+        descLabel.text = LanguageManager.localizedString(for: "Assured to lend")
+        logoImageView.kf.setImage(with: URL(string: model.potamosion ?? ""))
     }
     
     // MARK: - Factory Methods

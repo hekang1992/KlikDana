@@ -360,7 +360,7 @@ extension HomeViewController {
             
             alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
             
-            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to  settings"), style: .default) { _ in
+            alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Go to settings"), style: .default) { _ in
                 guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(url)
             })
