@@ -197,6 +197,10 @@ extension LoginViewController {
     }
     
     private func loginInfo(to phone: String, code: String) {
+        if self.loginView.agreementBtn.isSelected == false {
+            ToastManager.showMessage(LanguageManager.localizedString(for: "Please read and confirm the user privacy agreement first."))
+            return
+        }
         TimeManager.saveEndTime(String(Int(Date().timeIntervalSince1970)))
         Task {
             do {
