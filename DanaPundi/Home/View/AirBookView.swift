@@ -20,7 +20,7 @@ class AirBookView: UIView {
         static let verticalSpacing: CGFloat = 15
         static let bottomPadding: CGFloat = 20
         static let nameLabelTopOffset: CGFloat = 135
-        static let labelSpacing: CGFloat = 70
+        static let labelSpacing: CGFloat = 65
         static let lineViewHeight: CGFloat = 18
         static let lineViewBottomOffset: CGFloat = 13
         static let sideButtonOffset: CGFloat = 70
@@ -269,7 +269,7 @@ class AirBookView: UIView {
         
         // Subtitle Label
         subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(Constants.labelSpacing.pix())
+            make.top.equalTo(descLabel.snp.bottom).offset(Constants.labelSpacing.pix())
             make.height.equalTo(16.pix())
             make.centerX.equalToSuperview()
         }
