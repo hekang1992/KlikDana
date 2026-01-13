@@ -183,7 +183,7 @@ extension WalletViewController: UITableViewDelegate, UITableViewDataSource {
         if type == "novenownerosity" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CleanTableViewCell", for: indexPath) as! CleanTableViewCell
             cell.model = listModel
-            cell.enterTextChanged = { text in
+            cell.sprayTextChanged = { text in
                 listModel.hiblaughdom = text
                 listModel.stenics = text
             }
