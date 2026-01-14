@@ -7,36 +7,21 @@
 
 class LoginViewModel {
     
-    func codeApi(parameters: [String: String]) async throws -> BaseModel {
-        
+    private func withLoading<T>(_ operation: () async throws -> T) async throws -> T {
         LoadingIndicator.shared.show()
-        
-        defer {
-            LoadingIndicator.shared.hide()
-        }
-        
-        do {
-            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/paginitor", parameters: parameters)
-            return model
-        } catch {
-            throw error
+        defer { LoadingIndicator.shared.hide() }
+        return try await operation()
+    }
+    
+    func codeApi(parameters: [String: String]) async throws -> BaseModel {
+        try await withLoading {
+            try await NetworkManager.shared.postMultipart("/sistatory/paginitor", parameters: parameters)
         }
     }
     
     func loginApi(parameters: [String: String]) async throws -> BaseModel {
-        
-        LoadingIndicator.shared.show()
-        
-        defer {
-            LoadingIndicator.shared.hide()
-        }
-        
-        do {
-            let model: BaseModel = try await NetworkManager.shared.postMultipart("/sistatory/vid", parameters: parameters)
-            return model
-        } catch {
-            throw error
+        try await withLoading {
+            try await NetworkManager.shared.postMultipart("/sistatory/vid", parameters: parameters)
         }
     }
-    
 }
