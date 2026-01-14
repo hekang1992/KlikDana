@@ -101,7 +101,7 @@ class AirBookView: UIView {
     )
     
     private lazy var valueLabel: UILabel = createLabel(
-        font: .systemFont(ofSize: 60, weight: .bold),
+        font: .systemFont(ofSize: 50, weight: .bold),
         color: UIColor(hexString: "#3800FF"),
         alignment: .center
     )

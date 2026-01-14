@@ -69,8 +69,9 @@ class FaceViewController: BaseViewController {
     
     lazy var completeImageView: UIImageView = {
         let completeImageView = UIImageView()
-        completeImageView.image = UIImage(named: "suc_pla_bg_image")
-        completeImageView.isHidden = true
+//        completeImageView.image = UIImage(named: "suc_pla_bg_image")
+        completeImageView.image = UIImage(named: "fa_desc_a_i_image")
+//        completeImageView.isHidden = true
         return completeImageView
     }()
     
@@ -212,6 +213,7 @@ extension FaceViewController {
             let model = try await viewMdoel.uploadImageApi(parameters: parameters, imageData: imageData)
             let peaceent = model.peaceent ?? ""
             if peaceent == "0" || peaceent == "00" {
+                self.completeImageView.image = UIImage(named: "suc_pla_bg_image")
                 self.completeImageView.isHidden = false
                 self.footerView.nextBtn.isEnabled = false
                 try? await Task.sleep(nanoseconds: 200_000_000)
