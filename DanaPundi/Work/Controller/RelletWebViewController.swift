@@ -22,7 +22,7 @@ class RelletWebViewController: BaseViewController {
     
     private let progressView = UIProgressView(progressViewStyle: .bar)
     
-    private let locationManager = OneTimeLocationManager()
+    private let locationManager = AppDanaLocationManager()
     
     lazy var wkWebView: WKWebView = {
         let config = WKWebViewConfiguration()

@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController {
     
     private let viewModel = HomeViewModel()
     
-    private let locationManager = OneTimeLocationManager()
+    private let locationManager = AppDanaLocationManager()
     
     lazy var airView: AirBookView = {
         let airView = AirBookView(frame: .zero)

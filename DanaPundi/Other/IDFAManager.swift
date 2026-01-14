@@ -30,15 +30,15 @@ class IDFAManager {
                 }
             }
             
+        case .denied, .restricted:
+            DispatchQueue.main.async {
+                completion(nil)
+            }
+            
         case .authorized:
             let idfa = getCurrentIDFA()
             DispatchQueue.main.async {
                 completion(idfa)
-            }
-            
-        case .denied, .restricted:
-            DispatchQueue.main.async {
-                completion(nil)
             }
             
         @unknown default:

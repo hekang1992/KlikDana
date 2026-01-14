@@ -39,8 +39,6 @@ extension UIColor {
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 
-let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
-
 extension Double {
     func pix() -> CGFloat {
         return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)

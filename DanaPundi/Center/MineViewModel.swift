@@ -7,52 +7,27 @@
 
 class MineViewModel {
     
-    func centerApi() async throws -> BaseModel {
-        
+    private func withLoading<T>(_ operation: () async throws -> T) async throws -> T {
         LoadingIndicator.shared.show()
-        
-        defer {
-            LoadingIndicator.shared.hide()
-        }
-        
-        do {
-            let model: BaseModel = try await NetworkManager.shared.get("/sistatory/radiwise")
-            return model
-        } catch {
-            throw error
+        defer { LoadingIndicator.shared.hide() }
+        return try await operation()
+    }
+    
+    func centerApi() async throws -> BaseModel {
+        try await withLoading {
+            try await NetworkManager.shared.get("/sistatory/radiwise")
         }
     }
     
     func logoutApi() async throws -> BaseModel {
-        
-        LoadingIndicator.shared.show()
-        
-        defer {
-            LoadingIndicator.shared.hide()
-        }
-        
-        do {
-            let model: BaseModel = try await NetworkManager.shared.get("/sistatory/peaceent")
-            return model
-        } catch {
-            throw error
+        try await withLoading {
+            try await NetworkManager.shared.get("/sistatory/peaceent")
         }
     }
     
     func deleteAccountApi() async throws -> BaseModel {
-        
-        LoadingIndicator.shared.show()
-        
-        defer {
-            LoadingIndicator.shared.hide()
-        }
-        
-        do {
-            let model: BaseModel = try await NetworkManager.shared.get("/sistatory/federalesque")
-            return model
-        } catch {
-            throw error
+        try await withLoading {
+            try await NetworkManager.shared.get("/sistatory/federalesque")
         }
     }
-    
 }

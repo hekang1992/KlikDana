@@ -27,7 +27,7 @@ class FaceViewController: BaseViewController {
     
     var endTime: String = ""
     
-    private let locationManager = OneTimeLocationManager()
+    private let locationManager = AppDanaLocationManager()
     
     lazy var headImageView: UIImageView = {
         let headImageView = UIImageView()

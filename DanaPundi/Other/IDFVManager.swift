@@ -11,7 +11,7 @@ import Security
 
 final class IDFVManager {
 
-    private static let keychainKey = "com.yourapp.idfv"
+    private static let keychainKey = "com.Dana.Pundi.idfv"
 
     static func getIDFV() -> String {
         if let idfv = readFromKeychain() {

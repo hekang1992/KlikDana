@@ -1,5 +1,5 @@
 //
-//  OneTimeLocationManager.swift
+//  AppDanaLocationManager.swift
 //  DanaPundi
 //
 //  Created by Ethan Carter on 2026/1/8.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class OneTimeLocationManager: NSObject {
+class AppDanaLocationManager: NSObject {
     
     private let locationManager = CLLocationManager()
     private let geocoder = CLGeocoder()
@@ -34,21 +34,23 @@ class OneTimeLocationManager: NSObject {
         case .denied, .restricted:
             completion([:])
             
-            
         @unknown default:
             completion([:])
         }
     }
 }
 
-extension OneTimeLocationManager: CLLocationManagerDelegate {
+extension AppDanaLocationManager: CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         let status = manager.authorizationStatus
-        if status == .authorizedWhenInUse || status == .authorizedAlways {
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
             manager.requestLocation()
-        } else if status == .denied || status == .restricted {
+        case .denied, .restricted:
             completion?([:])
+        default:
+            break
         }
     }
     
@@ -60,9 +62,11 @@ extension OneTimeLocationManager: CLLocationManagerDelegate {
         guard let location = locations.first else { return }
         
         let lat = String(location.coordinate.latitude)
+        
         let lon = String(location.coordinate.longitude)
         
         LocationStorage.save(lat: lat, lon: lon)
+        
         geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, _ in
             guard let self = self,
                   let placemark = placemarks?.first else {
