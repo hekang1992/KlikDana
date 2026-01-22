@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import Kingfisher
 
 class ProductViewController: BaseViewController {
     
@@ -32,10 +33,16 @@ class ProductViewController: BaseViewController {
         return bgImageView
     }()
     
+    lazy var logoImageView: UIImageView = {
+        let logoImageView = UIImageView()
+        logoImageView.layer.cornerRadius = 5
+        logoImageView.layer.masksToBounds = true
+        return logoImageView
+    }()
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = LanguageManager.localizedString(for: "Complete certification")
         label.textColor = UIColor(hexString: "#FFFFFF")
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
@@ -77,14 +84,17 @@ class ProductViewController: BaseViewController {
         return moneyLabel
     }()
     
-    lazy var lockLabel: UILabel = {
-        let lockLabel = UILabel()
-        lockLabel.textAlignment = .left
-        lockLabel.text = LanguageManager.localizedString(for: "Unlock quota")
-        lockLabel.textColor = UIColor.init(hexString: "#3800FF")
-        lockLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        return lockLabel
-    }()
+//    lazy var lockLabel: UILabel = {
+//        let lockLabel = UILabel()
+//        lockLabel.textAlignment = .left
+//        lockLabel.text = LanguageManager.localizedString(for: "Unlock quota")
+//        lockLabel.textColor = UIColor.init(hexString: "#3800FF")
+//        lockLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+//        return lockLabel
+//    }()
+    
+    private lazy var leftButton: UIButton = createSideButton(imageName: "bluie_r_image")
+    private lazy var rightButton: UIButton = createSideButton(imageName: "buie_r_image")
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -147,37 +157,51 @@ extension ProductViewController {
             make.bottom.equalToSuperview().offset(-80.pix())
         }
         
+        scrollView.addSubview(logoImageView)
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.left.equalToSuperview().offset(20)
+            make.width.height.equalTo(24.pix())
+        }
         
         scrollView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
-            make.left.equalToSuperview().offset(20)
+            make.centerY.equalTo(logoImageView)
+            make.left.equalTo(logoImageView.snp.right).offset(5)
             make.height.equalTo(20)
         }
         
         scrollView.addSubview(aImageView)
         aImageView.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom)
+            make.top.equalTo(nameLabel.snp.bottom).offset(10.pix())
             make.left.equalToSuperview().offset(20.pix())
             make.size.equalTo(CGSize(width: 355.pix(), height: 172.pix()))
         }
         
         aImageView.addSubview(descLabel)
         aImageView.addSubview(moneyLabel)
-        aImageView.addSubview(lockLabel)
+        aImageView.addSubview(leftButton)
+        aImageView.addSubview(rightButton)
         descLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(34.pix())
+            make.top.equalToSuperview().offset(20.pix())
             make.left.equalToSuperview().offset(20.pix())
             make.height.equalTo(16.pix())
         }
         moneyLabel.snp.makeConstraints { make in
             make.left.equalTo(descLabel)
-            make.top.equalTo(descLabel.snp.bottom).offset(4.pix())
+            make.top.equalTo(descLabel.snp.bottom).offset(5.pix())
             make.height.equalTo(48.pix())
         }
-        lockLabel.snp.makeConstraints { make in
+        
+        leftButton.snp.makeConstraints { make in
             make.left.equalTo(descLabel)
-            make.top.equalTo(moneyLabel.snp.bottom).offset(25.pix())
+            make.top.equalTo(moneyLabel.snp.bottom).offset(20.pix())
+            make.height.equalTo(16.pix())
+        }
+        
+        rightButton.snp.makeConstraints { make in
+            make.left.equalTo(descLabel)
+            make.top.equalTo(leftButton.snp.bottom).offset(10.pix())
             make.height.equalTo(16.pix())
         }
         
@@ -227,6 +251,14 @@ extension ProductViewController {
         moneyLabel.text = model.anyably?.recentable?.vadant ?? ""
         
         let listArray = model.anyably?.amor ?? []
+        
+        logoImageView.kf.setImage(with: URL(string: model.anyably?.recentable?.potamosion ?? ""))
+        
+        nameLabel.text = model.anyably?.recentable?.jugespecially ?? ""
+        
+        leftButton.setTitle(model.anyably?.recentable?.resourceier?.opttakean?.tendade ?? "", for: .normal)
+        
+        rightButton.setTitle(model.anyably?.recentable?.resourceier?.onar?.tendade ?? "", for: .normal)
         
         setupListViews(listArray)
     }
@@ -379,6 +411,16 @@ extension ProductViewController {
         } catch {
             print("getUesrInfo error:", error)
         }
+    }
+    
+    private func createSideButton(imageName: String) -> UIButton {
+        let button = UIButton(type: .custom)
+        button.setTitleColor(UIColor(hexString: "#3800FF"), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.semanticContentAttribute = .forceLeftToRight
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 5)
+        return button
     }
     
     

@@ -51,6 +51,7 @@ class PhotoViewController: BaseViewController {
     lazy var ftImageView: UIImageView = {
         let ftImageView = UIImageView()
         ftImageView.image = languageCode == .id ? UIImage(named: "d_p_fc_image") : UIImage(named: "e_p_fc_image")
+        ftImageView.contentMode = .scaleAspectFit
         return ftImageView
     }()
     
@@ -69,8 +70,8 @@ class PhotoViewController: BaseViewController {
     
     lazy var completeImageView: UIImageView = {
         let completeImageView = UIImageView()
-        completeImageView.image = UIImage(named: "suc_pla_bg_image")
-        completeImageView.isHidden = true
+        completeImageView.image = UIImage(named: "ad_fida_image")
+        completeImageView.isHidden = false
         return completeImageView
     }()
     
@@ -83,9 +84,25 @@ class PhotoViewController: BaseViewController {
         return descLabel
     }()
     
+//    lazy var typeLabel: UILabel = {
+//        let typeLabel = UILabel()
+//        typeLabel.textAlignment = .center
+//        typeLabel.text = LanguageManager.localizedString(for: "Front of ID card")
+//        typeLabel.textColor = UIColor.init(hexString: "#000000")
+//        typeLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+//        return typeLabel
+//    }()
+    
     lazy var clickBtn: UIButton = {
         let clickBtn = UIButton(type: .custom)
         return clickBtn
+    }()
+    
+    lazy var faImageView: UIImageView = {
+        let faImageView = UIImageView()
+        faImageView.image = languageCode == .id ? UIImage(named: "end_ad_cam_image") : UIImage(named: "en_ad_cam_image")
+        faImageView.contentMode = .scaleAspectFit
+        return faImageView
     }()
     
     override func viewDidLoad() {
@@ -129,7 +146,7 @@ class PhotoViewController: BaseViewController {
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(headImageView.snp.bottom).offset(25.pix())
-            make.size.equalTo(CGSize(width: 335.pix(), height: 220.pix()))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 230.pix()))
         }
         
         ftImageView.snp.makeConstraints { make in
@@ -139,13 +156,21 @@ class PhotoViewController: BaseViewController {
             make.bottom.equalToSuperview().offset(-40.pix())
         }
         
+        whiteView.addSubview(descLabel)
         whiteView.addSubview(logoImageView)
         logoImageView.addSubview(completeImageView)
-        whiteView.addSubview(descLabel)
+        whiteView.addSubview(faImageView)
+        
         whiteView.addSubview(clickBtn)
         
+        descLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15.pix())
+            make.height.equalTo(15)
+            make.centerX.equalToSuperview()
+        }
+        
         logoImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(25.pix())
+            make.top.equalToSuperview().offset(44.pix())
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 261.pix(), height: 140.pix()))
         }
@@ -153,11 +178,12 @@ class PhotoViewController: BaseViewController {
             make.center.equalToSuperview()
             make.width.height.equalTo(64.pix())
         }
-        descLabel.snp.makeConstraints { make in
-            make.top.equalTo(logoImageView.snp.bottom).offset(15)
-            make.height.equalTo(15)
+        faImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 80.pix(), height: 30.pix()))
+            make.bottom.equalToSuperview().offset(-5.pix())
         }
+        
         clickBtn.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

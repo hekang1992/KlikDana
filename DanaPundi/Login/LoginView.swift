@@ -33,9 +33,9 @@ class LoginView: UIView {
         let descLabel = UILabel()
         descLabel.textAlignment = .center
         descLabel.numberOfLines = 0
-        descLabel.text = LanguageManager.localizedString(for: "Manage your loans, repayments and limits in one place")
+        descLabel.text = LanguageManager.localizedString(for: "Compliance guarantees give you peace of mind when borrowing")
         descLabel.textColor = UIColor.init(hexString: "#666666")
-        descLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(400))
+        descLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         return descLabel
     }()
     
@@ -48,7 +48,7 @@ class LoginView: UIView {
     lazy var oneLabel: UILabel = {
         let oneLabel = UILabel()
         oneLabel.textAlignment = .left
-        oneLabel.text = LanguageManager.localizedString(for: "Phone Number")
+        oneLabel.text = LanguageManager.localizedString(for: "Login mobile number")
         oneLabel.textColor = UIColor.init(hexString: "#000000")
         oneLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         return oneLabel
@@ -65,14 +65,14 @@ class LoginView: UIView {
     lazy var phoneTx: UITextField = {
         let phoneTx = UITextField()
         phoneTx.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Enter your number"), attributes: [
+        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Phone Number"), attributes: [
             .foregroundColor: UIColor.init(hexString: "#666666") as Any,
             .font: UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         ])
         phoneTx.attributedPlaceholder = attrString
         phoneTx.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(600))
         phoneTx.textColor = UIColor.init(hexString: "#000000")
-        phoneTx.leftView = UIView(frame: CGRectMake(0, 0, 15, 10))
+        phoneTx.leftView = UIView(frame: CGRectMake(0, 0, 10, 10))
         phoneTx.leftViewMode = .always
         return phoneTx
     }()
@@ -105,7 +105,10 @@ class LoginView: UIView {
     lazy var codeTx: UITextField = {
         let codeTx = UITextField()
         codeTx.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please enter"), attributes: [
+        
+        let languageCode = LanguageManager.shared.currentLanguage
+        
+        let attrString = NSMutableAttributedString(string: languageCode == .id ? "Masukkan kode konfirmasi" : "Verification code", attributes: [
             .foregroundColor: UIColor.init(hexString: "#666666") as Any,
             .font: UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         ])
@@ -149,7 +152,7 @@ class LoginView: UIView {
     
     lazy var agreementLabel: UILabel = {
         let agreementLabel = UILabel()
-        agreementLabel.text = LanguageManager.localizedString(for: "Confirm and agree to the <Privacy Agreement>")
+        agreementLabel.text = LanguageManager.localizedString(for: "Confirm and agree to the <privacy agreement>")
         agreementLabel.textAlignment = .left
         agreementLabel.textColor = .black
         agreementLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(400))
@@ -167,8 +170,8 @@ class LoginView: UIView {
         scrollView.addSubview(bgImageView)
         scrollView.addSubview(oneLabel)
         scrollView.addSubview(oneView)
-        oneView.addSubview(phoneTx)
         oneView.addSubview(nationImageView)
+        oneView.addSubview(phoneTx)
         scrollView.addSubview(twoLabel)
         scrollView.addSubview(twoView)
         twoView.addSubview(codeTx)
@@ -211,15 +214,19 @@ class LoginView: UIView {
             make.left.equalTo(oneLabel)
             make.height.equalTo(54)
         }
-        phoneTx.snp.makeConstraints { make in
-            make.left.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().offset(-100)
-        }
+        
         nationImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-10)
-            make.size.equalTo(CGSize(width: 60, height: 24))
+            make.left.equalToSuperview().offset(10)
+            make.size.equalTo(CGSize(width: 71, height: 26))
         }
+        
+        phoneTx.snp.makeConstraints { make in
+            make.left.equalTo(nationImageView.snp.right)
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().offset(-10)
+        }
+        
         twoLabel.snp.makeConstraints { make in
             make.top.equalTo(oneView.snp.bottom).offset(20)
             make.left.equalTo(oneLabel)

@@ -51,6 +51,12 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        airView.mentBlock = { [weak self] in
+            guard let self = self else { return }
+            let pageUrl = h5_url + "/cadcy"
+            self.goRelletWebVc(with: pageUrl)
+        }
+        
         airView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
             Task {

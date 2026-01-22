@@ -19,8 +19,8 @@ class AirBookView: UIView {
         static let buttonWidth: CGFloat = 277
         static let verticalSpacing: CGFloat = 15
         static let bottomPadding: CGFloat = 20
-        static let nameLabelTopOffset: CGFloat = 135
-        static let labelSpacing: CGFloat = 65
+        static let nameLabelTopOffset: CGFloat = 145
+        static let labelSpacing: CGFloat = 55
         static let lineViewHeight: CGFloat = 18
         static let lineViewBottomOffset: CGFloat = 13
         static let sideButtonOffset: CGFloat = 70
@@ -28,6 +28,8 @@ class AirBookView: UIView {
     
     // MARK: - Callbacks
     var applyBlock: ((appearModel) -> Void)?
+    
+    var mentBlock: (() -> Void)?
     
     // MARK: - Properties
     private let disposeBag = DisposeBag()
@@ -63,7 +65,7 @@ class AirBookView: UIView {
         imageView.contentMode = .scaleAspectFit
         
         let imageName = LanguageManager.currentLanguage == .id ?
-        "max_home_b_image" : "home_b_head_image"
+        "id_ad_ac_image" : "home_b_head_image"
         imageView.image = UIImage(named: imageName)
         
         imageView.isUserInteractionEnabled = true
@@ -78,6 +80,24 @@ class AirBookView: UIView {
     private lazy var additionalImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "home_c_head_image")
+        return imageView
+    }()
+    
+    private lazy var primcImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "h_en_pie_image")
+        
+        imageView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mentImageTap))
+        imageView.addGestureRecognizer(tapGesture)
+        
+        return imageView
+    }()
+    
+    private lazy var enFotImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "en_fo_ac_a_image")
         return imageView
     }()
     
@@ -161,7 +181,9 @@ class AirBookView: UIView {
         scrollView.addSubview(contentImageView)
         
         if LanguageManager.currentLanguage == .en {
+            scrollView.addSubview(primcImageView)
             scrollView.addSubview(additionalImageView)
+            scrollView.addSubview(enFotImageView)
         }
         
         // Add subviews to header image
@@ -200,6 +222,10 @@ class AirBookView: UIView {
         }
     }
     
+    @objc private func mentImageTap() {
+        self.mentBlock?()
+    }
+    
     // MARK: - Constraint Setup Methods
     
     private func setupScrollViewConstraints() {
@@ -218,9 +244,14 @@ class AirBookView: UIView {
     }
     
     private func setupContentImageViewConstraints() {
+        
         contentImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(headerImageView.snp.bottom).offset(Constants.verticalSpacing)
+            if LanguageManager.currentLanguage == .id {
+                make.top.equalTo(headerImageView.snp.bottom).offset(Constants.verticalSpacing)
+            }else {
+                make.top.equalTo(primcImageView.snp.bottom).offset(10.pix())
+            }
         }
         
         let contentImageSize = LanguageManager.currentLanguage == .id ?
@@ -233,10 +264,23 @@ class AirBookView: UIView {
     }
     
     private func setupAdditionalImageViewConstraints() {
+        
+        primcImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 335.pix(), height: 44.pix()))
+            make.top.equalTo(headerImageView.snp.bottom).offset(10.pix())
+        }
+        
         additionalImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(contentImageView.snp.bottom).offset(Constants.verticalSpacing)
             make.size.equalTo(CGSize(width: 351.pix(), height: 400.pix()))
+        }
+        
+        enFotImageView.snp.makeConstraints { make in
+            make.top.equalTo(additionalImageView.snp.bottom).offset(10.pix())
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 335.pix(), height: 161.pix()))
             make.bottom.equalToSuperview().offset(-Constants.bottomPadding)
         }
     }
@@ -250,7 +294,7 @@ class AirBookView: UIView {
     private func setupHeaderImageSubviewsConstraints() {
         // Name Label
         nameLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalToSuperview().offset(30)
             make.top.equalToSuperview().offset(Constants.nameLabelTopOffset.pix())
             make.height.equalTo(20.pix())
         }
@@ -262,9 +306,9 @@ class AirBookView: UIView {
         }
         
         logoImageView.snp.makeConstraints { make in
+            make.centerY.equalTo(nameLabel)
+            make.right.equalTo(nameLabel.snp.left).offset(-5)
             make.width.height.equalTo(36.pix())
-            make.top.equalToSuperview().offset(162.pix())
-            make.right.equalToSuperview().offset(-55.pix())
         }
         
         // Subtitle Label
@@ -329,7 +373,7 @@ class AirBookView: UIView {
         applyButton.setTitle(model.fraterbedform, for: .normal)
         leftButton.setTitle(model.overitor, for: .normal)
         rightButton.setTitle(model.federalesque, for: .normal)
-        descLabel.text = LanguageManager.localizedString(for: "Assured to lend")
+//        descLabel.text = LanguageManager.localizedString(for: "Assured to lend")
         logoImageView.kf.setImage(with: URL(string: model.potamosion ?? ""))
     }
     

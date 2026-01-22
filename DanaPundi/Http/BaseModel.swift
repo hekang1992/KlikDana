@@ -142,6 +142,16 @@ class discussenModel: Codable {
     }
 }
 
+class opttakeanModel: Codable {
+    var canfy: String?
+    var tendade: String?
+}
+
+class resourceierModel: Codable {
+    var opttakean: opttakeanModel?
+    var onar: opttakeanModel?
+}
+
 class recentableModel: Codable {
     var vadant: String?
     var jugespecially: String?
@@ -153,6 +163,7 @@ class recentableModel: Codable {
     var tergward: Int?
     var gestspecial: String?
     var plas: String?
+    var resourceier: resourceierModel?
     
     enum CodingKeys: String, CodingKey {
         case vadant
@@ -165,10 +176,13 @@ class recentableModel: Codable {
         case gestspecial
         case plas
         case fraterbedform
+        case resourceier
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        resourceier = try? container.decode(resourceierModel.self, forKey: .resourceier)
         
         if let stringValue = try? container.decode(String.self, forKey: .vadant) {
             vadant = stringValue

@@ -53,7 +53,7 @@ class OrderView: UIView {
     
     lazy var twoBtn: UIButton = {
         let twoBtn = UIButton(type: .custom)
-        twoBtn.setTitle(LanguageManager.localizedString(for: "Applying"), for: .normal)
+        twoBtn.setTitle(LanguageManager.localizedString(for: "In progress"), for: .normal)
         twoBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
         twoBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         twoBtn.setBackgroundImage(UIImage(named: "oc_two_imge"), for: .normal)
@@ -75,7 +75,7 @@ class OrderView: UIView {
     
     lazy var fourBtn: UIButton = {
         let fourBtn = UIButton(type: .custom)
-        fourBtn.setTitle(LanguageManager.localizedString(for: "Finish"), for: .normal)
+        fourBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
         fourBtn.setTitleColor(UIColor.init(hexString: "#000000"), for: .normal)
         fourBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         fourBtn.setBackgroundImage(UIImage(named: "oc_four_imge"), for: .normal)

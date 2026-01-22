@@ -7,27 +7,28 @@
  */
 
 "Secure Login" = "Masuk ke akun Anda";
-"Manage your loans, repayments and limits in one place" = "Kelola pinjaman, pembayaran, dan batasan Anda di satu tempat";
+"Compliance guarantees give you peace of mind when borrowing" = "Jaminan kepatuhan memberi anda ketenangan pikiran yang lebih besar saat meminjam.";
 "Phone Number" = "Nomor telepon";
 "Enter your number" = "Masukkan nomor Anda";
+"Login mobile number" = "Nomor ponsel login";
 "91" = "62";
-"Verification Code" = "Nomor telepon";
+"Verification Code" = "Kode verifikasi";
 "Please enter" = "Masukkan kode konfirmasi";
 "Send Code" = "Kirim Kode";
 "Log in" = "Masuk";
-"Confirm and agree to the <Privacy Agreement>" = "Anda setuju dengan <Kebijakan Privasi>";
+"Confirm and agree to the <privacy agreement>" = "Anda setuju dengan <kebijakan privasi>";
 
 "Home" = "Rumah";
 "Order" = "Memesan";
 "Mine" = "Pribadi";
 
-"Good Morning ☀️" = "Selamat Pagi ☀️";
-"Good Afternoon 🌤️" = "Selamat Siang 🌤️";
-"Good Evening 🌙" = "Selamat Malam 🌙";
+"Good morning ☀️" = "Selamat pagi ☀️";
+"Good afternoon 🌤️" = "Selamat siang 🌤️";
+"Good evening 🌙" = "Selamat malam 🌙";
 "Hello 👋" = "Halo 👋";
 "Set up" = "Pusat Pengaturan";
 "Versions" = "Versi";
-"Go out" = "Keluar";
+"Logout" = "Keluar";
 "Please confirm the account closure agreement first." = "Harap konfirmasi perjanjian penutupan akun terlebih dahulu.";
 "Please read and confirm the user privacy agreement first." = "Harap baca dan konfirmasi perjanjian privasi pengguna terlebih dahulu.";
 
@@ -35,12 +36,12 @@
 "Completed" = "Selesai";
 "GO" = "Pergi";
 "Unlock quota" = "Menerapkan";
-"Next step" = "Langkah selanjutnya";
-"Front of ID card" = "Sertifikasi KTP";
-"Facial Recognition" = "Pengenalan Wajah";
+"Next step" = "Berikutnya";
+"Front of ID card" = "Tampilan depan KTP";
+"Facial Recognition" = "Pengenalan wajah";
 "Identity information" = "Informasi identitas";
-"Aadhaar name" = "Nama Lengkap";
-"Aadhaar number" = "NOMOR ID";
+"Full name" = "Nama sesuai KTP";
+"ID number" = "Nomor KTP";
 "Birthday" = "Tanggal lahir";
 "Information Security" = "Keamanan Informasi";
 "Certification Information" = "Informasi Sertifikasi";
@@ -50,9 +51,9 @@
 "Please select your authentication method first." = "Silakan pilih metode autentikasi Anda terlebih dahulu.";
 "Name or phone number cannot be empty." = "Nama atau nomor telepon tidak boleh kosong.";
 "All" = "Semua";
-"Applying" = "Dalam Proses";
+"In progress" = "Dalam Proses";
 "Repayment" = "Belum Lunas";
-"Finish" = "Lunas";
+"Finished" = "Lunas";
 "Recommended" = "Produk yang";
 "Products" = "Direkomendasikan";
 "Confirming" = "Mengonfirmasi";

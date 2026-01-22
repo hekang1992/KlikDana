@@ -62,7 +62,7 @@ class SettingViewController: BaseViewController {
     lazy var outLabel: UILabel = {
         let outLabel = UILabel()
         outLabel.textAlignment = .left
-        outLabel.text = LanguageManager.localizedString(for: "Go out")
+        outLabel.text = LanguageManager.localizedString(for: "Logout")
         outLabel.textColor = UIColor.init(hexString: "#000000")
         outLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         return outLabel

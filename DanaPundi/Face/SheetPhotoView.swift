@@ -96,14 +96,14 @@ class SheetPhotoView: UIView {
     
     private lazy var nameLabel: UILabel = {
         createLabel(
-            text: LanguageManager.localizedString(for: "Aadhaar name"),
+            text: LanguageManager.localizedString(for: "Full name"),
             font: Constants.labelFont
         )
     }()
     
     private lazy var numberLabel: UILabel = {
         createLabel(
-            text: LanguageManager.localizedString(for: "Aadhaar number"),
+            text: LanguageManager.localizedString(for: "ID number"),
             font: Constants.labelFont
         )
     }()
@@ -128,11 +128,11 @@ class SheetPhotoView: UIView {
     }()
     
     lazy var nameTextField: UITextField = {
-        createTextField(placeholder: LanguageManager.localizedString(for: "Aadhaar name"))
+        createTextField(placeholder: LanguageManager.localizedString(for: "Full name"))
     }()
     
     lazy var numberTextField: UITextField = {
-        createTextField(placeholder: LanguageManager.localizedString(for: "Aadhaar number"))
+        createTextField(placeholder: LanguageManager.localizedString(for: "ID number"))
     }()
     
     lazy var birthdayTextField: UITextField = {

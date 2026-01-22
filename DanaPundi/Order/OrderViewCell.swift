@@ -22,11 +22,11 @@ class OrderViewCell: UITableViewCell {
             
             oneLeftLabel.text = "\(model.areaaster ?? ""):"
             twoLeftLabel.text = "\(model.programlike?.aloneible ?? ""):"
-            threeLeftLabel.text = "\(model.programlike?.parthenose ?? ""):"
+//            threeLeftLabel.text = "\(model.programlike?.parthenose ?? ""):"
             
             oneRightLabel.text = "\(model.cordise ?? "")"
             twoRightLabel.text = "\(model.programlike?.rathertion ?? "")"
-            threeRightLabel.text = "\(model.programlike?.federalesque ?? "")"
+//            threeRightLabel.text = "\(model.programlike?.federalesque ?? "")"
             
             let applyStr = model.programlike?.gemproof ?? ""
             applyLabel.text = applyStr
@@ -35,14 +35,14 @@ class OrderViewCell: UITableViewCell {
                 logoImageView.snp.remakeConstraints { make in
                     make.left.top.equalToSuperview().inset(15.pix())
                     make.width.height.equalTo(25.pix())
-                    make.bottom.equalToSuperview().offset(-86.pix())
+                    make.bottom.equalToSuperview().offset(-66.pix())
                 }
             }else {
                 applyImageView.isHidden = false
                 logoImageView.snp.remakeConstraints { make in
                     make.left.top.equalToSuperview().inset(15.pix())
                     make.width.height.equalTo(25.pix())
-                    make.bottom.equalToSuperview().offset(-145.pix())
+                    make.bottom.equalToSuperview().offset(-125.pix())
                 }
             }
             
@@ -171,10 +171,10 @@ class OrderViewCell: UITableViewCell {
         bgView.addSubview(typeLabel)
         bgView.addSubview(oneLeftLabel)
         bgView.addSubview(twoLeftLabel)
-        bgView.addSubview(threeLeftLabel)
+//        bgView.addSubview(threeLeftLabel)
         bgView.addSubview(oneRightLabel)
         bgView.addSubview(twoRightLabel)
-        bgView.addSubview(threeRightLabel)
+//        bgView.addSubview(threeRightLabel)
         bgView.addSubview(applyImageView)
         applyImageView.addSubview(applyLabel)
         bgView.snp.makeConstraints { make in
@@ -186,7 +186,7 @@ class OrderViewCell: UITableViewCell {
         logoImageView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().inset(15.pix())
             make.width.height.equalTo(25.pix())
-            make.bottom.equalToSuperview().offset(-145.pix())
+            make.bottom.equalToSuperview().offset(-125.pix())
         }
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalTo(logoImageView)
@@ -208,21 +208,12 @@ class OrderViewCell: UITableViewCell {
             make.top.equalTo(oneLeftLabel.snp.bottom).offset(11.pix())
             make.height.equalTo(12.pix())
         }
-        threeLeftLabel.snp.makeConstraints { make in
-            make.left.equalTo(logoImageView)
-            make.top.equalTo(twoLeftLabel.snp.bottom).offset(11.pix())
-            make.height.equalTo(12.pix())
-        }
-        applyImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 277.pix(), height: 58.pix()))
-            make.bottom.equalToSuperview()
-        }
-        applyLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(14.pix())
-            make.centerX.equalToSuperview()
-            make.height.equalTo(14.pix())
-        }
+//        threeLeftLabel.snp.makeConstraints { make in
+//            make.left.equalTo(logoImageView)
+//            make.top.equalTo(twoLeftLabel.snp.bottom).offset(11.pix())
+//            make.height.equalTo(12.pix())
+//        }
+        
         oneRightLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-15.pix())
             make.top.equalTo(logoImageView.snp.bottom).offset(12.pix())
@@ -233,11 +224,23 @@ class OrderViewCell: UITableViewCell {
             make.top.equalTo(oneLeftLabel.snp.bottom).offset(11.pix())
             make.height.equalTo(12.pix())
         }
-        threeRightLabel.snp.makeConstraints { make in
-            make.right.equalTo(oneRightLabel)
-            make.top.equalTo(twoLeftLabel.snp.bottom).offset(11.pix())
-            make.height.equalTo(12.pix())
+//        threeRightLabel.snp.makeConstraints { make in
+//            make.right.equalTo(oneRightLabel)
+//            make.top.equalTo(twoLeftLabel.snp.bottom).offset(11.pix())
+//            make.height.equalTo(12.pix())
+//        }
+        
+        applyImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.size.equalTo(CGSize(width: 277.pix(), height: 58.pix()))
+            make.bottom.equalToSuperview()
         }
+        applyLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(14.pix())
+            make.centerX.equalToSuperview()
+            make.height.equalTo(14.pix())
+        }
+        
     }
     
     required init?(coder: NSCoder) {

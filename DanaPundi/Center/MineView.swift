@@ -136,11 +136,11 @@ extension MineView {
         
         switch hour {
         case 0..<12:
-            return "Good Morning ☀️"
+            return "Good morning ☀️"
         case 12..<18:
-            return "Good Afternoon 🌤️"
+            return "Good afternoon 🌤️"
         case 18..<24:
-            return "Good Evening 🌙"
+            return "Good evening 🌙"
         default:
             return "Hello 👋"
         }

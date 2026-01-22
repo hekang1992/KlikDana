@@ -7,27 +7,28 @@
  */
 
 "Secure Login" = "Secure Login";
-"Manage your loans, repayments and limits in one place" = "Manage your loans, repayments and limits in one place";
+"Compliance guarantees give you peace of mind when borrowing" = "Compliance guarantees give you peace of mind when borrowing";
 "Phone Number" = "Phone Number";
 "Enter your number" = "Enter your number";
+"Login mobile number" = "Login mobile number";
 "91" = "91";
 "Verification Code" = "Verification Code";
 "Please enter" = "Please enter";
 "Send Code" = "Send Code";
 "Log in" = "Log in";
-"Confirm and agree to the <Privacy Agreement>" = "Confirm and agree to the <Privacy Agreement>";
+"Confirm and agree to the <privacy agreement>" = "Confirm and agree to the <privacy agreement>";
 
 "Home" = "Home";
 "Order" = "Order";
 "Mine" = "Mine";
 
-"Good Morning ☀️" = "Good Morning ☀️";
-"Good Afternoon 🌤️" = "Good Afternoon 🌤️";
-"Good Evening 🌙" = "Good Evening 🌙";
+"Good morning ☀️" = "Good morning ☀️";
+"Good afternoon 🌤️" = "Good afternoon 🌤️";
+"Good evening 🌙" = "Good evening 🌙";
 "Hello 👋" = "Hello 👋";
 "Set up" = "Set up";
 "Versions" = "Versions";
-"Go out" = "Go out";
+"Logout" = "Logout";
 "Please confirm the account closure agreement first." = "Please confirm the account closure agreement first.";
 "Please read and confirm the user privacy agreement first." = "Please read and confirm the user privacy agreement first.";
 
@@ -39,8 +40,8 @@
 "Front of ID card" = "Front of ID card";
 "Facial Recognition" = "Facial Recognition";
 "Identity information" = "Identity information";
-"Aadhaar name" = "Aadhaar name";
-"Aadhaar number" = "Aadhaar number";
+"Full name" = "Full name";
+"ID number" = "ID number";
 "Birthday" = "Birthday";
 "Information Security" = "Information Security";
 "Certification Information" = "Certification Information";
@@ -50,9 +51,9 @@
 "Please select your authentication method first." = "Please select your authentication method first.";
 "Name or phone number cannot be empty." = "Name or phone number cannot be empty.";
 "All" = "All";
-"Applying" = "Applying";
+"In progress" = "In progress";
 "Repayment" = "Repayment";
-"Finish" = "Finish";
+"Finished" = "Finished";
 "Recommended" = "Recommended";
 "Products" = "Products";
 "Confirming" = "Confirming";
